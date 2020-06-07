@@ -56,10 +56,10 @@ header h1 {
 }
 
 .parallax.thanks{
-  background-image:url('./images/bg_1.jpg')
+  background-image:url('/images/bg_1.jpg')
   }
   .parallax.home{
-  background-image: url('./images/bg_2.jpg');
+  background-image: url('/images/bg_2.jpg');
   /* Set a specific height */
 }
 .parallax.thanks{
