@@ -1,0 +1,373 @@
+html {
+-webkit-font-smoothing: antialiased;
+text-rendering: optimizeLegibility;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,700");
+html,
+body {
+
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  background:#000;
+}
+
+/* Header Container */
+.active{color:#fff !important;}
+.hidden {
+  display: none;
+}
+header#home {
+  height: 100%;
+}
+header h1 {
+    font-size:2.5em;
+    color: #ed5a18;
+}
+
+.col.well.quote, col.well.quote .blockquote-footer {
+    margin-top: 35em;
+}
+
+.col.well.quote p.blockquote-footer {
+    color: #ffd535;
+}
+
+.col.well.quote blockquote.blockquote {
+    font-weight: 600;
+    color: white;
+    text-shadow:0 0 4px black;
+}
+
+
+.parallax{
+  /* Stay on top of sticky navbar */
+  /* The image used */
+  /*background-image: url('https://scontent.fagc1-1.fna.fbcdn.net/v/t31.0-8/13047760_226420234385746_4904698696764514722_o.jpg?_nc_cat=101&_nc_ht=scontent.fagc1-1.fna&oh=fa370c0a80cc4aa19559a7d97b2d4a5d&oe=5D14367B');
+  *//* Set a specific height */
+  height: 100%;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.parallax.thanks{
+  background-image:url('./images/bg_1.jpg')
+  }
+  .parallax.home{
+  background-image: url('./images/bg_2.jpg');
+  /* Set a specific height */
+}
+.parallax.thanks{
+  background:;
+  &:before {
+    content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
+	opacity: .6;
+  }
+}
+  .parallax.thanks h2 {
+    text-align: center;
+    color: #ed5a18;
+    text-shadow: 0px 0px 20px #0000005e;
+    position: relative;
+    top: 10em;
+}
+
+
+.navbar-bottom {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
+.test {
+  background: #aaa;
+  border-radius: 50%;
+}
+.shadow {
+  box-shadow: inset -10px -5px 50px 0px #111;
+}
+/*Just because it's possible and frankly, it uses less characters*/
+
+img.logo {
+  padding:1em;
+}
+.center-block {
+  float: none;
+}
+button.btn.btn-outline-light {
+  background: #0000008f !important;
+}
+button.btn.btn-outline-light:hover {
+  background: #eee !important;
+}
+header nav.navbar {
+  background: linear-gradient(122deg, #000000cf, #00000091);
+}
+nav.navbar.bg-custom {
+
+box-shadow:0px 0px 20px #000000bf;
+}
+.navbar {
+  padding: 0.8rem;
+}
+li.nav-item a:hover {
+  color: #fff !important;
+}
+.navbar-nav li {
+  padding-right: 2rem;
+}
+.nav-link {
+ text-transform: capitalize;
+  -webkit-text-stroke: 3px #0000004d;font-weight:bold;text-shadow: 0 0 3px black;
+  font-size: 1.1em !important;
+}
+.carousel-inner img {
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.carousel-caption h1 {
+  text-shadow: 0 0 15px black;
+  font-size: 500%;
+}
+.carousel-caption h3 {
+  font-size: 200%;
+  font-weight: 500;
+  text-shadow: 0px 0px 2px black;
+}
+.btn-primary {
+  color: #444;
+  border-color: #444;
+  background: linear-gradient(60deg, #f4fe47, #eb7000);
+}
+.btn-primary:hover {
+  color: #333;
+  border-color: #333;
+  background: linear-gradient(30deg, #f4fe47, #eb7000);
+}
+.jumbotron {
+  padding: 1rem;
+  border-radius: 0;
+}
+.padding {
+  padding-bottom: 2rem;
+}
+.welcome {
+  width: 75%;
+  margin: 0 auto;
+  padding-top: 2rem;
+}
+.welcome hr {
+  border-top: 2px solid #b4b4b4;
+  width: 95%;
+  margin-bottom: 1rem;
+  margin-top: 0.3rem;
+}
+.fa-html5 {
+  color: #e54d26;
+}
+.fa-camera-retro {
+  color: #0c9237;
+}
+.fa-php {
+  color: #767ab3;
+}
+.fa-html5,
+.fa-camera-retro,
+.fa-php {
+  font-size: 4em;
+  margin: 1rem;
+}
+.fun {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+.gif {
+  max-width: 100%;
+}
+.col-lg-6.m-a {
+  float: none;
+}
+.mypic {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+  border-radius: 50%;
+  box-shadow: 0px 0px 20px black;
+  height: 350px;
+  width: 350px;
+}
+.social a {
+  font-size: 4vw;
+  padding: 3rem;
+}
+.fa-facebook {
+  color: #3b59986f;
+}
+.fa-free-code-camp {
+  color: #0463006f;
+}
+.fa-github {
+  color: #0000006f;
+}
+.fa-linkedin {
+  color: #0176b56f;
+}
+.fa-linkedin:hover{color: #0176b5;}
+.fa-github:hover{color: #000;}
+.fa-free-code-camp:hover{color: #046300;}
+.fa-facebook:hover {color: #3b5998;}
+footer {
+  background: #3f3f3f;
+  color: #d5d5d5;
+  padding-top: 2rem;
+  margin: 0;
+}
+hr.light {
+  border-top: 1px solid #d5d5d5;
+  width: 75%;
+  padding: ;
+  margin-top: 0.8rem;
+  margin-bottom: 1rem;
+}
+#footer a {
+  color: #d5d5d5;
+}
+hr.light-100 {
+  border-top: 1px solid #d5d5d5;
+  width: 100%;
+  padding: ;
+  margin-top: 0.8rem;
+  margin-bottom: 1rem;
+}
+/*---Media Queries --*/
+@media (min-width: 993px) {
+  .parallax.thanks h2 {
+      top: 13em;
+  }
+}
+@media (max-width: 992px) {
+  html, body {
+    font-size: 91%;
+}
+  .social a {
+    font-size: 4vw;
+    padding: 2rem;
+  }
+}
+@media (max-width: 768px) {
+  .carousel-caption {
+    top: 45%;
+  }
+  .carousel-caption h1 {
+    font-size: 350%;
+  }
+  .carousel-caption h3 {
+    font-size: 140%;
+    font-weight: 400;
+    padding-bottom: 0.2rem;
+  }
+  .carousel-caption .btn {
+    font-size: 95%;
+    padding: 8px 14px;
+  }
+  .display-4 {
+    font-size: 200%;
+  }
+  .social a {
+    font-size: 2.5em;
+    padding: 1.2rem;
+  }
+}
+@media (max-width: 576px) {
+
+  li.navbar-item {
+    text-align: center;
+  }
+  .carousel-caption {
+    top: 40%;
+  }
+  .carousel-caption h1 {
+    font-size: 250%;
+  }
+  .carousel-caption h3 {
+    font-size: 130%;
+  }
+  .carousel-caption .btn {
+    font-size: 90%;
+    padding: 4px 8px;
+  }
+  .carousel-indicators {
+    display: none;
+  }
+  .display-4 {
+    font-size: 160%;
+  }
+  .social a {
+    font-size: 2rem;
+    padding: 0.7rem;
+  }
+  html, body {
+    font-size: 81%;
+}
+}
+
+/*---Firefox Bug Fix --*/
+.carousel-item {
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+}
+/*--- Fixed Background Image --*/
+figure {
+  position: relative;
+  width: 100%;
+  height: 60%;
+  margin: 0 !important;
+}
+.fixed-wrap {
+  clip: rect(0, auto, auto, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+#fixed {
+  background-image: url(https://via.placeholder.com/2560x1440/000/fff/?text=Thank+You+for+visiting+Garrett+County+Adventures!);
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: transform;
+}
+/*--- Bootstrap Padding Fix --*/
+[class*="col-"] {
+  padding: 1rem;
+}
