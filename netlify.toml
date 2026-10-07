@@ -1,0 +1,17 @@
+[build]
+  command = """
+    set -eu
+    if ! command -v rustup >/dev/null 2>&1; then
+      curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --profile minimal
+    fi
+    export PATH="$HOME/.cargo/bin:$PATH"
+    rustup target add wasm32-unknown-unknown
+    if ! command -v wasm-pack >/dev/null 2>&1; then
+      cargo install wasm-pack --locked
+    fi
+    npm run build
+  """
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22.12.0"
