@@ -1,0 +1,260 @@
+{
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "Park Name": "Swallow Falls State Park",
+          "Description": "This park offers a short hike with views of three spectacular waterfalls including Muddy Creek Falls, Maryland's Highest Waterfall.",
+          "Activities": "Hiking, Camping, Picnicing, Mountain Biking, Whitewater Kayaking"
+        },
+        "geometry": {
+          "coordinates": [
+            -79.42344,
+            39.498934
+          ],
+          "type": "Point"
+        },
+        "id": "1ff48de865dd6bce1b86316281e2e2bf"
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Park Name": "Deep Creek Lake State Park",
+          "Description": "A beautiful place to spend the day. Includes a small aviary where you can view native birds while they are being rehabitated into the wild",
+          "Activities": "Boating, picniccing, fishing, camping, hiking, mountain biking, hunting, and more"
+        },
+        "geometry": {
+          "coordinates": [
+            -79.302272,
+            39.518318
+          ],
+          "type": "Point"
+        },
+        "id": "3467e1882603f204212f193613c208de"
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Park Name": "Fairfax Stone",
+          "Description": "Start of the Potomac River, which is Marylands Geographic southern border",
+          "Activities": "Hiking"
+        },
+        "geometry": {
+          "coordinates": [
+            -79.487383,
+            39.194778
+          ],
+          "type": "Point"
+        },
+        "id": "446513409261639737e6d49ad382044b"
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Park Name": "Herrington Manor",
+          "Description": "A small lake just on the other side of Deep Creek Lake,.",
+          "Activities": "Hiking, Camping, Fishing, Kayaking, Mountain Biking, "
+        },
+        "geometry": {
+          "coordinates": [
+            -79.452904,
+            39.452612
+          ],
+          "type": "Point"
+        },
+        "id": "4a5823e4ebae956a2f2b98c208764f78"
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Park Name": "White Church Campground",
+          "Description": "A great place to camp out in a secluded yet non-primitive sites",
+          "Activities": "Camping, Hiking, Fishing, ATV, Mountain Biking, XC Skiing, Snowmobiles"
+        },
+        "geometry": {
+          "coordinates": [
+            -79.272214,
+            39.340744
+          ],
+          "type": "Point"
+        },
+        "id": "70a92db2a5e4018ff47c8badb554e2b3"
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Park Name": "Broadford Lake",
+          "Description": "A small and beautiful lake just outisde of the town of Oakland",
+          "Activities": "Picnicing, playgrounds, fishing"
+        },
+        "geometry": {
+          "coordinates": [
+            -79.371166,
+            39.415163
+          ],
+          "type": "Point"
+        },
+        "id": "787802c443a72f05a04193586b282b33"
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Park Name": "New Germany State Park",
+          "Description": "Small lake which offers a great day out of the hustle and bustle of Deep Creek Lake."
+        },
+        "geometry": {
+          "coordinates": [
+            -79.121794,
+            39.633427
+          ],
+          "type": "Point"
+        },
+        "id": "8b88b3a07204daf4112cf49aee7fb286"
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Park Name": "Hoye Crest",
+          "Description": "Highest Point in Maryland",
+          "Activities": "Hiking"
+        },
+        "geometry": {
+          "coordinates": [
+            -79.485243,
+            39.237174
+          ],
+          "type": "Point"
+        },
+        "id": "8bb4af99d0320c75c735236ac6a998df"
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Park Name": "Sang Run Put In",
+          "Description": "A beautiful spot native to all sorts of plants and animals. Usuallly always able to view a Blue Heron here on the river.",
+          "Activities": "Whitewater Kayaking, Hiking, Fishing"
+        },
+        "geometry": {
+          "coordinates": [
+            -79.426629,
+            39.564998
+          ],
+          "type": "Point"
+        },
+        "id": "8dd16445afe1d318b3a1d584635776a3"
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Park Name": "Meadow Mountain Overlook",
+          "Description": "One of the best views you will find in the entire county",
+          "Activities": "Hiking, biking, snowmobiling, panoramic views."
+        },
+        "geometry": {
+          "coordinates": [
+            -79.208428,
+            39.570002
+          ],
+          "type": "Point"
+        },
+        "id": "90e5e624ac1df57101dff06829a4c274"
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Park Name": "Big Run State Park",
+          "Description": "A small picnic area with campgrounds up and down the entrance.",
+          "Activities": "Hiking, Camping, Fishing"
+        },
+        "geometry": {
+          "coordinates": [
+            -79.139252,
+            39.544955
+          ],
+          "type": "Point"
+        },
+        "id": "92953ae7211de1df2c0ddd33b1fb0c8c"
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Park Name": "Town of Oakland",
+          "Description": "Visit historic downtown Oakland featuring museums, shopping, farmer's market, and more",
+          "Activities": "Shopping, Antiuqes, Eating, Drinking, Museums, Hiking, Fishing"
+        },
+        "geometry": {
+          "coordinates": [
+            -79.40821,
+            39.408294
+          ],
+          "type": "Point"
+        },
+        "id": "92e84998ad04da6e48c771c6f2ff054b"
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Park Name": "Jennings Randolph Lake",
+          "Description": "A beautiful lake on the Maryland and West Virginia Border. A dam of the Potomac River, great oppurtunities for viewing wildlife and more",
+          "Activities": "Hiking, Boating"
+        },
+        "geometry": {
+          "coordinates": [
+            -79.128347,
+            39.419124
+          ],
+          "type": "Point"
+        },
+        "id": "a17c1c4368aad95da98f5131a297d46b"
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Park Name": "Cassellman Bridge",
+          "Description": "A piece of history just outside of the town of Granstsville. Features a beautiful wooden cabin \"Artisan Village\" just across the bridge.",
+          "Activities": "Hiking, Fishing, Shopping, Eating"
+        },
+        "geometry": {
+          "coordinates": [
+            -79.14368,
+            39.696692
+          ],
+          "type": "Point"
+        },
+        "id": "b5c5837c988f8698366733c6ff8bafab"
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Park Name": "Savage River Reservoir",
+          "Description": "A hidden gem just on the other side of the Eastern Continental Divide",
+          "Activities": "Boating, fishing, hiking, camping, mountain biking, hunting, and wild life viewing."
+        },
+        "geometry": {
+          "coordinates": [
+            -79.13895,
+            39.52529
+          ],
+          "type": "Point"
+        },
+        "id": "c03da20293b74cac0ad9190380216261"
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Park Name": "Kendall Trail",
+          "Description": "Hike from the small river town of Friendsville, to an old mining town of Kendall Town.",
+          "Activities": "Hiking, Fishing"
+        },
+        "geometry": {
+          "coordinates": [
+            -79.417665,
+            39.633342
+          ],
+          "type": "Point"
+        },
+        "id": "f7bbacceb958a7494b6a6000f8fb7573"
+      }
+    ],
+    "type": "FeatureCollection"
+  }

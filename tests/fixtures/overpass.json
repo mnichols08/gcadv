@@ -1,0 +1,16 @@
+{
+  "elements": [
+    {
+      "type": "relation", "id": 123,
+      "tags": { "type": "route", "route": "hiking", "name": "Synthetic ridge route", "surface": "ground" },
+      "members": [
+        { "type": "way", "ref": 1, "geometry": [{ "lon": -79.42344, "lat": 39.498934 }, { "lon": -79.422, "lat": 39.5 }] },
+        { "type": "way", "ref": 2, "geometry": [{ "lon": -79.415, "lat": 39.505 }, { "lon": -79.414, "lat": 39.506 }] }
+      ]
+    },
+    {
+      "type": "way", "id": 456, "tags": { "highway": "path", "name": "Synthetic footpath", "foot": "yes" },
+      "geometry": [{ "lon": -79.42, "lat": 39.5 }, { "lon": -79.421, "lat": 39.501 }]
+    }
+  ]
+}

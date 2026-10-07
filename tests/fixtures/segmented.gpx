@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<gpx version="1.1" creator="Adventure analysis test" xmlns="http://www.topografix.com/GPX/1/1">
+  <trk>
+    <name>Demo ridge walk (synthetic)</name>
+    <trkseg>
+      <trkpt lat="39.498934" lon="-79.42344"><ele>700</ele></trkpt>
+      <trkpt lat="39.5000" lon="-79.4220"><ele>730</ele></trkpt>
+      <trkpt lat="39.5010" lon="-79.4200"><ele>760</ele></trkpt>
+      <trkpt lat="39.5020" lon="-79.4190"><ele>740</ele></trkpt>
+    </trkseg>
+    <trkseg>
+      <trkpt lat="39.5050" lon="-79.4150"><ele>745</ele></trkpt>
+      <trkpt lat="39.5060" lon="-79.4140"><ele>770</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>
