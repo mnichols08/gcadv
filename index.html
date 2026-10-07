@@ -1,87 +1,86 @@
-<!doctype HTML>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="description" content="Garrett County Adventures provides visitors a chance to see all of the wonderful scenery and adventures that this small county in Western Maryland can bring.">
-<meta name="keywords" content="Garrett,Maryland,outdoors,hiking,biking,camping,deep,creek,yough,Youghiogheny,ohiopyle,state,silver,whitewater,rafting,tourism,rentals,visitor,things to do in,pictures,photos,swallow,falls,waterfalls ">
-<meta name="author" content="Mikey Nichols">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="yandex-verification" content="4abbb00d562f78f0" />
-<title>Garrett County Adventures</title>
-<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css">
-<link rel="stylesheet" href="styles/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#203a31">
+  <meta name="description" content="Find your Garrett County adventure with local guides to Deep Creek Lake, waterfalls, small towns, family outings, and rainy-day plans.">
+  <link rel="canonical" href="https://garrettcountyadventures.com/">
+  <link rel="stylesheet" href="./src/site.scss">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./images/gcadv-logo.png" type="image/png">
+  <title>Garrett County Adventures | Local Trip Guides &amp; Deep Creek Lake</title>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Garrett County Adventures">
+  <meta property="og:title" content="Garrett County Adventures | Local Trip Guides &amp; Deep Creek Lake">
+  <meta property="og:description" content="Find your Garrett County adventure with local guides to Deep Creek Lake, waterfalls, small towns, family outings, and rainy-day plans.">
+  <meta property="og:url" content="https://garrettcountyadventures.com/">
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@graph":[{"@type":"WebSite","name":"Garrett County Adventures","url":"https://garrettcountyadventures.com/","inLanguage":"en-US"},{"@type":"Organization","name":"Garrett County Adventures","url":"https://garrettcountyadventures.com/"}]}
+  </script>
+  <script defer src="./site.js"></script>
 </head>
-<body>
-  <header id="home" class="parallax home">
-  <div class="container-fluid">
-    <div class="row">
-  <div class="col well quote">
-
-
-  <blockquote class="blockquote"><p class="mb-0">"Do not waste yourself in rejection, nor bark against the bad, but chant the beauty of the good."</p></blockquote>
-    <p class="blockquote-footer">Ralph Emerson</p>
-
-    </div>
-</div>
-</div>
-  <nav class="navbar bg-custom navbar-expand-md navbar-dark navbar-bottom">
-    <div class="container">
-      <h1>Garrett County Adventures</h1>
-      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarResponsive" id="nav-mini" aria-expanded="false">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-      <div class="navbar-collapse collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto" id="navMenu">
-          <!-- JS loop instead.
-          <li class="nav-item home">
-            <a class="nav-link" href="#home" id="homebutton" data-toggle="collapse" data-target=".navbar-collapse">Home</a>
-          </li>
-          <li class="nav-item about">
-            <a class="nav-link" id="aboutbutton" href="#about" data-toggle="collapse" data-target=".navbar-collapse">About</a>
-          </li>
-          <li class="nav-item portfolio">
-            <a class="nav-link" href="#portfolio" id="portfoliobutton" data-toggle="collapse" data-target=".navbar-collapse">Portfolio</a>
-          </li>
-          <li class="nav-item connect">
-            <a class="nav-link" href="#connect" id="connectbutton" data-toggle="collapse" data-target=".navbar-collapse">Connect</a>
-          </li>
-          -->
-        <li class="nav-item home">
-          <a id="homebutton" class="nav-link collapsed active" href="#home" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">home</a>
-          </li>
-        <li class="nav-item connect">
-          <a id="connectbutton" class="nav-link collapsed" href="#connect" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">connect</a>
-        </li>
-      <li class="nav-item home"><a id="homebutton" class="nav-link" href="#home" data-toggle="collapse" data-target=".navbar-collapse"></a></li><li class="nav-item connect"><a id="connectbutton" class="nav-link" href="#connect" data-toggle="collapse" data-target=".navbar-collapse"></a></li></ul>
+<body class="home-page">
+  <a class="skip-link" href="#main-content">Skip to trip ideas</a>
+  <header class="site-header">
+    <a class="site-brand" href="./" aria-label="Garrett County Adventures home">Garrett County Adventures</a>
+    <nav class="site-nav" aria-label="Main navigation"><a class="map-nav-link" href="./explore.html">Adventure map</a><a href="#trip-guides">Trip guides</a><a href="#local-finds">Local finds</a><a href="#about-gcadv">About</a></nav>
+  </header>
+  <main id="main-content">
+    <section class="home-hero" aria-labelledby="home-title">
+      <img class="hero-landscape" src="./images/gcadv-home.webp" srcset="./images/gcadv-home-640.webp 640w, ./images/gcadv-home.webp 1400w" sizes="(max-width: 1460px) 72vw, 1050px" alt="A sunset over Garrett County’s rolling hills" width="1400" height="1050" fetchpriority="high" decoding="async">
+      <div class="hero-copy">
+        <p class="hero-kicker">OVER THE RIVER AND THROUGH THE WOODS</p>
+        <h1 id="home-title">Garrett County Adventures</h1>
+        <p class="hero-lead">Forge your own path to adventure.</p>
+        <p class="hero-support">Take the scenic route through rolling hills, wooded valleys, and welcoming small towns. Start at Deep Creek Lake, then see where the back roads lead.</p>
+        <div class="hero-actions"><a class="button button-gold" href="#trip-guides">Start planning your trip <span aria-hidden="true">→</span></a><a class="button button-map" href="./explore.html">Explore the adventure map <span aria-hidden="true">↗</span></a><a class="hero-text-link" href="#local-finds">Meet the places beyond the lake</a></div>
       </div>
-  </div></nav>
-</header>
-<div class="parallax thanks">
-  <h2>Thank you for visiting Garrett County Adventures!</h2>
-</div>
-<div class="container-fluid padding" id="connect">
-  <div class="row text-center padding">
-    <div class="col-12">
-      <h2>Connect With Us</h2>
-    </div>
-    <div class="col-12 social padding">
-     Map Coming Soon
-    </div>
-  </div>
-</div>
+      <p class="hero-location">GARRETT COUNTY · MARYLAND</p>
+    </section>
+    <section class="welcome-strip" aria-label="Garrett County Adventures"><p>Good days outside, small-town discoveries, and room to find your own way.</p><span>EST. WITH A LOVE FOR THIS PLACE</span></section>
 
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      ...
-    </div>
-  </div>
-</div>
+    <section class="content-section trip-section" id="trip-guides">
+      <div class="section-heading"><div><p class="eyebrow">A GOOD PLACE TO START</p><h2>What kind of trip are you planning?</h2></div><p>Four-season inspiration and practical local guides for the questions visitors actually have—whether it’s your first weekend here or your fifth.</p></div>
+      <div class="guide-grid">__PLANNING_GUIDES__</div>
+    </section>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="scripts/script.js"></script>
+    <section class="discover-section content-section" aria-labelledby="discover-title">
+      <div class="discover-copy">
+        <p class="eyebrow">LEARN THE HISTORY · FIND YOUR OWN WAY</p>
+        <h2 id="discover-title">Take a look at what surrounds you.</h2>
+        <p>Don’t just read history. Experience it. Imagine living during a time with steam boats or horse and buggy. In Garrett County, you don’t always have to imagine these things.</p>
+        <a class="discover-link" href="#local-finds">Explore the places and stories <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="discover-composition" aria-label="Scenes from Garrett County">
+        <figure class="discover-photo discover-photo--one"><img src="./images/herrington-manor.webp" alt="Grass and reeds beside the water at Herrington Manor State Park" width="300" height="200" loading="lazy" decoding="async"><figcaption>Herrington Manor</figcaption></figure>
+        <figure class="discover-photo discover-photo--two"><img src="./images/hoye-crest.webp" alt="Sunset over the hills at Maryland High Point, Hoye Crest" width="300" height="200" loading="lazy" decoding="async"><figcaption>Hoye Crest at sunset</figcaption></figure>
+        <figure class="discover-photo discover-photo--three"><img src="./images/deer-sky-valley.webp" alt="A deer with an apple in Sky Valley" width="300" height="200" loading="lazy" decoding="async"><figcaption>Wildlife in Sky Valley</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="local-section" id="local-finds">
+      <div class="content-section">
+        <div class="section-heading"><div><p class="eyebrow">LOOK A LITTLE CLOSER</p><h2>Places with a story of their own</h2></div><p>Follow the county roads to waterfalls, a railroad town, working studios, and small discoveries you might otherwise drive past.</p></div>
+        <div class="guide-grid">__LOCAL_GUIDES__</div>
+      </div>
+    </section>
+
+    <section class="about-section content-section" id="about-gcadv">
+      <p class="eyebrow">GARRETT COUNTY ADVENTURES</p><h2>Garrett County is more than a place to pass through.</h2>
+      <p>Garrett County Adventures is a local guide to the rolling hills, wooded valleys, small towns, trails, and wild places that make this corner of Maryland worth exploring. Deer, black bears, and other wildlife belong here too: give them room, take the view in, and leave the woods as you found them.</p>
+    </section>
+
+    <section class="install-section content-section" id="install-prompt" aria-labelledby="install-title">
+      <div class="install-message">
+        <div class="install-mark" aria-hidden="true">↗</div>
+        <div class="install-copy"><p class="eyebrow">TAKE THE GUIDES WITH YOU</p><h2 id="install-title">Keep your trip plans close.</h2><p>Add Garrett County Adventures to your home screen for quick access to the guides and your saved outing details. Guides and saved trail information can be available offline; map tiles need an internet connection.</p><details class="install-help"><summary>How to add it on this device</summary><p>On Windows, use the Install app button in Chrome or Edge’s address bar or menu. On Mac in Safari, choose File &gt; Add to Dock. On iPhone or iPad, open this page in Safari, tap Share, then choose Add to Home Screen. On Android, open your browser menu and choose Install app or Add to Home Screen.</p></details><p id="install-status" class="install-status" role="status"></p></div>
+        <button id="install-app" class="button button-primary" type="button">Install the app</button>
+      </div>
+      <img class="install-photo" src="./images/install-stream.webp" alt="A wooded Garrett County stream flowing over rocks" width="1100" height="546" loading="lazy" decoding="async">
+    </section>
+  </main>
+  <footer class="site-footer"><a class="footer-brand" href="./">Garrett County Adventures</a><span>Local travel ideas for Garrett County, Maryland</span><nav aria-label="Footer navigation"><a href="./explore.html">Open the adventure map</a><a href="#trip-guides">Browse trip guides</a></nav><span class="footer-credit">Built with &lt;3 by <a href="https://mnix.dev">Mikey Nichols</a></span></footer>
 </body>
 </html>
