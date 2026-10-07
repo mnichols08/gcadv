@@ -1,0 +1,47 @@
+{
+  "name": "chingu-mapbox",
+  "version": "0.1.0",
+  "description": "Local Garrett County travel guides, an interactive park and trail map, and offline trip tools.",
+  "scripts": {
+    "build": "npm run build:wasm && npm run typecheck && vite build",
+    "build:content": "node scripts/build-content.js",
+    "build:wasm": "wasm-pack build rust --target web --out-dir pkg",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test tests/*.test.ts",
+    "test:rust": "cargo test --manifest-path rust/Cargo.toml",
+    "refresh:hikes": "tsx scripts/refresh-hikes.ts",
+    "dev": "node scripts/dev-server.js",
+    "start": "serve dist -l 3000 --no-port-switching",
+    "preview": "vite preview --host localhost --port 4173 --strictPort"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mnichols08/chingu-mapbox.git"
+  },
+  "keywords": [
+    "educational",
+    "map",
+    "fun"
+  ],
+  "author": "Mikey Nichols",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mnichols08/chingu-mapbox/issues"
+  },
+  "homepage": "https://github.com/mnichols08/chingu-mapbox#readme",
+  "devDependencies": {
+    "@types/geojson": "^7946.0.16",
+    "sass": "^1.105.1",
+    "serve": "^14.2.6",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0",
+    "vite": "^8.3.3"
+  },
+  "dependencies": {
+    "mapbox-gl": "^3.32.0"
+  },
+  "overrides": {
+    "compression": "^1.8.2",
+    "shell-quote": "^1.12.0"
+  }
+}

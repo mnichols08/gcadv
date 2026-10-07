@@ -1,0 +1,8 @@
+<gpx version="1.1" creator="Synthetic test">
+  <rte>
+    <name>Partial elevation (synthetic)</name>
+    <rtept lat="39.5" lon="-79.4"><ele>700</ele></rtept>
+    <rtept lat="39.501" lon="-79.4"/>
+    <rtept lat="39.502" lon="-79.4"><ele>750</ele></rtept>
+  </rte>
+</gpx>
