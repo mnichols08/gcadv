@@ -70,9 +70,11 @@ Open `http://localhost:3000`. For a production build, run `npm run build` and
 then `npm start` to serve it on port 3000. The token is public to browser
 visitors, so restrict it to the domains you use and grant only the required scopes. Never
 put a secret `sk.` token in this app. On deployment, provide `map-config.json`
-beside `index.html` as a separate runtime file; it is intentionally excluded
-from source control and the offline cache. The rest of the site still builds
-without it, but the basemap will show a setup message.
+beside `index.html` as a separate runtime file, or set `MAPBOX_TOKEN` (also
+accepts `MAPBOX_PUBLIC_TOKEN`) in the deployment build environment so the
+build generates that file. The local config is ignored by Git and the runtime
+file is excluded from the offline cache. The rest of the site still builds
+without a token, but the basemap will show a setup message.
 
 ## Useful commands
 

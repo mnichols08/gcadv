@@ -3,7 +3,7 @@ import path from "node:path";
 import crypto from "node:crypto";
 import { fileURLToPath } from "node:url";
 import { createRequire } from "node:module";
-import { defineConfig } from "vite";
+import { defineConfig, loadEnv } from "vite";
 
 const require = createRequire(import.meta.url);
 const sass = require("sass");
@@ -20,7 +20,23 @@ function walkFiles(directory, prefix = "") {
   });
 }
 
-function sitePlugin(command) {
+function getMapboxToken(environment) {
+  const configPath = path.join(ROOT, "map-config.local.json");
+  if (fs.existsSync(configPath)) {
+    const config = JSON.parse(fs.readFileSync(configPath, "utf8").replace(/^\uFEFF/, ""));
+    return config.mapboxToken;
+  }
+  return environment.MAPBOX_TOKEN || environment.MAPBOX_PUBLIC_TOKEN;
+}
+
+function validateMapboxToken(token) {
+  if (typeof token !== "string" || !/^pk\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+$/.test(token)) {
+    throw new Error("Map configuration requires a public Mapbox token beginning with pk. Secret tokens are not allowed.");
+  }
+  return token;
+}
+
+function sitePlugin(command, environment) {
   let site;
   return {
     name: "garrett-county-site",
@@ -50,17 +66,11 @@ self.addEventListener("activate", event => event.waitUntil((async () => {
           return;
         }
         if (pathname === "/map-config.json") {
-          const configPath = path.join(ROOT, "map-config.local.json");
-          if (!fs.existsSync(configPath)) return next();
           try {
-            const config = JSON.parse(fs.readFileSync(configPath, "utf8").replace(/^\uFEFF/, ""));
-            if (typeof config.mapboxToken !== "string" || !/^pk\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+$/.test(config.mapboxToken)) {
-              response.statusCode = 500;
-              response.end("map-config.local.json must contain a public pk. Mapbox token.");
-              return;
-            }
+            const token = getMapboxToken(environment);
+            if (!token) return next();
             response.setHeader("Content-Type", "application/json");
-            response.end(JSON.stringify({ mapboxToken: config.mapboxToken }));
+            response.end(JSON.stringify({ mapboxToken: validateMapboxToken(token) }));
             return;
           } catch (error) {
             response.statusCode = 500;
@@ -83,17 +93,13 @@ self.addEventListener("activate", event => event.waitUntil((async () => {
       fs.writeFileSync(path.join(DIST, "site.css"),
         sass.compile(path.join(ROOT, "src", "site.scss"), { style: "compressed" }).css);
 
-      const configPath = path.join(ROOT, "map-config.local.json");
       const outputConfig = path.join(DIST, "map-config.json");
-      if (fs.existsSync(configPath)) {
-        const config = JSON.parse(fs.readFileSync(configPath, "utf8").replace(/^\uFEFF/, ""));
-        if (typeof config.mapboxToken !== "string" || !/^pk\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+$/.test(config.mapboxToken)) {
-          throw new Error("map-config.local.json must contain a public pk. Mapbox token, never a secret token.");
-        }
-        fs.writeFileSync(outputConfig, JSON.stringify({ mapboxToken: config.mapboxToken }));
+      const token = getMapboxToken(environment);
+      if (token) {
+        fs.writeFileSync(outputConfig, JSON.stringify({ mapboxToken: validateMapboxToken(token) }));
       } else {
         fs.rmSync(outputConfig, { force: true });
-        console.warn("No map-config.local.json. Deploy map-config.json separately to enable the basemap.");
+        console.warn("No map token configured. Set map-config.local.json, MAPBOX_PUBLIC_TOKEN, or deploy map-config.json separately to enable the basemap.");
       }
 
       const assets = walkFiles(DIST).filter((name) => name !== "service-worker.js" &&
@@ -111,9 +117,11 @@ self.addEventListener("activate", event => event.waitUntil((async () => {
   };
 }
 
-export default defineConfig(({ command }) => ({
+export default defineConfig(({ command, mode }) => {
+  const environment = { ...loadEnv(mode, ROOT, ""), ...process.env };
+  return ({
   publicDir: "public",
-  plugins: [sitePlugin(command)],
+  plugins: [sitePlugin(command, environment)],
   cacheDir: process.env.CHINGU_VITE_CACHE_DIR || undefined,
   server: { host: "localhost", port: 3000, strictPort: true },
   worker: { format: "es" },
@@ -123,4 +131,5 @@ export default defineConfig(({ command }) => ({
     sourcemap: false,
     rollupOptions: { input: { home: path.join(ROOT, "index.html"), explore: path.join(ROOT, "explore.html") } },
   },
-}));
+  });
+});

@@ -72,10 +72,14 @@ Never use a secret (`sk.`) token in any browser application; the build and
 runtime reject it. Public tokens are visible to visitors, so apply domain
 restrictions and minimum required scopes in your Mapbox account.
 
-On deployment, provision `map-config.json` beside `index.html` separately;
-it is intentionally not committed or precached. Builds without a local config
-still work for place discovery and trail analysis, with a visible map setup
-message. Ignoring a file does not remove it from previously created commits.
+On deployment, provision `map-config.json` beside `index.html`, or set the
+build environment variable `MAPBOX_TOKEN` (also accepts
+`MAPBOX_PUBLIC_TOKEN`) to the public token. Values in `.env` files are loaded
+by Vite during local builds. The build then writes `dist/map-config.json` for
+deployment. The runtime file is
+intentionally not committed or precached. Builds without a token still work
+for place discovery and trail analysis, with a visible map setup message.
+Ignoring a file does not remove it from previously created commits.
 
 The production build compiles the Rust crate, type-checks TypeScript, and uses
 Vite to emit the web app into `dist`. VS Code also provides build and preview
