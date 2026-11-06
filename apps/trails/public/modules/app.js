@@ -2768,6 +2768,7 @@ async function openTrailFromLink() {
   list.append(routeRow(route));
   $('finderList').replaceChildren(list);
   $('finderHelp').replaceChildren();
+  showHuntingNotice($('finderHunting'));
   $('finderDialog').showModal();
   redraw();
 }

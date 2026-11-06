@@ -187,7 +187,7 @@ export function trailPage(route, lines, nearby, { siteUrl, escapeHtml, hikes = [
     <h2>Marked for</h2>
     <p>${escapeHtml(listText(marked.map((name, index) => (index ? name : name[0].toUpperCase() + name.slice(1)))))}.</p>
     <p class="trail-caution">That comes from map data and can be wrong or out of date. Confirm the rules, closures and any permit with the land manager before you go.</p>
-    <p>Hunters share many trails here in fall and winter, so bright colors or orange are a smart choice. <a href="${HUNTING_PATH}">See hunting season dates and rules</a>.</p>
+    <p class="trail-caution"><strong>Hunting season:</strong> this trail may be on or near land open to hunting. In season, wear blaze orange or other high-visibility colors, and put some on your dog. <a href="${HUNTING_PATH}">See season dates and safety</a>.</p>
     ${facts.length || closed || seasons ? `<h2>What the map data says</h2><ul>${facts.map(fact => `<li>${escapeHtml(fact)}</li>`).join('')}${closed}${seasons}</ul>` : ''}
     ${access ? `<h2>Getting there</h2><ul>${access}</ul>` : ''}
     ${others.length ? `<p>This trail also reaches ${escapeHtml(listText(others))}. The length covers only what's mapped in this region, and it includes every mapped branch, so it may not match a sign or the loop you plan.</p>` : '<p>The length includes every mapped branch, so it may not match a sign or the loop you plan.</p>'}
@@ -250,7 +250,7 @@ function directoryPage(counties, official, { siteUrl, escapeHtml }) {
       <h2>Snowmobile, ATV and UTV riding</h2>
       <p>Riding rules change by the season and the land manager, so we only give a motorized trail its own page when a land manager confirms it. Start with the managers below, and see the <a href="/trails/">trail app</a> for trails a map source marks for riding.</p>
       <h2>Hunting and trapping</h2>
-      <p>Hunters share many of these trails. <a href="${HUNTING_PATH}">See season dates, safety and each state's rules</a>.</p>
+      <p>Many of these trails are on or near land open to hunting. In season, wear blaze orange or other high-visibility colors. <a href="${HUNTING_PATH}">See season dates, safety and each state's rules</a>.</p>
       <h2>Parks and forests</h2><ul class="trail-places">${places}</ul>`,
     }),
   };
@@ -273,11 +273,16 @@ export function huntingPage({ season, checkedAt, firearms, states }, { siteUrl, 
       jsonLd: { '@context': 'https://schema.org', ...breadcrumbData(siteUrl, crumbs) },
       body: `
       <p class="trail-caution">This is a starting point, not the law. Each state's own regulations decide, and rules differ by county, land and season. Dates were checked ${escapeHtml(longDate(checkedAt))}.</p>
-      <h2>If you're on a trail in hunting season</h2>
+      <h2>If you're hiking or riding where people hunt</h2>
+      <p>Many trails here cross land open to hunting, including state forests, game lands and national forest. Even if you aren't hunting:</p>
       <ul>
-        <li>Wear orange or another bright color, and put some on your dog.</li>
-        <li>Don't count on Sundays being quiet. All three states have Sunday hunting here.</li>
-        <li>Check with the land manager if you're unsure. Some areas close to other uses during firearms season.</li>
+        <li><strong>Wear high-visibility colors.</strong> Blaze orange is best, on your head and upper body so you can be seen from every side.</li>
+        <li><strong>Put high-visibility colors on your dog,</strong> like an orange vest or collar, and keep it close.</li>
+        <li><strong>Avoid white, tan, brown and black.</strong> These can look like game through the trees.</li>
+        <li><strong>Take extra care at dawn and dusk,</strong> when many hunters are out and it's harder to see you.</li>
+        <li><strong>Stay on the trail and be easy to hear.</strong> Talking as you go lets hunters know you're there.</li>
+        <li><strong>Don't count on Sundays being quiet.</strong> All three states have Sunday hunting here.</li>
+        <li><strong>Check with the land manager if you're unsure.</strong> Some areas close to other uses during firearms season.</li>
       </ul>
       <h2>Firearms deer season, ${escapeHtml(season)}</h2>
       <table><thead><tr><th scope="col">State</th><th scope="col">Dates</th><th scope="col">Season</th></tr></thead><tbody>${dateRows}</tbody></table>

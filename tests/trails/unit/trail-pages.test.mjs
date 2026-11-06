@@ -118,3 +118,10 @@ test('trails on or near the old Dolly Sods training ground carry the shells warn
   }
   for (const id of ['lostland-run-trail', 'swallow-falls-trail', 'great-allegheny-passage', 'farm-view-trail', 'middle-valley-trail-2']) assert.doesNotMatch(page(id), /Unexploded/, id);
 });
+
+test('every trail page warns about hunting season and links to the safety page', () => {
+  for (const { name, source } of trailPages) {
+    assert.match(source, /high-visibility colors/, name);
+    assert.match(source, /href="\/hunting\.html">See season dates and safety/, name);
+  }
+});

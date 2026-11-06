@@ -22,7 +22,7 @@ export function huntingNotice(now, firearms) {
     const parts = [];
     if (open.length) parts.push(`Firearms deer season is on in ${listText(open.map(({ state, to }) => `${state} through ${shortDate(to)}`))}.`);
     if (coming.length) parts.push(`${open.length ? 'It' : 'Firearms deer season'} starts in ${listText(coming.map(({ state, from }) => `${state} on ${shortDate(from)}`))}.`);
-    return `${parts.join(' ')} Sundays included. Wear orange on any trail.`;
+    return `${parts.join(' ')} Sundays included. Wear blaze orange or other high-visibility colors on any trail.`;
   }
-  return GENERAL_MONTHS.has(now.getMonth()) ? 'Hunting seasons are open around here. Bright colors or orange are a smart choice on any trail.' : null;
+  return GENERAL_MONTHS.has(now.getMonth()) ? 'Hunting seasons are open around here. Wear blaze orange or other high-visibility colors on any trail.' : null;
 }

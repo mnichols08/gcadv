@@ -60,3 +60,9 @@ test('every link is on the state agency sites', () => {
     for (const { url } of links) assert.match(url, /^https:\/\/(dnr\.maryland\.gov|wvdnr\.gov|www\.wvhunt\.com|www\.pa\.gov)\//);
   }
 });
+
+test('non-hunters are told to wear high-visibility colors, whenever the note shows', () => {
+  for (const day of ['2026-11-06', '2026-11-15', '2026-12-01', '2027-04-20']) assert.match(notice(day), /high-visibility colors/, day);
+  const { source } = huntingPage(data, { siteUrl: 'https://example.test', escapeHtml });
+  for (const text of ['Wear high-visibility colors', 'on your dog', 'Avoid white, tan, brown and black', 'dawn and dusk']) assert.ok(source.includes(text), text);
+});
