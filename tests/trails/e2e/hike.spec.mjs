@@ -170,3 +170,52 @@ test('reopens and keeps recording with no connection', async ({ browser, browser
   await expect(page.locator('#statMiles')).toHaveText('0.14 mi');
   await context.close();
 });
+
+async function controlledPage(browser) {
+  const context = await browser.newContext();
+  const page = await context.newPage();
+  await prepare(page);
+  await page.goto(URL_PATH);
+  await page.evaluate(() => navigator.serviceWorker.ready);
+  await page.waitForFunction(() => navigator.serviceWorker.controller);
+  await page.reload();
+  await page.waitForFunction(() => navigator.serviceWorker.controller);
+  return { context, page };
+}
+
+test('a returning phone runs one whole release, not a mix of old and new files', async ({ browser, browserName }) => {
+  test.skip(browserName !== 'chromium', 'Service worker storage is checked in Chromium.');
+  const { context, page } = await controlledPage(browser);
+  const marked = await page.evaluate(async () => {
+    const name = (await caches.keys()).find(key => key.startsWith('hike-shell'));
+    const cache = await caches.open(name);
+    const url = new URL('modules/geo.js', location.href).href;
+    const text = await (await cache.match(url)).text();
+    await cache.put(url, new Response(text + '\n// from the stored release', { headers: { 'content-type': 'text/javascript' } }));
+    return (await (await fetch('modules/geo.js')).text()).includes('from the stored release');
+  });
+  expect(marked).toBe(true);
+  await context.close();
+});
+
+test('a new release restarts an idle app, but never a hike under way', async ({ browser, browserName }) => {
+  test.skip(browserName !== 'chromium', 'Service worker updates are checked in Chromium.');
+  const { context, page } = await controlledPage(browser);
+  const takeOver = () => page.evaluate(() => {
+    window.__sameLoad = true;
+    navigator.serviceWorker.dispatchEvent(new Event('controllerchange'));
+  });
+  await Promise.all([page.waitForEvent('load', { timeout: 5000 }), takeOver()]);
+  expect(await page.evaluate(() => window.__sameLoad)).toBeUndefined();
+  await page.waitForFunction(() => navigator.serviceWorker.controller);
+  await page.getByRole('button', { name: 'Start hike' }).click();
+  await takeOver();
+  await page.waitForTimeout(800);
+  expect(await page.evaluate(() => window.__sameLoad)).toBe(true);
+  await context.close();
+});
+
+test('the built app names its release', async ({ request }) => {
+  const worker = await (await request.get('/trails/sw.js')).text();
+  expect(worker).toMatch(/SHELL_CACHE = 'hike-shell-[0-9a-f]{16}'/);
+});

@@ -74,6 +74,10 @@ function sitePlugin(command, environment) {
           const file = trailFile(pathname);
           if (!file) return next();
           response.setHeader("Content-Type", TRAIL_TYPES[path.extname(file)] || "application/octet-stream");
+          if (pathname === "/trails/sw.js") {
+            response.end(fs.readFileSync(file, "utf8").replace("__BUILD__", String(Date.now())));
+            return;
+          }
           fs.createReadStream(file).pipe(response);
           return;
         }
@@ -124,6 +128,15 @@ self.addEventListener("activate", event => event.waitUntil((async () => {
       for (const name of ["mapbox-gl.js", "mapbox-gl.css"]) {
         fs.copyFileSync(path.join(MAPBOX_DIST, name), path.join(DIST, "trails", "vendor", name));
       }
+      // Each release of the app is stored whole, under a name its own files decide.
+      const trailsDir = path.join(DIST, "trails");
+      const release = crypto.createHash("sha256");
+      for (const name of walkFiles(trailsDir).filter((file) => file !== "sw.js").sort()) {
+        release.update(name);
+        release.update(fs.readFileSync(path.join(trailsDir, name)));
+      }
+      const trailWorker = path.join(trailsDir, "sw.js");
+      fs.writeFileSync(trailWorker, fs.readFileSync(trailWorker, "utf8").replace("__BUILD__", release.digest("hex").slice(0, 16)));
       fs.writeFileSync(path.join(DIST, "site.css"),
         sass.compile(path.join(ROOT, "src", "site.scss"), { style: "compressed" }).css);
 

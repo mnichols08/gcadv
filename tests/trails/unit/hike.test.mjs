@@ -258,3 +258,10 @@ test('the trail app keeps tight browser limits', () => {
   assert.doesNotMatch(headers, /'unsafe-eval'/);
   assert.doesNotMatch(headers, /script-src[^;]*'unsafe/);
 });
+
+test('each release stores the app under a name from its own files', () => {
+  const sw = read(app('sw.js'));
+  assert.ok(sw.includes("SHELL_CACHE = 'hike-shell-__BUILD__'"), 'the build needs this to name the release');
+  assert.equal(sw.split('__BUILD__').length, 2, 'the build replaces the first one it finds, so this must be the only one');
+  assert.ok(read(new URL('../../../vite.config.mjs', import.meta.url)).includes('.replace("__BUILD__"'));
+});
