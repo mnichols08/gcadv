@@ -2681,9 +2681,14 @@ $('planHere').addEventListener('click', () => {
   rememberPlan({ ...readPlan(), here: true });
   renderPlan();
 });
-// The site links straight to the planner, whether or not the app is already open.
+// The site links straight to the planner, whether or not the app is already open. A printed card
+// adds the town its guests are staying in.
 const openPlanFromLink = () => {
-  if (location.hash === '#plan' && !$('planDialog').open) openPlan();
+  const link = /^#plan(?:=([\w-]+))?$/.exec(location.hash);
+  if (!link) return;
+  if (link[1]) rememberPlan({ ...readPlan(), stay: link[1], here: false });
+  if ($('planDialog').open) renderPlan();
+  else openPlan();
 };
 window.addEventListener('hashchange', openPlanFromLink);
 openPlanFromLink();

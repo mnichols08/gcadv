@@ -12,6 +12,7 @@
     "test:trails": "node --test tests/trails/unit/*.test.mjs",
     "test:trails:e2e": "playwright test",
     "serve:trails": "node scripts/trails-test-server.mjs",
+    "cards": "node scripts/trip-cards.mjs",
     "refresh:hikes": "tsx scripts/refresh-hikes.ts",
     "dev": "node scripts/dev-server.js",
     "start": "serve dist -l 3000 --no-port-switching",
@@ -35,6 +36,7 @@
   "devDependencies": {
     "@playwright/test": "^1.64.1",
     "@types/geojson": "^7946.0.16",
+    "qrcode": "^1.5.4",
     "sass": "^1.105.1",
     "serve": "^14.2.6",
     "tsx": "^4.20.0",
