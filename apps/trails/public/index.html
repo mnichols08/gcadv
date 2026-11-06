@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Trail App | Garrett County Adventures</title>
+  <meta name="description" content="Track your hike with your phone's GPS, on a USGS topo map, with or without signal.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#101820">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.png">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <noscript><p class="noscript">The trail app needs JavaScript to read your phone's GPS and draw the map.</p></noscript>
+  <main class="app">
+    <h1 class="visually-hidden">Garrett County Adventures trail app</h1>
+    <div class="stage">
+      <canvas id="map" class="map" role="img" aria-label="Topographic map showing your position and recorded route"></canvas>
+      <div id="live3d" class="terrain" role="application" aria-label="3D view of the terrain with trails and your route. Drag to move, use two fingers to tilt and turn, pinch to zoom." hidden></div>
+      <canvas id="terrain" class="terrain" role="img" aria-label="3D view of the terrain with the topographic map and your route draped over it. Drag to turn, pinch to zoom." hidden></canvas>
+    </div>
+
+    <div class="top">
+      <p id="gps" class="chip" role="status" data-state="off">GPS off</p>
+      <p id="screen" class="chip" hidden>Screen stays on</p>
+      <p id="heightNote" class="chip" hidden>Height shown ×1.5</p>
+      <button id="activityChip" type="button" class="chip chip-button" hidden></button>
+    </div>
+    <p id="notice" class="notice" role="alert" hidden></p>
+
+    <div class="rail">
+      <button id="zoomIn" type="button" class="round" aria-label="Zoom in">+</button>
+      <button id="zoomOut" type="button" class="round" aria-label="Zoom out">−</button>
+      <button id="locate" type="button" class="round" aria-label="Find me and follow" aria-pressed="false">
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="currentColor"/><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 1v4M12 19v4M1 12h4M19 12h4" stroke="currentColor" stroke-width="2"/></svg>
+      </button>
+      <button id="toggle3d" type="button" class="round round-text" aria-label="3D terrain view" aria-pressed="false">3D</button>
+      <button id="north" type="button" class="round" aria-label="Face north" hidden>
+        <svg id="northArrow" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 2 18 21 12 17 6 21z" fill="currentColor"/></svg>
+      </button>
+      <button id="trails" type="button" class="round" aria-label="Show trails" aria-pressed="true">
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M5 21c5-2 2-6 6-8s7-3 8-10" fill="none" stroke="currentColor" stroke-width="2.600" stroke-dasharray="4 3" stroke-linecap="round"/></svg>
+      </button>
+      <button id="water" type="button" class="round" aria-label="Highlight streams" aria-pressed="true">
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 3c3.500 4.500 6 7.600 6 11a6 6 0 0 1-12 0c0-3.400 2.500-6.500 6-11z" fill="currentColor"/></svg>
+      </button>
+    </div>
+    <div id="scale" class="scale" aria-hidden="true"><span id="scaleBar" class="scale-bar"></span><span id="scaleLabel"></span></div>
+
+    <section class="sheet" aria-label="Hike">
+      <button id="arrival" type="button" class="button primary arrival" hidden></button>
+      <div id="guide" class="guide" hidden>
+        <svg id="guideArrow" class="guide-arrow" viewBox="0 0 48 48" width="48" height="48" aria-hidden="true"><path d="M24 3 40 44 24 34 8 44z" fill="currentColor"/></svg>
+        <p class="guide-text"><strong id="guideName"></strong><span id="guideDistance"></span><small id="guideNote"></small></p>
+        <button id="guideStop" type="button" class="text-button">End</button>
+      </div>
+
+      <dl class="stats">
+        <div><dt>Distance</dt><dd id="statMiles">0.00 mi</dd></div>
+        <div><dt>Time</dt><dd id="statTime">0:00</dd></div>
+        <div><dt>Climbed</dt><dd id="statGain">0 ft</dd></div>
+        <div><dt>Pace, min/mi</dt><dd id="statPace">--</dd></div>
+      </dl>
+
+      <div class="actions">
+        <button id="start" type="button" class="button primary">Start hike</button>
+        <button id="pause" type="button" class="button" hidden>Pause</button>
+        <button id="finish" type="button" class="button danger" hidden>Finish</button>
+        <button id="mark" type="button" class="button">Mark spot</button>
+        <button id="addPhoto" type="button" class="button">Photo</button>
+        <input id="photoInput" type="file" accept="image/*" multiple hidden>
+      </div>
+      <div class="links">
+        <button id="openWhere" type="button" class="text-button">Where am I?</button>
+        <button id="openFinder" type="button" class="text-button">Find a trail</button>
+        <button id="openCheckpoints" type="button" class="text-button">Checkpoints</button>
+        <button id="openMore" type="button" class="text-button">More</button>
+      </div>
+      <p class="credit">Map, water: USGS. Trails: USGS, <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap contributors</a>. Your route stays on this phone unless you turn on backup.</p>
+    </section>
+  </main>
+
+  <dialog id="whereDialog" class="panel" aria-labelledby="whereTitle">
+    <h2 id="whereTitle">Where am I?</h2>
+    <p id="whereEmpty" hidden>Waiting for a GPS fix. Step away from cover and hold on.</p>
+    <div id="whereBody" hidden>
+      <p class="coords"><strong id="whereCoords"></strong><small id="whereAccuracy"></small></p>
+      <p id="wherePlace"></p>
+      <p id="whereTrail"></p>
+      <p id="whereWater"></p>
+      <div class="row">
+        <button id="shareSpot" type="button" class="button">Share location</button>
+        <button id="goWater" type="button" class="button" hidden>Guide me to water</button>
+      </div>
+    </div>
+    <h3>Go to</h3>
+    <ul id="spotList" class="list"></ul>
+    <p class="fine">Distances are straight lines, not walking routes. Stream data can be years old, and small streams may run dry. Carry a paper map and compass.</p>
+    <form method="dialog"><button class="button">Close</button></form>
+  </dialog>
+
+  <dialog id="markDialog" class="panel" aria-labelledby="markTitle">
+    <h2 id="markTitle">Mark this spot</h2>
+    <form id="markForm" method="dialog">
+      <div class="row wrap" id="markChips">
+        <button type="button" class="pill">Car</button>
+        <button type="button" class="pill">Camp</button>
+        <button type="button" class="pill">Water</button>
+        <button type="button" class="pill">Junction</button>
+        <button type="button" class="pill">View</button>
+      </div>
+      <p id="markStatus" class="fine" role="status"></p>
+      <label for="markName">Name</label>
+      <input id="markName" maxlength="60" autocomplete="off" required>
+      <div class="row">
+        <button class="button primary" value="save">Save spot</button>
+        <button class="button" value="cancel" formnovalidate>Cancel</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="finishDialog" class="panel" aria-labelledby="finishTitle">
+    <h2 id="finishTitle">Finish this hike?</h2>
+    <form id="finishForm" method="dialog">
+      <p id="finishSummary"></p>
+      <label for="finishName">Name</label>
+      <input id="finishName" maxlength="80" autocomplete="off" required>
+      <div class="row wrap">
+        <button class="button primary" value="save">Save hike</button>
+        <button class="button" value="cancel" formnovalidate>Keep going</button>
+        <button class="button danger" value="discard" formnovalidate>Discard</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="finderDialog" class="panel" aria-labelledby="finderTitle">
+    <h2 id="finderTitle">Find a trail</h2>
+    <div id="finderActivities" class="chip-row" role="group" aria-label="Activity"></div>
+    <label class="field" for="finderCounty">County
+      <select id="finderCounty"><option value="">Anywhere</option></select>
+    </label>
+    <p id="finderNote" class="fine" hidden></p>
+    <p class="fine">Lengths are measured from mapped trail lines and include every mapped branch, so they may not match a sign or a loop you plan to take. Check conditions and access with the land manager before you go.</p>
+    <div id="finderList"></div>
+    <h3>On the map</h3>
+    <ul class="legend">
+      <li><span class="swatch swatch-foot"></span>Trail</li>
+      <li><span class="swatch swatch-shared"></span>Snowmobile or motorized route</li>
+      <li><span class="swatch swatch-track"></span>Road or track, access unknown</li>
+      <li><span class="swatch swatch-ski"></span>Ski trail</li>
+    </ul>
+    <p class="fine">Being on this map doesn't mean a trail is open or legal to use. Trail data covers Garrett and Allegany counties in Maryland; Tucker, Grant, Preston and Mineral in West Virginia; and Somerset, Fayette and Bedford in Pennsylvania. <a href="data/TRAILS-LICENSE.txt">Data license</a>.</p>
+    <form method="dialog"><button class="button">Close</button></form>
+  </dialog>
+
+  <dialog id="moreDialog" class="panel" aria-labelledby="moreTitle">
+    <h2 id="moreTitle">More</h2>
+    <div class="stack">
+      <button id="openBackup" type="button" class="button">Backup</button>
+      <button id="openCaches" type="button" class="button">Geocaches</button>
+      <button id="openPhotos" type="button" class="button">My photos</button>
+      <button id="openHikes" type="button" class="button">My hikes</button>
+      <button id="openMaps" type="button" class="button">Save map</button>
+    </div>
+    <p id="storageNote" class="fine"></p>
+    <form method="dialog"><button class="button">Close</button></form>
+  </dialog>
+
+  <dialog id="backupDialog" class="panel" aria-labelledby="backupTitle">
+    <h2 id="backupTitle">Backup</h2>
+    <p id="backupMessage" role="status"></p>
+
+    <div id="backupOut" hidden>
+      <p>Keep your hikes, marked spots, check-ins and photos safe if you lose this phone, and bring them to a new one. It's optional. Everything works without it.</p>
+      <p class="fine">Backup sends your routes and photo locations to our storage on Cloudflare. They're private to your account and encrypted in storage by Cloudflare, but they aren't end-to-end encrypted, so they aren't hidden from whoever runs this service. Your email is used only to sign you in. Anything already on this phone joins your backup. You can delete it all at any time.</p>
+      <form id="backupEmailForm">
+        <label for="backupEmail">Email</label>
+        <input id="backupEmail" type="email" autocomplete="email" inputmode="email" required>
+        <div class="row"><button class="button primary">Email me a code</button></div>
+      </form>
+      <form id="backupCodeForm" hidden>
+        <label for="backupCode">8-digit code</label>
+        <input id="backupCode" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{8}" maxlength="8" required>
+        <div class="row wrap">
+          <button class="button primary">Turn on backup</button>
+          <button id="backupRestart" type="button" class="button">Use another email</button>
+        </div>
+      </form>
+    </div>
+
+    <div id="backupIn" hidden>
+      <p id="backupAccount"></p>
+      <p id="backupStatus" role="status"></p>
+      <progress id="backupProgress" max="100" value="0" hidden></progress>
+      <p class="fine">Backup runs when you have signal and this app is open, so open it for a minute after a hike. Downloaded geocache lists and saved maps aren't included. Photos are kept at the smaller size stored on this phone, so keep your originals.</p>
+      <div class="row wrap">
+        <button id="backupNow" type="button" class="button primary">Back up now</button>
+        <button id="backupSignOut" type="button" class="button">Sign out</button>
+      </div>
+      <button id="backupKeepRemoving" type="button" class="button" hidden>Remove them from this phone</button>
+      <div class="row wrap">
+        <button id="backupOthers" type="button" class="button">Sign out other phones</button>
+        <button id="backupDelete" type="button" class="button danger">Delete my backup and account</button>
+      </div>
+      <form id="backupDeleteForm" hidden>
+        <label for="backupDeleteCode">Code from your email, to confirm</label>
+        <input id="backupDeleteCode" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{8}" maxlength="8" required>
+        <div class="row wrap">
+          <button class="button danger">Delete everything</button>
+          <button id="backupDeleteCancel" type="button" class="button">Keep my backup</button>
+        </div>
+      </form>
+    </div>
+    <form method="dialog"><button class="button">Close</button></form>
+  </dialog>
+
+  <dialog id="checkpointsDialog" class="panel" aria-labelledby="checkpointsTitle">
+    <h2 id="checkpointsTitle">Checkpoints</h2>
+    <p class="fine">Real places to reach on foot, with nothing hidden or placed on the ground. Get close and a Check in button appears, even with no signal. Check-ins stay on this phone.</p>
+    <p id="checkpointProgress" class="checkpoint-progress" role="status"></p>
+    <div id="checkpointList"></div>
+    <p class="fine">Stay on trails and follow park rules. Check hours and conditions with the land manager before you go.</p>
+    <div class="row wrap">
+      <button id="checkpointsReset" type="button" class="button danger" hidden>Start over</button>
+    </div>
+    <form method="dialog"><button class="button">Close</button></form>
+  </dialog>
+
+  <dialog id="checkpointDialog" class="panel" aria-labelledby="checkpointTitle">
+    <h2 id="checkpointTitle"></h2>
+    <p id="checkpointFacts" class="fine"></p>
+    <p id="checkpointAbout"></p>
+    <p id="checkpointNote" class="hike-note"></p>
+    <div class="row wrap">
+      <button id="checkpointFollow" type="button" class="button primary">Follow this hike</button>
+      <button id="checkpointGuide" type="button" class="button">Straight-line guide</button>
+    </div>
+    <form method="dialog"><button class="button">Close</button></form>
+  </dialog>
+
+  <dialog id="photosDialog" class="panel" aria-labelledby="photosTitle">
+    <h2 id="photosTitle">My photos</h2>
+    <p class="fine">Photos are stored only on this phone, at a smaller size. Clearing browser data or uninstalling deletes them, so keep your originals.</p>
+    <ul id="photoList" class="list"></ul>
+    <form method="dialog"><button class="button">Close</button></form>
+  </dialog>
+
+  <dialog id="photoDialog" class="panel" aria-labelledby="photoTitle">
+    <h2 id="photoTitle">Photo</h2>
+    <img id="photoFull" class="photo-full" alt="Your photo">
+    <p id="photoFacts" class="fine"></p>
+    <div class="row wrap">
+      <button id="photoGuide" type="button" class="button">Guide me here</button>
+      <button id="photoPlace" type="button" class="button">Place at map center</button>
+      <button id="photoDelete" type="button" class="button danger">Delete</button>
+    </div>
+    <form method="dialog"><button class="button">Close</button></form>
+  </dialog>
+
+  <dialog id="cachesDialog" class="panel" aria-labelledby="cachesTitle">
+    <h2 id="cachesTitle">Geocaches</h2>
+    <p class="fine">Load a GPX file of caches you're allowed to use, such as a pocket query from your geocaching account. They stay on this phone and work with no signal. Log your finds on the listing site, too.</p>
+    <div class="row wrap">
+      <button id="cachesImport" type="button" class="button primary">Load a GPX file</button>
+      <input id="cachesInput" type="file" accept=".gpx,.xml,application/gpx+xml,text/xml" hidden>
+      <button id="cachesClear" type="button" class="button danger" hidden>Remove all</button>
+    </div>
+    <p id="cachesResult" role="status"></p>
+    <ul id="cacheList" class="list"></ul>
+    <p class="fine">Placing a cache of your own usually needs the land manager's approval. West Virginia State Parks and Maryland's parks and forests both require it.</p>
+    <form method="dialog"><button class="button">Close</button></form>
+  </dialog>
+
+  <dialog id="cacheDialog" class="panel" aria-labelledby="cacheTitle">
+    <h2 id="cacheTitle"></h2>
+    <p id="cacheFacts" class="fine"></p>
+    <p id="cacheDescription"></p>
+    <button id="cacheHintShow" type="button" class="text-button">Show hint</button>
+    <p id="cacheHint" hidden></p>
+    <div class="row wrap">
+      <button id="cacheGuide" type="button" class="button primary">Guide me here</button>
+      <button id="cacheFound" type="button" class="button">Mark found</button>
+    </div>
+    <form method="dialog"><button class="button">Close</button></form>
+  </dialog>
+
+  <dialog id="hikesDialog" class="panel" aria-labelledby="hikesTitle">
+    <h2 id="hikesTitle">My hikes</h2>
+    <ul id="hikeList" class="list"></ul>
+    <form method="dialog"><button class="button">Close</button></form>
+  </dialog>
+
+  <dialog id="mapsDialog" class="panel" aria-labelledby="mapsTitle">
+    <h2 id="mapsTitle">Save map for offline</h2>
+    <p>Do this before you lose signal. It saves the area on screen, down to the most detailed USGS topo.</p>
+    <p id="mapsPlan"></p>
+    <progress id="mapsProgress" max="100" value="0" hidden></progress>
+    <p id="mapsResult" role="status"></p>
+    <div class="row wrap">
+      <button id="mapsSave" type="button" class="button primary">Save this area</button>
+      <button id="mapsCancel" type="button" class="button" hidden>Stop</button>
+    </div>
+    <h3>Saved areas</h3>
+    <ul id="areaList" class="list"></ul>
+    <div class="row wrap">
+      <button id="mapsClear" type="button" class="button danger" hidden>Delete saved maps</button>
+    </div>
+    <form method="dialog"><button class="button">Close</button></form>
+  </dialog>
+
+  <script type="module" src="modules/app.js"></script>
+</body>
+</html>

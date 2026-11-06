@@ -1,0 +1,19 @@
+{
+  "name": "Garrett County Adventures Trail App",
+  "short_name": "GC Trails",
+  "description": "Find trails around Garrett County and track your route with your phone's GPS, with or without signal.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#203a31",
+  "theme_color": "#203a31",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
