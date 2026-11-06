@@ -229,3 +229,15 @@ test('a card for a town the app does not know still opens the planner', async ({
   await expect(page.locator('#planDialog')).toBeVisible();
   await expect(page.locator('#planResults')).toContainText('Pick where you');
 });
+
+test('a card shows its town right away, before the big trail list arrives', async ({ page }) => {
+  await page.route('**/trails/data/routes.json', async route => {
+    await new Promise(wake => setTimeout(wake, 20000));
+    await route.continue().catch(() => {});
+  });
+  await page.goto('about:blank');
+  await page.goto('/trails/#plan=mchenry-md');
+  await expect(page.locator('#planStay')).toHaveValue('mchenry-md', { timeout: 5000 });
+  await expect(page.locator('#planActivities').getByRole('button', { name: 'Hike' })).toBeVisible();
+  await expect(page.locator('#planResults')).toContainText('Loading');
+});

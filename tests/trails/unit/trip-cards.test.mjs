@@ -19,3 +19,7 @@ test('place names are escaped on the card', () => {
   assert.doesNotMatch(cardHtml('<b>Town</b>', ''), /<b>/);
   assert.equal(cardPlace(null), 'Garrett County and nearby');
 });
+
+test('a QR code keeps the full blank margin that scanners expect', () => {
+  assert.match(readFileSync(new URL('../../../scripts/trip-cards.mjs', import.meta.url), 'utf8'), /margin: 4,/);
+});

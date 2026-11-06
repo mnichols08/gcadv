@@ -1,10 +1,10 @@
-// Offline is the normal case on a trail. Bump SHELL_CACHE when the file list changes.
-const SHELL_CACHE = 'hike-shell-v13';
+// Offline is the normal case on a trail. The build fills in the name from a hash of the app's files,
+// so every release installs as a new, complete copy.
+const SHELL_CACHE = 'hike-shell-__BUILD__';
 const SAVED_CACHE = 'hike-saved-v1'; // Areas the hiker chose to keep; only they can clear it.
 const AUTO_CACHE = 'hike-auto-v1'; // Tiles and shards already seen; trimmed automatically.
 const TILE_HOST = 'https://basemap.nationalmap.gov';
 const AUTO_LIMIT = 1500;
-const SHELL_TIMEOUT_MS = 3000;
 
 const SHELL = [
   './',
@@ -46,8 +46,13 @@ const SHELL = [
   'data/checkpoints.json',
 ];
 
+const SHELL_PATHS = new Set(SHELL.map(path => new URL(path, self.location).pathname));
+const APP_PAGE = new URL('./', self.location).pathname;
+
 self.addEventListener('install', event => {
-  event.waitUntil(caches.open(SHELL_CACHE).then(cache => cache.addAll(SHELL)).then(() => self.skipWaiting()));
+  // Past any browser copy, so a release can't be stored with some of the last one's files.
+  const fresh = SHELL.map(path => new Request(path, { cache: 'reload' }));
+  event.waitUntil(caches.open(SHELL_CACHE).then(cache => cache.addAll(fresh)).then(() => self.skipWaiting()));
 });
 
 self.addEventListener('activate', event => {
@@ -82,18 +87,27 @@ async function kept(request) {
   return response;
 }
 
-// The app itself prefers fresh, but a weak signal must not hold it hostage.
+// One release's files only work together: one newer file can stop the whole app with an import error.
+// So the app always comes from the stored release, which installs complete or not at all. That also
+// means a weak signal can't hold it hostage.
 async function shell(request) {
   const cache = await caches.open(SHELL_CACHE);
-  const network = fetch(request).then(async response => {
+  const stored = await cache.match(request.mode === 'navigate' ? './' : request);
+  return stored || fetch(request);
+}
+
+// Everything else here, like the map library or the license text, prefers fresh and keeps a copy.
+async function freshFirst(request) {
+  const cache = await caches.open(SHELL_CACHE);
+  try {
+    const response = await fetch(request);
     if (response.ok) await cache.put(request, response.clone());
     return response;
-  });
-  const timeout = new Promise(resolve => setTimeout(resolve, SHELL_TIMEOUT_MS));
-  const quick = await Promise.race([network.catch(() => null), timeout]);
-  if (quick) return quick;
-  const lookup = request.mode === 'navigate' ? './' : request;
-  return (await cache.match(lookup)) || network;
+  } catch (error) {
+    const stored = await cache.match(request);
+    if (stored) return stored;
+    throw error;
+  }
 }
 
 self.addEventListener('fetch', event => {
@@ -105,6 +119,7 @@ self.addEventListener('fetch', event => {
   } else if (url.origin === self.location.origin && /\/data\/(streams|trails|terrain)\//.test(url.pathname)) {
     event.respondWith(kept(request));
   } else if (url.origin === self.location.origin && url.pathname.startsWith(new URL('./', self.location).pathname)) {
-    event.respondWith(shell(request));
+    const isApp = url.pathname === APP_PAGE || SHELL_PATHS.has(url.pathname);
+    event.respondWith(isApp ? shell(request) : freshFirst(request));
   }
 });

@@ -22,7 +22,7 @@ export function cardHtml(place, qrSvg) {
     <div class="body">
       <p class="kicker">Trails near</p>
       <h1>${escapeHtml(place)}</h1>
-      <p class="lead">Hiking, biking, skiing and riding close to where you're staying.</p>
+      <p class="lead">Hiking, biking, skiing and riding near your stay.</p>
       <div class="qr">${qrSvg}</div>
       <p class="scan">Point your phone's camera here</p>
       <ul>
@@ -49,7 +49,7 @@ export function sheetHtml(place, qrSvg) {
     .kicker { color: #41694e; font-size: 9.5pt; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
     h1 { margin: 0.02in 0 0.05in; font-size: 17pt; line-height: 1.12; }
     .lead { font-size: 10.5pt; line-height: 1.3; }
-    .qr { width: 2.2in; height: 2.2in; margin-top: 0.08in; }
+    .qr { width: 2.5in; height: 2.5in; margin-top: 0; }
     .qr svg { display: block; width: 100%; height: 100%; }
     .scan { font-size: 9.5pt; font-weight: 700; }
     ul { align-self: stretch; margin: 0.09in 0 0; padding: 0.08in 0 0; border-top: 0.75pt solid #d2d9ce; list-style: none; font-size: 9.5pt; line-height: 1.42; }
@@ -65,7 +65,7 @@ async function buildCards() {
   const page = await browser.newPage();
   // Error correction M leaves the code big enough to scan, and still readable with a smudge or a crease.
   for (const stay of [null, ...stays]) {
-    const qrSvg = await QRCode.toString(cardUrl(stay), { type: 'svg', errorCorrectionLevel: 'M', margin: 2, color: { dark: '#000000', light: '#ffffff' } });
+    const qrSvg = await QRCode.toString(cardUrl(stay), { type: 'svg', errorCorrectionLevel: 'M', margin: 4, color: { dark: '#000000', light: '#ffffff' } });
     await page.setContent(sheetHtml(cardPlace(stay), qrSvg));
     await page.pdf({ path: path.join(OUTPUT, `${stay ? stay.id : 'all-towns'}.pdf`), width: '8.5in', height: '11in', printBackground: true, pageRanges: '1' });
   }

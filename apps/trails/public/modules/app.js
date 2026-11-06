@@ -1071,10 +1071,19 @@ function externalLink(text, url) {
   return link;
 }
 
+async function loadTowns() {
+  if (!state.towns) {
+    const response = await fetch(dataUrl('stays.json'));
+    if (!response.ok) throw new Error(String(response.status));
+    state.towns = await response.json();
+  }
+  return state.towns;
+}
+
 async function loadDirectory() {
   if (state.directory) return state.directory;
   const read = async name => (await fetch(dataUrl(name))).json();
-  const [{ official }, { outfitters }, { stays, guides }] = await Promise.all(['official.json', 'outfitters.json', 'stays.json'].map(read));
+  const [{ official }, { outfitters }, { stays, guides }] = await Promise.all([read('official.json'), read('outfitters.json'), loadTowns()]);
   state.directory = { official, outfitters, stays, guides };
   return state.directory;
 }
@@ -1201,21 +1210,30 @@ function planStay(plan, stays) {
   return stays.find(stay => stay.id === plan.stay) || null;
 }
 
+let planRender = 0;
+
 async function renderPlan() {
   const results = $('planResults');
-  results.replaceChildren();
-  let directory;
-  let routeData;
-  try {
-    [directory, routeData] = await Promise.all([loadDirectory(), loadRoutes(), loadHikes()]);
-  } catch {
+  const unavailable = () => {
     results.textContent = 'The planner\'s lists aren\'t available. Reopen the app with signal once to store them.';
+  };
+  planRender += 1;
+  const thisRender = planRender;
+  results.replaceChildren();
+  // The town list is tiny and the trail list isn't. On a weak signal, a guest scanning a card should
+  // see their town straight away.
+  let towns;
+  try {
+    towns = await loadTowns();
+  } catch {
+    unavailable();
     return;
   }
+  if (thisRender !== planRender) return;
   const plan = readPlan();
   const select = $('planStay');
   if (select.options.length === 1) {
-    select.append(...directory.stays.map(stay => new Option(stay.label, stay.id)));
+    select.append(...towns.stays.map(stay => new Option(stay.label, stay.id)));
     select.addEventListener('change', () => {
       rememberPlan({ ...readPlan(), stay: select.value, here: false });
       renderPlan();
@@ -1240,6 +1258,21 @@ async function renderPlan() {
     });
     return button;
   }));
+
+  const loading = document.createElement('p');
+  loading.className = 'fine';
+  loading.textContent = 'Loading nearby trails…';
+  results.append(loading);
+  let directory;
+  let routeData;
+  try {
+    [directory, routeData] = await Promise.all([loadDirectory(), loadRoutes(), loadHikes()]);
+  } catch {
+    if (thisRender === planRender) unavailable();
+    return;
+  }
+  if (thisRender !== planRender) return;
+  results.replaceChildren();
 
   const stay = planStay(plan, directory.stays);
   if (!stay || !chosen.size) {
@@ -2756,7 +2789,16 @@ setInterval(() => {
   if (state.threeD && three.dirty && Date.now() - three.lastRefresh >= DRAPE_REFRESH_MS) refreshDrape();
 }, 1000);
 
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
+if ('serviceWorker' in navigator) {
+  // A new release took over while this copy was open. Restart into it, unless someone's hike or an
+  // open panel would be lost. A card's link reopens its own panel, so that one is safe to restart.
+  const hadRelease = Boolean(navigator.serviceWorker.controller);
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    const panelOpen = document.querySelector('dialog[open]') && !location.hash;
+    if (hadRelease && !state.hike && !state.route && !panelOpen) location.reload();
+  });
+  navigator.serviceWorker.register('sw.js').catch(() => {});
+}
 
 fetch(dataUrl('checkpoints.json')).then(response => response.json()).then(({ checkpoints }) => {
   state.checkpoints = checkpoints;
