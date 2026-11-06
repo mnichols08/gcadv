@@ -130,3 +130,7 @@ progress { width: 100%; height: 12px; }
 .field { display: grid; gap: 4px; margin: 12px 0; font-weight: 700; }
 .field select { min-height: 44px; padding: 0 8px; font: inherit; }
 .chip-button { pointer-events: auto; }
+.field-label { margin: 12px 0 0; font-weight: 700; }
+.directory-note { margin: 4px 0; }
+.official-note { display: block; font-weight: 600; }
+.plan-section { margin-top: 18px; }

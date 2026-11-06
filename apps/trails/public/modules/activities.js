@@ -22,7 +22,52 @@ export const ACTIVITIES = [
   { id: 'horse', label: 'Horse', mask: HORSE, note: `Listed because a source marks them open to horses. ${CHECK_RULES}` },
 ];
 
+// Forest Service fields for each use. Four-wheel-drive isn't mapped: it says nothing about UTVs.
+export const USFS_FIELDS = [
+  { field: 'hiker_pedestrian', bit: HIKE },
+  { field: 'pack_saddle', bit: HORSE },
+  { field: 'bicycle', bit: BIKE },
+  { field: 'motorcycle', bit: DIRT_BIKE },
+  { field: 'atv', bit: ATV },
+  { field: 'snowmobile', bit: SNOWMOBILE },
+  { field: 'snowshoe', bit: SNOWSHOE },
+  { field: 'xcountry_ski', bit: SKI },
+];
+const YEAR_ROUND = '01/01-12/31';
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+export function seasonText(range) {
+  const match = String(range || '').match(/^(\d{2})\/(\d{2})-(\d{2})\/(\d{2})$/);
+  if (!match) return '';
+  const [, fromMonth, fromDay, toMonth, toDay] = match.map(Number);
+  return `${MONTHS[fromMonth - 1]} ${fromDay} to ${MONTHS[toMonth - 1]} ${toDay}`;
+}
+
+// What the land manager itself says, so it outranks community tags in both directions.
+export function usfsUse(trail) {
+  let allowed = 0;
+  let blocked = 0;
+  const seasons = {};
+  for (const { field, bit } of USFS_FIELDS) {
+    const open = trail[`${field}_managed`] || trail[`${field}_accpt`] || trail[`${field}_accpt_disc`];
+    const closed = trail[`${field}_restricted`];
+    if (open) {
+      allowed |= bit;
+      if (open !== YEAR_ROUND) seasons[bit] = seasonText(open);
+    }
+    // Only a closure covering the whole year removes a listing. A partial one is left to the note.
+    if (closed === YEAR_ROUND && !open) blocked |= bit;
+  }
+  return { allowed, blocked, seasons };
+}
+
 const NAMES = [[HIKE, 'hiking'], [BIKE, 'biking'], [HORSE, 'horses'], [SKI, 'XC skiing'], [SNOWSHOE, 'snowshoeing'], [SNOWMOBILE, 'snowmobiles'], [ATV, 'ATVs'], [UTV, 'UTVs'], [DIRT_BIKE, 'dirt bikes']];
+
+const CODES = { hike: HIKE, bike: BIKE, horse: HORSE, ski: SKI, snowshoe: SNOWSHOE, snowmobile: SNOWMOBILE, atv: ATV, utv: UTV, dirtbike: DIRT_BIKE };
+export const activityBit = code => {
+  if (!CODES[code]) throw new Error(`Unknown activity ${code}`);
+  return CODES[code];
+};
 
 export const activityNames = bits => NAMES.filter(([bit]) => bits & bit).map(([, name]) => name);
 export const activityById = id => ACTIVITIES.find(activity => activity.id === id) || null;

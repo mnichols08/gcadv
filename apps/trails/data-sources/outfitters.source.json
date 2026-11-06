@@ -1,0 +1,341 @@
+{
+  "note": "Businesses whose own page, or an official or tourism page where noted in sourceUrl, states the service. Re-check before each season. No paid placements. Left out on 2026-11-05 pending a human check: Circle R Ranch and Western Trails (no working https; Western Trails' side-by-side tours are called new on a page with a 2018 footer), Canaan Valley Resort (hiking series with no dates).",
+  "checkedAt": "2026-11-05",
+  "outfitters": [
+    {
+      "id": "wilderness-voyageurs",
+      "name": "Wilderness Voyageurs",
+      "town": "Ohiopyle",
+      "state": "PA",
+      "county": "Fayette County, PA",
+      "activities": [
+        "bike"
+      ],
+      "services": "Rents hybrid, mountain and electric bikes, runs a full-service bike shop, and offers shuttles along the Great Allegheny Passage.",
+      "url": "https://wilderness-voyageurs.com/",
+      "phone": "(800) 272-4141",
+      "season": "Garrett Street location open all year; bike shop open daily mid-May to October and weekends in April.",
+      "sourceUrl": "https://wilderness-voyageurs.com/ohiopyle-bike-shop-rentals/",
+      "checkedAt": "2026-11-05"
+    },
+    {
+      "id": "white-water-adventurers",
+      "name": "White Water Adventurers",
+      "town": "Ohiopyle",
+      "state": "PA",
+      "county": "Fayette County, PA",
+      "activities": [
+        "bike"
+      ],
+      "services": "Rents standard bikes and pedal-assist e-bikes for the Great Allegheny Passage.",
+      "url": "https://wwaraft.com/",
+      "phone": "724-329-8850",
+      "season": "April through October.",
+      "sourceUrl": "https://wwaraft.com/visit-ohiopyle/biking/",
+      "checkedAt": "2026-11-05"
+    },
+    {
+      "id": "laurel-highlands-river-tours",
+      "name": "Laurel Highlands River Tours",
+      "town": "Ohiopyle",
+      "state": "PA",
+      "county": "Fayette County, PA",
+      "activities": [
+        "bike"
+      ],
+      "services": "Rents adult and children's bikes, kid carts and tag-a-longs by the hour or day.",
+      "url": "https://www.laurelhighlands.com/",
+      "phone": "724-329-8531",
+      "sourceUrl": "https://www.laurelhighlands.com/activities/trail-biking/",
+      "checkedAt": "2026-11-05"
+    },
+    {
+      "id": "ohiopyle-trading-post",
+      "name": "Ohiopyle Trading Post",
+      "town": "Ohiopyle",
+      "state": "PA",
+      "county": "Fayette County, PA",
+      "activities": [
+        "bike"
+      ],
+      "services": "Rents mountain bikes, cruisers, kids bikes and pull carts.",
+      "url": "https://www.ohiopyletradingpost.com/",
+      "phone": "724-329-1450",
+      "sourceUrl": "https://www.ohiopyletradingpost.com/",
+      "checkedAt": "2026-11-05"
+    },
+    {
+      "id": "confluence-cyclery",
+      "name": "Confluence Cyclery",
+      "town": "Confluence",
+      "state": "PA",
+      "county": "Somerset County, PA",
+      "activities": [
+        "bike"
+      ],
+      "services": "Rents bikes for all ages, including tandems and adult trikes, and has a full-service repair shop.",
+      "url": "https://www.confluencecyclery.com/",
+      "phone": "(814) 395-9380",
+      "season": "Saturday and Sunday 9 to 5 through November 28; weekdays by appointment.",
+      "sourceUrl": "https://www.confluencecyclery.com/",
+      "checkedAt": "2026-11-05"
+    },
+    {
+      "id": "route-31-bike-board-ski",
+      "name": "Route 31 Bike, Board & Ski",
+      "town": "Somerset",
+      "state": "PA",
+      "county": "Somerset County, PA",
+      "activities": [
+        "bike",
+        "ski",
+        "snowshoe"
+      ],
+      "services": "Sells and services bikes, and rents or sells what you need to start cross-country skiing or snowshoeing.",
+      "url": "https://www.route31boardandski.com/",
+      "phone": "814-483-0167",
+      "sourceUrl": "https://www.route31boardandski.com/",
+      "checkedAt": "2026-11-05"
+    },
+    {
+      "id": "rockwood-bike-shop",
+      "name": "Rockwood Bike Shop",
+      "town": "Rockwood",
+      "state": "PA",
+      "county": "Somerset County, PA",
+      "activities": [
+        "bike"
+      ],
+      "services": "Sells, repairs and rents Trek bikes and e-bikes right at the Rockwood Trailhead.",
+      "url": "https://www.rockwoodtrailhouse.com/bikeshop",
+      "phone": "814-926-6572",
+      "sourceUrl": "https://www.rockwoodtrailhouse.com/bikeshop",
+      "checkedAt": "2026-11-05"
+    },
+    {
+      "id": "laurel-ridge-xc-ski-center",
+      "name": "Laurel Ridge XC Ski Center",
+      "town": "Rockwood",
+      "state": "PA",
+      "county": "Somerset County, PA",
+      "activities": [
+        "ski",
+        "snowshoe"
+      ],
+      "services": "Groomed trails for cross-country skiers and snowshoers at Laurel Ridge State Park, with equipment to rent and a trail pass required.",
+      "url": "https://www.visitpa.com/blog/post/snowshoeing-trails-your-next-snow-day/",
+      "sourceUrl": "https://www.visitpa.com/blog/post/snowshoeing-trails-your-next-snow-day/",
+      "checkedAt": "2026-11-05"
+    },
+    {
+      "id": "wheelzup-adventures",
+      "name": "Wheelzup Adventures",
+      "town": "Cumberland",
+      "state": "MD",
+      "county": "Allegany County, MD",
+      "activities": [
+        "bike"
+      ],
+      "services": "Offers bike rentals, repairs, shuttles, luggage transfers and supported tours.",
+      "url": "https://www.wheelzupadventures.com/",
+      "phone": "(240) 362-7021",
+      "season": "Open April 15 to January 5 with reduced hours after November 15; closed January 6 to March 10; limited hours March 11 to April 14.",
+      "sourceUrl": "https://www.wheelzupadventures.com/",
+      "checkedAt": "2026-11-05"
+    },
+    {
+      "id": "high-mountain-sports",
+      "name": "High Mountain Sports",
+      "town": "Oakland",
+      "state": "MD",
+      "county": "Garrett County, MD",
+      "activities": [
+        "bike",
+        "ski",
+        "snowshoe"
+      ],
+      "services": "Four-season sporting goods store that rents and services bikes and skis, and sells cross-country ski and snowshoe gear.",
+      "url": "https://www.highmountainsports.com/",
+      "phone": "301-387-4199",
+      "sourceUrl": "https://www.highmountainsports.com/",
+      "checkedAt": "2026-11-05"
+    },
+    {
+      "id": "deep-creek-ski-mountain-sports",
+      "name": "Deep Creek Ski & Mountain Sports",
+      "town": "McHenry",
+      "state": "MD",
+      "county": "Garrett County, MD",
+      "activities": [
+        "bike"
+      ],
+      "services": "Rents electric bikes in summer along with kayaks and paddle boards.",
+      "url": "https://www.deepcreekskimountainsports.com/",
+      "phone": "240-442-5014",
+      "sourceUrl": "https://www.deepcreekskimountainsports.com/",
+      "checkedAt": "2026-11-05"
+    },
+    {
+      "id": "herrington-manor-state-park",
+      "name": "Herrington Manor State Park",
+      "town": "Oakland",
+      "state": "MD",
+      "county": "Garrett County, MD",
+      "activities": [
+        "bike",
+        "ski",
+        "snowshoe"
+      ],
+      "services": "Rents cross-country skis and snowshoes when conditions permit, and fat tire bikes year round.",
+      "url": "https://dnr.maryland.gov/publiclands/Pages/western/herrington.aspx",
+      "phone": "301-334-9180",
+      "season": "Skis and snowshoes as conditions permit; fat tire bikes year round.",
+      "sourceUrl": "https://dnr.maryland.gov/publiclands/Pages/western/herrington.aspx",
+      "checkedAt": "2026-11-05"
+    },
+    {
+      "id": "new-germany-state-park",
+      "name": "New Germany State Park",
+      "town": "Grantsville",
+      "state": "MD",
+      "county": "Garrett County, MD",
+      "activities": [
+        "ski",
+        "snowshoe"
+      ],
+      "services": "Rents cross-country skis and snowshoes at the Lake House, with groomed trails when snow allows.",
+      "url": "https://dnr.maryland.gov/publiclands/Pages/western/NewGermany/Winter-Activities.aspx",
+      "season": "Daily 8:30 a.m. to 4 p.m., weather permitting.",
+      "sourceUrl": "https://dnr.maryland.gov/publiclands/Pages/western/NewGermany/Winter-Activities.aspx",
+      "checkedAt": "2026-11-05"
+    },
+    {
+      "id": "all-earth-eco-tours",
+      "name": "All Earth Eco Tours",
+      "town": "Friendsville",
+      "state": "MD",
+      "county": "Garrett County, MD",
+      "activities": [
+        "hike",
+        "snowshoe"
+      ],
+      "services": "Leads guided hikes and nature tours, and snowshoe tours in winter.",
+      "url": "https://www.allearthtours.com/",
+      "phone": "301-746-4083",
+      "season": "Hiking spring, summer and fall; snowshoeing in winter.",
+      "sourceUrl": "https://www.allearthtours.com/",
+      "checkedAt": "2026-11-05"
+    },
+    {
+      "id": "miner-hickory-farm",
+      "name": "Miner Hickory Farm Stables",
+      "town": "Grantsville",
+      "state": "MD",
+      "county": "Garrett County, MD",
+      "activities": [
+        "horse",
+        "motor"
+      ],
+      "services": "Offers guided horseback trail rides, riding lessons and guided off-road RTV farm tours.",
+      "url": "https://minerhickoryfarm.com/",
+      "phone": "(240) 727-9087",
+      "season": "Trail rides spring through fall; lessons and RTV rides year-round.",
+      "sourceUrl": "https://minerhickoryfarm.com/",
+      "checkedAt": "2026-11-05"
+    },
+    {
+      "id": "outpost-excursions",
+      "name": "Outpost Excursions",
+      "town": "Bloomington",
+      "state": "MD",
+      "county": "Garrett County, MD",
+      "activities": [
+        "motor"
+      ],
+      "services": "Runs professionally guided ATV tours on two-seater touring ATVs through Western Maryland mountain trails.",
+      "url": "https://www.outpostexcursionsllc.com/",
+      "phone": "240-362-3150",
+      "sourceUrl": "https://www.outpostexcursionsllc.com/atv-adventures",
+      "checkedAt": "2026-11-05"
+    },
+    {
+      "id": "white-grass-touring-center",
+      "name": "White Grass Touring Center",
+      "town": "Davis",
+      "state": "WV",
+      "county": "Tucker County, WV",
+      "activities": [
+        "ski",
+        "snowshoe"
+      ],
+      "services": "Cross-country ski touring center with ski and snowshoe rentals, lessons and a ski specialty shop.",
+      "url": "https://whitegrass.com/",
+      "phone": "(304) 866-4114",
+      "season": "December to March, depending on snow.",
+      "sourceUrl": "https://whitegrass.com/about/rates/",
+      "checkedAt": "2026-11-05"
+    },
+    {
+      "id": "blackwater-bikes",
+      "name": "Blackwater Bikes",
+      "town": "Davis",
+      "state": "WV",
+      "county": "Tucker County, WV",
+      "activities": [
+        "bike"
+      ],
+      "services": "Bike shop offering sales, service and rentals.",
+      "url": "https://www.blackwaterbikes.com/",
+      "phone": "(304) 259-5286",
+      "sourceUrl": "https://www.blackwaterbikes.com/",
+      "checkedAt": "2026-11-05"
+    },
+    {
+      "id": "blackwater-falls-state-park",
+      "name": "Blackwater Falls State Park",
+      "town": "Davis",
+      "state": "WV",
+      "county": "Tucker County, WV",
+      "activities": [
+        "ski",
+        "snowshoe"
+      ],
+      "services": "Rents cross-country skis and snowshoes and offers lessons, with ten miles of cross-country ski trails.",
+      "url": "https://wvstateparks.com/parks/blackwater-falls-state-park/activities/",
+      "phone": "304-259-5216",
+      "sourceUrl": "https://wvstateparks.com/parks/blackwater-falls-state-park/activities/",
+      "checkedAt": "2026-11-05"
+    },
+    {
+      "id": "mountain-trail-rides",
+      "name": "Mountain Trail Rides",
+      "town": "Davis",
+      "state": "WV",
+      "county": "Tucker County, WV",
+      "activities": [
+        "horse"
+      ],
+      "services": "Guided horseback rides from a hand-led ride up to two hours, plus seasonal sunset rides.",
+      "url": "https://www.mountaintrailrides.com/",
+      "phone": "304-866-4652",
+      "sourceUrl": "https://www.mountaintrailrides.com/",
+      "checkedAt": "2026-11-05"
+    },
+    {
+      "id": "appalachian-expeditions",
+      "name": "Appalachian Expeditions",
+      "town": "Davis",
+      "state": "WV",
+      "county": "Tucker County, WV",
+      "activities": [
+        "hike"
+      ],
+      "services": "Outdoor education program running guided backpacking trips for youth and adults.",
+      "url": "https://appalachianexpeds.org/",
+      "phone": "(717) 873-7509",
+      "season": "Summer programs; 2027 registration opens December 1.",
+      "sourceUrl": "https://appalachianexpeds.org/",
+      "checkedAt": "2026-11-05"
+    }
+  ]
+}

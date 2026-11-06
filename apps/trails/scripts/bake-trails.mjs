@@ -10,8 +10,8 @@ import { join, resolve } from 'node:path';
 import { distanceMiles, simplifyLine } from '../public/modules/geo.js';
 import { shardKey, SHARD_DEGREES } from '../public/modules/landscape.js';
 import { blockAt, BLOCK_SAMPLES } from '../public/modules/terrain.js';
-import { activityNames, osmActivities, pointInRings, routeActivities, usgsActivities } from '../public/modules/activities.js';
-import { classifyOsm, classifyUsgs, cleanName, conflate, decodeTrail, encodeTrail } from '../public/modules/trails.js';
+import { activityBit, activityNames, ATV, DIRT_BIKE, osmActivities, pointInRings, routeActivities, SNOWMOBILE, UTV, usfsUse, usgsActivities } from '../public/modules/activities.js';
+import { applyOfficial, classifyOsm, classifyUsgs, cleanName, conflate, decodeTrail, encodeTrail } from '../public/modules/trails.js';
 
 const here = new URL('.', import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1');
 const sources = resolve(here, '../data-sources');
@@ -55,7 +55,34 @@ for (const trail of usgs.trails) {
   for (const coords of trail.paths) if (coords.length > 1) usgsLines.push({ names: name ? [name] : [], kind, activities: usgsActivities(trail, kind), ...details, coords });
 }
 
-const merged = conflate(osmLines, usgsLines).map(line => ({ ...line, coords: simplifyLine(line.coords, SIMPLIFY_DEGREES) }));
+const usfs = readGz('usfs-trails.json.gz');
+const usfsLines = [];
+for (const trail of usfs.trails) {
+  const use = usfsUse(trail);
+  const name = cleanName(trail.trail_name);
+  const motor = use.allowed & (ATV | UTV | DIRT_BIKE | SNOWMOBILE);
+  for (const coords of trail.paths) {
+    if (coords.length > 1) usfsLines.push({ names: name ? [name] : [], kind: motor ? 'shared' : 'foot', coords, ...use });
+  }
+}
+
+const corrected = applyOfficial(conflate(osmLines, usgsLines), usfsLines);
+
+// Land managers' published statements, which outrank every other source for these trails.
+const toPointNear = ([lat, lon]) => ({ lat, lon });
+const { corrections } = JSON.parse(readFileSync(join(sources, 'corrections.source.json'), 'utf8'));
+for (const correction of corrections) {
+  const center = toPointNear(correction.near);
+  const targets = corrected.filter(line => line.names.includes(correction.name) && line.coords.some(([lon, lat]) => distanceMiles(center, { lat, lon }) <= correction.radius));
+  if (!targets.length) throw new Error(`Correction matches no trail: ${correction.name}`);
+  for (const line of targets) {
+    for (const code of correction.add || []) line.activities |= activityBit(code);
+    for (const code of correction.remove || []) line.activities &= ~activityBit(code);
+    if (correction.official) line.official = correction.official;
+  }
+}
+
+const merged = corrected.map(line => ({ ...line, coords: simplifyLine(line.coords, SIMPLIFY_DEGREES) }));
 const counts = {};
 for (const line of merged) counts[line.kind] = (counts[line.kind] || 0) + 1;
 console.log(`osm ${osmLines.length} + usgs ${usgsLines.length} -> ${merged.length} lines`, counts);
@@ -224,6 +251,23 @@ for (const line of merged) {
   if (!byName.has(line.names[0])) byName.set(line.names[0], []);
   byName.get(line.names[0]).push(line);
 }
+// What a land manager says about the route as a whole, for its listing.
+function routeOfficial(lines) {
+  const total = lines.reduce((sum, line) => sum + lineMiles(line.coords), 0);
+  const details = {};
+  let noUse = 0;
+  for (let bit = 1; bit <= DIRT_BIKE; bit *= 2) {
+    const closed = lines.reduce((sum, line) => sum + ((line.blocked || 0) & bit ? lineMiles(line.coords) : 0), 0);
+    if (total > 0 && closed / total >= 0.5) noUse |= bit;
+  }
+  if (noUse) details.noUse = noUse;
+  const seasons = Object.assign({}, ...lines.map(line => line.seasons || {}));
+  if (Object.keys(seasons).length) details.seasons = seasons;
+  const official = lines.find(line => line.official)?.official;
+  if (official) details.official = official;
+  return details;
+}
+
 const routes = [];
 const slug = text => text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const taken = new Map();
@@ -263,6 +307,7 @@ for (const [name, lines] of byName) {
       ...(routeCounties.length > 1 ? { counties: routeCounties } : {}),
       activities,
       miles: Math.round(miles * 100) / 100,
+      ...routeOfficial(cluster.lines),
       center,
       bounds: { south: round(cluster.box.south), north: round(cluster.box.north), west: round(cluster.box.west), east: round(cluster.box.east) },
       sources: [...new Set(cluster.lines.flatMap(line => line.sources))].sort(),
@@ -288,6 +333,8 @@ writeFileSync(join(data, 'TRAILS-LICENSE.txt'), `The files in trails/, hikes.jso
 - OpenStreetMap, (c) OpenStreetMap contributors, https://www.openstreetmap.org/copyright
   captured ${osm.source.capturedAt} (data as of ${osm.source.osmBase})
 - USGS National Digital Trails (public domain), captured ${usgs.source.capturedAt}
+- USDA Forest Service National Forest System Trails, captured ${usfs.source.capturedAt}. The Forest Service
+  gives no warranty and disclaims liability for errors and omissions.
 - US Census TIGERweb county outlines (public domain)
 
 They are made available under the Open Database License (ODbL) 1.0:
@@ -299,6 +346,39 @@ index.trailShards = [...shards.keys()].sort();
 index.sources.trails = 'USGS National Digital Trails and OpenStreetMap, captured 2026-11-05';
 index.shardDegrees = SHARD_DEGREES;
 writeFileSync(join(data, 'index.json'), JSON.stringify(index));
+
+// The trip planner's and finder's directory. Everything is placed by town, so nothing claims more
+// precision than its source gave.
+const townPlaces = JSON.parse(readFileSync(join(data, 'places.json'), 'utf8')).places;
+function townPoint({ town, state }) {
+  const found = townPlaces.find(([name, placeState]) => name === town && placeState === state);
+  if (!found) throw new Error(`No GNIS place named ${town}, ${state}`);
+  return { lat: found[2], lon: found[3] };
+}
+const { stays, guides } = JSON.parse(readFileSync(join(sources, 'stays.source.json'), 'utf8'));
+const stayList = stays.map(stay => {
+  const point = townPoint(stay);
+  const county = countyAt(point);
+  return { id: slug(`${stay.town}-${stay.state}`), label: stay.label || `${stay.town}, ${stay.state}`, ...point, county };
+});
+writeFileSync(join(data, 'stays.json'), JSON.stringify({ stays: stayList, guides }));
+const ACTIVITY_IDS = new Set(['hike', 'bike', 'ski', 'snowshoe', 'snowmobile', 'motor', 'horse']);
+function directoryEntry(entry) {
+  for (const activity of entry.activities || []) {
+    if (!ACTIVITY_IDS.has(activity)) throw new Error(`${entry.id}: unknown activity ${activity}`);
+  }
+  if (!/^https:\/\//.test(entry.url)) throw new Error(`${entry.id}: url must be https`);
+  const place = `${entry.town}, ${entry.state}`;
+  const point = townPoint(entry);
+  if (entry.county && countyAt(point) !== entry.county) throw new Error(`${entry.id}: ${place} is in ${countyAt(point) || 'no covered county'}, not ${entry.county}`);
+  return { ...entry, ...point, place };
+}
+const officialSource = JSON.parse(readFileSync(join(sources, 'official.source.json'), 'utf8'));
+writeFileSync(join(data, 'official.json'), JSON.stringify({ checkedAt: officialSource.checkedAt, official: officialSource.official.map(directoryEntry) }));
+const outfitterSource = JSON.parse(readFileSync(join(sources, 'outfitters.source.json'), 'utf8'));
+const outfitters = outfitterSource.outfitters.map(directoryEntry);
+writeFileSync(join(data, 'outfitters.json'), JSON.stringify({ checkedAt: outfitterSource.checkedAt, outfitters }));
+console.log(`${stayList.length} stays, ${officialSource.official.length} official pages, ${outfitters.length} outfitters`);
 
 for (const hike of hikes) {
   console.log(`${hike.group.padEnd(15)} ${hike.id.padEnd(24)} ${hike.kind === 'route' ? `${hike.miles.toFixed(2).padStart(6)} mi  ${String(hike.lines.length).padStart(3)} lines  ${hike.sources.join('+').padEnd(9)} [${[...new Set(hike.lines.map(line => line[0]))].join(', ').slice(0, 60)}]` : 'destination'}`);

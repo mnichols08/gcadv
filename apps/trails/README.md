@@ -92,6 +92,30 @@ nothing about wider UTVs, so they stay separate in the data. Most local motorize
 trails are poorly mapped in open data, so the land managers' own maps should replace these lists where
 they can be used.
 
+## Official sources
+
+Land managers outrank community data. Checked 2026-11-05:
+
+| Source | Terms found | How it's used |
+| --- | --- | --- |
+| US Forest Service trails | No access limits, no warranty | Bundled. Where a line runs along a mapped trail, it opens and closes uses there |
+| Maryland DNR Trail Atlas | Marked MDDNR, no license stated | Not bundled. Used once to check our Maryland motor listings |
+| West Virginia statewide trails | No trail-specific terms found | Not bundled |
+| Pennsylvania DCNR park trails | Demonstration, education, planning and monitoring only, with a hold-harmless clause | Not bundled |
+
+Anything not bundled can be added once the agency gives permission. Until then the app links to their
+pages through `data-sources/official.source.json`, and `data-sources/corrections.source.json` records
+trail-by-trail changes backed by a published land manager statement. A correction matching no trail stops
+the bake.
+
+## Trip planner and outfitters
+
+Plan a trip (`/trails/#plan`) takes a town from `data-sources/stays.source.json` and a set of activities,
+then lists the nearest trails, land manager pages, outfitters and the site's guides. Distances are
+straight lines. `data-sources/outfitters.source.json` holds businesses whose own page, or a park or
+tourism page, states the service, placed by town and cross-checked against the county the source names.
+Re-check it before each season. It has no paid placements.
+
 ## 3D
 
 With signal and a Mapbox token, 3D uses Mapbox's outdoors map on its terrain, the same as the site's

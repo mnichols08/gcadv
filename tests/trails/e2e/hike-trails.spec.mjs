@@ -153,3 +153,42 @@ test('other activities list their own trails, not the hand-picked hikes', async 
   await expect(page.locator('#finderList .route-list li').first()).toContainText('XC skiing');
   await expect(page.getByRole('button', { name: 'Follow this hike' })).toHaveCount(0);
 });
+
+test('the trip planner gives nearby trails for where you are staying, and remembers', async ({ page }) => {
+  await page.getByRole('button', { name: 'Plan a trip' }).click();
+  await expect(page.locator('#planResults')).toContainText('Pick where you');
+  await page.locator('#planStay').selectOption({ label: 'Deep Creek Lake (McHenry), MD' });
+  await expect(page.locator('#planResults')).toContainText('Pick one or more');
+  await page.locator('#planActivities').getByRole('button', { name: 'Hike' }).click();
+  await page.locator('#planActivities').getByRole('button', { name: 'ATV / UTV' }).click();
+  await expect(page.locator('#planResults h3', { hasText: 'Hike' })).toBeVisible();
+  await expect(page.locator('#planResults .route-list li').first()).toContainText('mi away');
+  await expect(page.locator('#planResults')).toContainText('Wolf Den Run State Park');
+  await expect(page.locator('#planResults')).toContainText('Local guides');
+  await expect(page.locator('#planResults a', { hasText: 'First Time at Deep Creek Lake' })).toHaveAttribute('href', '../first-time-deep-creek.html');
+  await page.reload();
+  await page.getByRole('button', { name: 'Plan a trip' }).click();
+  await expect(page.locator('#planStay')).not.toHaveValue('');
+  await expect(page.locator('#planResults')).toContainText('Wolf Den Run State Park');
+});
+
+test('following a trail from the planner closes it and starts the guide', async ({ page }) => {
+  await page.getByRole('button', { name: 'Plan a trip' }).click();
+  await page.locator('#planStay').selectOption({ label: 'Ohiopyle, PA' });
+  await page.locator('#planActivities').getByRole('button', { name: 'Bike' }).click();
+  await page.locator('#planResults .route-list li').first().getByRole('button', { name: 'Follow this trail' }).click();
+  await expect(page.locator('#planDialog')).toBeHidden();
+  await expect(page.locator('#guide')).toBeVisible();
+});
+
+test('the site can link straight to the planner', async ({ page }) => {
+  await page.goto('/trails/#plan');
+  await expect(page.locator('#planDialog')).toBeVisible();
+});
+
+test('an activity shows what land managers say, including where it is not allowed', async ({ page }) => {
+  await page.getByRole('button', { name: 'Find a trail' }).click();
+  await page.locator('#finderActivities').getByRole('button', { name: 'ATV / UTV' }).click();
+  await expect(page.locator('#finderHelp')).toContainText('From the land managers');
+  await expect(page.locator('#finderHelp a').first()).toHaveAttribute('target', '_blank');
+});

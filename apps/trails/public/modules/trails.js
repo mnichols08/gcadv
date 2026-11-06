@@ -150,14 +150,51 @@ export function conflate(osmLines, usgsLines, { matchFeet = 100, sameNameFeet = 
   return [...lines, ...added];
 }
 
+const boxOf = coords => ({
+  south: Math.min(...coords.map(coord => coord[1])),
+  north: Math.max(...coords.map(coord => coord[1])),
+  west: Math.min(...coords.map(coord => coord[0])),
+  east: Math.max(...coords.map(coord => coord[0])),
+});
+const boxesTouch = (a, b, margin = 0.001) => a.south - margin <= b.north && b.south - margin <= a.north && a.west - margin <= b.east && b.west - margin <= a.east;
+
+// Forest Service lines carry the land manager's own word on each use, so where one runs along a
+// mapped line, it adds and removes activities there. Trails nobody else mapped become new lines.
+export function applyOfficial(lines, officialLines, { matchFeet = 100, sameNameFeet = 350, share = 0.6, retraceShare = 0.5 } = {}) {
+  const boxes = lines.map(line => boxOf(line.coords));
+  const everything = indexSegments(lines);
+  const added = [];
+  for (const official of officialLines) {
+    const cells = indexSegments([official]);
+    const box = boxOf(official.coords);
+    const officialBase = baseName(official.names[0]);
+    let matched = shareNear(official.coords, everything, sameNameFeet) >= retraceShare;
+    lines.forEach((line, index) => {
+      if (!boxesTouch(boxes[index], box, 0.002)) return;
+      const sameName = officialBase && line.names.some(name => baseName(name) === officialBase);
+      if (shareNear(line.coords, cells, sameName ? sameNameFeet : matchFeet) < share) return;
+      matched = true;
+      line.activities = ((line.activities || 0) | official.allowed) & ~official.blocked;
+      line.blocked = (line.blocked || 0) | official.blocked;
+      line.seasons = { ...line.seasons, ...official.seasons };
+      if (!line.sources.includes('usfs')) line.sources.push('usfs');
+      if (!line.names.length && official.names.length) line.names.push(official.names[0]);
+    });
+    if (!matched) {
+      added.push({ names: [...official.names], kind: official.kind, coords: official.coords, activities: official.allowed, blocked: official.blocked, seasons: official.seasons, sources: ['usfs'] });
+    }
+  }
+  return [...lines, ...added];
+}
+
 const KIND_CODES = ['foot', 'shared', 'track', 'ski'];
-const SOURCE_CODES = [['osm'], ['usgs'], ['osm', 'usgs']];
+const SOURCE_CODES = [['osm'], ['usgs'], ['osm', 'usgs'], ['usfs'], ['osm', 'usfs'], ['usgs', 'usfs'], ['osm', 'usgs', 'usfs']];
+const sourceCode = sources => SOURCE_CODES.findIndex(list => list.length === sources.length && list.every(source => sources.includes(source)));
 const COORD_SCALE = 1e5;
 
 // [name, kind, source, activities, lon, lat, dLon, dLat, ...] in integer 1e-5 degrees.
 export function encodeTrail({ names, kind, sources, coords, activities = 0 }) {
-  const source = sources.includes('osm') ? (sources.includes('usgs') ? 2 : 0) : 1;
-  const entry = [names[0] || '', KIND_CODES.indexOf(kind), source, activities];
+  const entry = [names[0] || '', KIND_CODES.indexOf(kind), sourceCode(sources), activities];
   let lastLon = 0;
   let lastLat = 0;
   for (const [lon, lat] of coords) {

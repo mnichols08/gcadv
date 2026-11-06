@@ -1,0 +1,42 @@
+{
+  "note": "Towns a visitor might stay in. Each must exist in the GNIS places data or the bake stops. Guides are the site's own articles.",
+  "stays": [
+    { "town": "McHenry", "state": "MD", "label": "Deep Creek Lake (McHenry), MD" },
+    { "town": "Oakland", "state": "MD" },
+    { "town": "Swanton", "state": "MD" },
+    { "town": "Accident", "state": "MD" },
+    { "town": "Friendsville", "state": "MD" },
+    { "town": "Grantsville", "state": "MD" },
+    { "town": "Mountain Lake Park", "state": "MD" },
+    { "town": "Kitzmiller", "state": "MD" },
+    { "town": "Frostburg", "state": "MD" },
+    { "town": "Cumberland", "state": "MD" },
+    { "town": "Flintstone", "state": "MD" },
+    { "town": "Davis", "state": "WV", "label": "Davis / Canaan Valley, WV" },
+    { "town": "Thomas", "state": "WV" },
+    { "town": "Parsons", "state": "WV" },
+    { "town": "Bayard", "state": "WV" },
+    { "town": "Terra Alta", "state": "WV" },
+    { "town": "Kingwood", "state": "WV" },
+    { "town": "Keyser", "state": "WV" },
+    { "town": "Petersburg", "state": "WV" },
+    { "town": "Ohiopyle", "state": "PA" },
+    { "town": "Confluence", "state": "PA" },
+    { "town": "Farmington", "state": "PA" },
+    { "town": "Somerset", "state": "PA" },
+    { "town": "Rockwood", "state": "PA" },
+    { "town": "Meyersdale", "state": "PA" },
+    { "town": "Seven Springs", "state": "PA" },
+    { "town": "Bedford", "state": "PA" }
+  ],
+  "guides": [
+    { "title": "First Time at Deep Creek Lake? Start Here", "url": "first-time-deep-creek.html", "counties": ["Garrett County, MD"] },
+    { "title": "Best Things to Do in Garrett County, Maryland", "url": "things-to-do-garrett-county.html", "counties": ["Garrett County, MD"] },
+    { "title": "10 Things Worth Leaving Deep Creek Lake For", "url": "things-to-do-near-deep-creek-besides-the-lake.html", "counties": ["Garrett County, MD"] },
+    { "title": "Deep Creek Without a Boat", "url": "deep-creek-without-a-boat.html", "counties": ["Garrett County, MD"] },
+    { "title": "Garrett County With Kids", "url": "garrett-county-with-kids.html", "counties": ["Garrett County, MD"] },
+    { "title": "It's Raining at Deep Creek. Now What?", "url": "rainy-day-deep-creek.html", "counties": ["Garrett County, MD"] },
+    { "title": "Swallow Falls Is More Than Maryland's Tallest Waterfall", "url": "swallow-falls.html", "counties": ["Garrett County, MD"] },
+    { "title": "A Slow Afternoon in Oakland, Maryland", "url": "oakland.html", "counties": ["Garrett County, MD"] }
+  ]
+}

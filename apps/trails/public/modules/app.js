@@ -6,6 +6,7 @@ import * as backup from './backup.js';
 import { arrivedAt, groupCheckpoints, progress, progressText } from './checkpoints.js';
 import { cacheFacts, MAX_FILE_BYTES, mergeCaches, nearestFirst, parseGpx } from './geocaches.js';
 import { ACTIVITIES, activityById, activityNames, filterRoutes, matchesActivity, routeLines } from './activities.js';
+import { nearbyDirectory, NEARBY_MILES, planTrip, seasonalActivities } from './planner.js';
 import { accessFact, boundsCenter, decodeHike, directionsUrl, groupHikes, hikeFacts, nearestAccess, routeProgress, withMargin } from './hikes.js';
 import { buildPlaceIndex, decodeLine, nearestOnLines, nearestPlace, nearestWater, shardKey, shardsForBounds, SHARD_DEGREES } from './landscape.js';
 import { scaleBar, TopoMap } from './map.js';
@@ -1058,21 +1059,262 @@ async function followRoute(route) {
   return true;
 }
 
-function routeRow(route) {
+function externalLink(text, url) {
+  const link = document.createElement('a');
+  link.className = 'text-button link-button';
+  link.href = url;
+  link.target = '_blank';
+  link.rel = 'noopener';
+  link.textContent = text;
+  return link;
+}
+
+async function loadDirectory() {
+  if (state.directory) return state.directory;
+  const read = async name => (await fetch(dataUrl(name))).json();
+  const [{ official }, { outfitters }, { stays, guides }] = await Promise.all(['official.json', 'outfitters.json', 'stays.json'].map(read));
+  state.directory = { official, outfitters, stays, guides };
+  return state.directory;
+}
+
+const miles = value => `about ${Math.round(value)} mi away`;
+
+function officialRow({ entry, miles: away }) {
+  const row = document.createElement('li');
+  const title = document.createElement('span');
+  title.className = 'item-title';
+  const name = document.createElement('strong');
+  name.textContent = entry.name;
+  const place = document.createElement('small');
+  place.textContent = `${entry.place} · ${miles(away)}`;
+  title.append(name, place);
+  const about = document.createElement('p');
+  about.className = 'hike-note';
+  about.textContent = entry.about;
+  row.append(title, about, externalLink(entry.label, entry.url));
+  return row;
+}
+
+function outfitterRow({ entry, miles: away }) {
+  const row = document.createElement('li');
+  const title = document.createElement('span');
+  title.className = 'item-title';
+  const name = document.createElement('strong');
+  name.textContent = entry.name;
+  const place = document.createElement('small');
+  place.textContent = `${entry.place} · ${miles(away)}`;
+  title.append(name, place);
+  if (entry.season) {
+    const season = document.createElement('small');
+    season.textContent = entry.season;
+    title.append(season);
+  }
+  const about = document.createElement('p');
+  about.className = 'hike-note';
+  about.textContent = entry.services;
+  row.append(title, about, externalLink('Website', entry.url));
+  if (entry.phone) row.append(externalLink(`Call ${entry.phone}`, `tel:${entry.phone.replace(/[^\d+]/g, '')}`));
+  return row;
+}
+
+function directorySection(heading, rows, build) {
+  if (!rows.length) return null;
+  const section = document.createElement('div');
+  const title = document.createElement('h3');
+  title.textContent = heading;
+  const list = document.createElement('ul');
+  list.className = 'list';
+  list.append(...rows.map(build));
+  section.append(title, list);
+  return section;
+}
+
+const OUTFITTER_NOTE = 'Listed from each business\'s own website, or a park or tourism page. Not paid placements or endorsements, so call ahead to confirm.';
+
+function outfitterNote() {
+  const note = document.createElement('p');
+  note.className = 'fine';
+  note.textContent = OUTFITTER_NOTE;
+  return note;
+}
+
+async function renderFinderHelp(position) {
+  const holder = $('finderHelp');
+  holder.replaceChildren();
+  if (!state.activity) return;
+  let directory;
+  try {
+    directory = await loadDirectory();
+  } catch {
+    return;
+  }
+  const official = directorySection('From the land managers', nearbyDirectory(directory.official, position, state.activity.id), officialRow);
+  const outfitters = directorySection('Rentals and guides nearby', nearbyDirectory(directory.outfitters, position, state.activity.id), outfitterRow);
+  holder.replaceChildren(...[official, outfitters, outfitters && outfitterNote()].filter(Boolean));
+}
+
+/* Trip planner */
+const PLAN_KEY = 'trail-plan';
+
+function readPlan() {
+  try {
+    return JSON.parse(localStorage.getItem(PLAN_KEY)) || {};
+  } catch {
+    return {};
+  }
+}
+
+function rememberPlan(plan) {
+  try {
+    localStorage.setItem(PLAN_KEY, JSON.stringify(plan));
+  } catch { /* A remembered plan is only a convenience. */ }
+}
+
+function planStay(plan, stays) {
+  if (plan.here && state.fix) return { label: 'where you are now', lat: state.fix.lat, lon: state.fix.lon, county: '' };
+  return stays.find(stay => stay.id === plan.stay) || null;
+}
+
+async function renderPlan() {
+  const results = $('planResults');
+  results.replaceChildren();
+  let directory;
+  let routeData;
+  try {
+    [directory, routeData] = await Promise.all([loadDirectory(), loadRoutes()]);
+  } catch {
+    results.textContent = 'The planner\'s lists aren\'t available. Reopen the app with signal once to store them.';
+    return;
+  }
+  const plan = readPlan();
+  const select = $('planStay');
+  if (select.options.length === 1) {
+    select.append(...directory.stays.map(stay => new Option(stay.label, stay.id)));
+    select.addEventListener('change', () => {
+      rememberPlan({ ...readPlan(), stay: select.value, here: false });
+      renderPlan();
+    });
+  }
+  select.value = plan.here ? '' : plan.stay || '';
+  $('planHere').hidden = !state.fix;
+
+  const month = new Date().getMonth();
+  const chosen = new Set(plan.activities || []);
+  $('planActivities').replaceChildren(...seasonalActivities(month).map(({ id, label }) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'choice';
+    button.textContent = label;
+    button.setAttribute('aria-pressed', String(chosen.has(id)));
+    button.addEventListener('click', () => {
+      if (chosen.has(id)) chosen.delete(id);
+      else chosen.add(id);
+      rememberPlan({ ...readPlan(), activities: [...chosen] });
+      renderPlan();
+    });
+    return button;
+  }));
+
+  const stay = planStay(plan, directory.stays);
+  if (!stay || !chosen.size) {
+    const hint = document.createElement('p');
+    hint.className = 'fine';
+    hint.textContent = !stay ? 'Pick where you\'re staying to see what\'s close.' : 'Pick one or more activities.';
+    results.append(hint);
+    return;
+  }
+  const trip = planTrip({ stay, activityIds: seasonalActivities(month).map(({ id }) => id).filter(id => chosen.has(id)), routes: routeData.routes, outfitters: directory.outfitters, official: directory.official, guides: directory.guides });
+  for (const { activity, trails, outfitters, official } of trip.sections) {
+    const section = document.createElement('section');
+    section.className = 'plan-section';
+    const heading = document.createElement('h3');
+    heading.textContent = activity.label;
+    section.append(heading);
+    if (activity.note) {
+      const note = document.createElement('p');
+      note.className = 'fine';
+      note.textContent = activity.note;
+      section.append(note);
+    }
+    if (trails.length) {
+      const list = document.createElement('ul');
+      list.className = 'list route-list';
+      list.append(...trails.map(({ entry, miles: away }) => routeRow(entry, away, () => $('planDialog').close())));
+      section.append(list);
+    } else {
+      const none = document.createElement('p');
+      none.className = 'fine';
+      none.textContent = `No trails within ${NEARBY_MILES} miles are marked for this in the data. That may only mean no one has mapped them.`;
+      section.append(none);
+    }
+    const parts = [
+      directorySection('From the land managers', official, officialRow),
+      directorySection('Rentals and guides', outfitters, outfitterRow),
+    ].filter(Boolean);
+    section.append(...parts);
+    results.append(section);
+  }
+  if (trip.sections.some(({ outfitters }) => outfitters.length)) results.append(outfitterNote());
+  if (trip.guides.length) {
+    const section = document.createElement('section');
+    section.className = 'plan-section';
+    const heading = document.createElement('h3');
+    heading.textContent = 'Local guides';
+    const list = document.createElement('ul');
+    list.className = 'list';
+    list.append(...trip.guides.map(guide => {
+      const row = document.createElement('li');
+      const link = document.createElement('a');
+      link.className = 'text-button link-button';
+      link.href = `../${guide.url}`;
+      link.textContent = guide.title;
+      row.append(link);
+      return row;
+    }));
+    section.append(heading, list);
+    results.append(section);
+  }
+}
+
+function openPlan() {
+  $('planDialog').showModal();
+  renderPlan();
+}
+
+function routeRow(route, away = null, closeDialog = () => $('finderDialog').close()) {
   const row = document.createElement('li');
   const title = document.createElement('span');
   title.className = 'item-title';
   const name = document.createElement('strong');
   name.textContent = route.name;
   const area = document.createElement('small');
-  const away = state.fix ? ` · ${formatDistance(distanceMiles(state.fix, route.center))} away` : '';
+  const distance = away !== null ? ` · ${miles(away)}` : state.fix ? ` · ${formatDistance(distanceMiles(state.fix, route.center))} away` : '';
   const others = (route.counties?.length || 1) - 1;
-  area.textContent = `${route.county}${others ? ` and ${others} more` : ''}${away}`;
+  area.textContent = `${route.county}${others ? ` and ${others} more` : ''}${distance}`;
   const facts = document.createElement('small');
   facts.textContent = [`${route.miles.toFixed(route.miles < 10 ? 2 : 1)} mi of mapped trail`, route.surface && `surface: ${route.surface.toLowerCase()}`].filter(Boolean).join(' · ');
   const marked = document.createElement('small');
   marked.textContent = `Marked for ${activityNames(route.activities).join(', ')}`;
   title.append(name, area, facts, marked);
+  if (route.noUse) {
+    const closed = document.createElement('small');
+    closed.className = 'official-note';
+    closed.textContent = `Forest Service: no ${activityNames(route.noUse).join(', no ')}`;
+    title.append(closed);
+  }
+  const seasons = Object.entries(route.seasons || {}).map(([bit, text]) => `${activityNames(Number(bit))[0]} ${text}`);
+  if (seasons.length) {
+    const season = document.createElement('small');
+    season.className = 'official-note';
+    season.textContent = `Forest Service season: ${seasons.join(', ')}`;
+    title.append(season);
+  }
+  if (route.official) {
+    const note = document.createElement('small');
+    note.className = 'official-note';
+    note.textContent = route.official.note;
+    title.append(note);
+  }
   if (route.access) {
     const access = document.createElement('small');
     access.textContent = accessFact(route);
@@ -1081,15 +1323,16 @@ function routeRow(route) {
   row.append(title);
   row.append(
     textButton('Follow this trail', async () => {
-      if (await followRoute(route)) $('finderDialog').close();
+      if (await followRoute(route)) closeDialog();
     }),
     textButton('Save offline', async () => {
       if (await followRoute(route)) {
-        $('finderDialog').close();
+        closeDialog();
         openMaps(withMargin(route.bounds));
       }
     }),
   );
+  if (route.official) row.append(externalLink(route.official.label, route.official.url));
   const way = route.access?.[0] || route.center;
   const link = document.createElement('a');
   link.className = 'text-button link-button';
@@ -1106,7 +1349,7 @@ function renderRoutePage(holder, routes, shown = ROUTE_PAGE) {
   holder.querySelector('.route-more')?.remove();
   const list = document.createElement('ul');
   list.className = 'list route-list';
-  list.append(...routes.slice(0, shown).map(routeRow));
+  list.append(...routes.slice(0, shown).map(route => routeRow(route)));
   holder.append(list);
   if (routes.length > shown) {
     const more = textButton(`Show more (${routes.length - shown} left)`, () => renderRoutePage(holder, routes, shown + ROUTE_PAGE));
@@ -1154,6 +1397,7 @@ async function renderFinder() {
   }
   const county = counties.value;
   const position = state.fix || map.center;
+  renderFinderHelp(position);
   // The hand-picked list is hikes, so other activities go straight to what's marked for them.
   const picks = !state.activity || state.activity.id === 'hike' ? hikes.filter(hike => !county || hike.county === county) : [];
   const routes = filterRoutes(routeData.routes, { activity: state.activity, county, position, distance: distanceMiles });
@@ -2254,6 +2498,17 @@ $('goWater').addEventListener('click', () => {
 });
 $('guideStop').addEventListener('click', () => (state.route ? endRoute() : setTarget(null)));
 $('activityChip').addEventListener('click', () => setActivity(''));
+$('openPlan').addEventListener('click', openPlan);
+$('planHere').addEventListener('click', () => {
+  rememberPlan({ ...readPlan(), here: true });
+  renderPlan();
+});
+// The site links straight to the planner, whether or not the app is already open.
+const openPlanFromLink = () => {
+  if (location.hash === '#plan' && !$('planDialog').open) openPlan();
+};
+window.addEventListener('hashchange', openPlanFromLink);
+openPlanFromLink();
 $('openFinder').addEventListener('click', () => {
   $('finderDialog').showModal();
   renderFinder();

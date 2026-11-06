@@ -75,11 +75,12 @@
       </div>
       <div class="links">
         <button id="openWhere" type="button" class="text-button">Where am I?</button>
+        <button id="openPlan" type="button" class="text-button">Plan a trip</button>
         <button id="openFinder" type="button" class="text-button">Find a trail</button>
         <button id="openCheckpoints" type="button" class="text-button">Checkpoints</button>
         <button id="openMore" type="button" class="text-button">More</button>
       </div>
-      <p class="credit">Map, water: USGS. Trails: USGS, <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap contributors</a>. Your route stays on this phone unless you turn on backup.</p>
+      <p class="credit">Map, water: USGS. Trails: USGS, Forest Service, <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap contributors</a>. Your route stays on this phone unless you turn on backup.</p>
     </section>
   </main>
 
@@ -144,6 +145,7 @@
     </label>
     <p id="finderNote" class="fine" hidden></p>
     <p class="fine">Lengths are measured from mapped trail lines and include every mapped branch, so they may not match a sign or a loop you plan to take. Check conditions and access with the land manager before you go.</p>
+    <div id="finderHelp"></div>
     <div id="finderList"></div>
     <h3>On the map</h3>
     <ul class="legend">
@@ -153,6 +155,19 @@
       <li><span class="swatch swatch-ski"></span>Ski trail</li>
     </ul>
     <p class="fine">Being on this map doesn't mean a trail is open or legal to use. Trail data covers Garrett and Allegany counties in Maryland; Tucker, Grant, Preston and Mineral in West Virginia; and Somerset, Fayette and Bedford in Pennsylvania. <a href="data/TRAILS-LICENSE.txt">Data license</a>.</p>
+    <form method="dialog"><button class="button">Close</button></form>
+  </dialog>
+
+  <dialog id="planDialog" class="panel" aria-labelledby="planTitle">
+    <h2 id="planTitle">Plan a trip</h2>
+    <label class="field" for="planStay">Where are you staying?
+      <select id="planStay"><option value="">Choose a town</option></select>
+    </label>
+    <button id="planHere" type="button" class="text-button" hidden>Use where I am now</button>
+    <p class="field-label" id="planActivitiesLabel">What do you want to do?</p>
+    <div id="planActivities" class="chip-row" role="group" aria-labelledby="planActivitiesLabel"></div>
+    <p class="fine">Distances are straight lines, not driving miles. Snow, season and trail conditions aren't checked here, so confirm them with the land manager or outfitter before you go.</p>
+    <div id="planResults"></div>
     <form method="dialog"><button class="button">Close</button></form>
   </dialog>
 
