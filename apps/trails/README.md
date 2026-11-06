@@ -38,6 +38,8 @@ preview address. To test outdoors, use a Netlify branch deploy, or a tunnel such
 | `public/modules/terrain-view.js` | The offline WebGL 3D view, on saved terrain. Loaded only when needed. |
 | `public/modules/mapbox-view.js` | The online 3D view, on Mapbox outdoors and terrain. Loaded only when needed. |
 | `public/modules/mapbox-data.js` | Turns trails, routes and markers into GeoJSON for that view. Pure. |
+| `public/modules/conditions.js` | Reads live weather, snow and river services. Pure parsing. |
+| `public/modules/trail-details.js` | Climb, effort, elevation profile and mapped trail facts. Pure. |
 | `public/modules/activities.js` | What a trail is marked for, and the finder's filters. Pure. |
 | `public/modules/gpx.js` | GPX 1.1 export. Pure. |
 | `public/modules/map.js` | Canvas tile map and gestures. |
@@ -91,6 +93,29 @@ assumed unless a source says no. Blank USGS flags mean the source didn't say. An
 nothing about wider UTVs, so they stay separate in the data. Most local motorized and groomed-snow
 trails are poorly mapped in open data, so the land managers' own maps should replace these lists where
 they can be used.
+
+## Conditions
+
+Phones reach these directly, since the site has no server. A section that fails falls back to its last
+saved reading and says when it's from.
+
+| Section | Source | Sent to it |
+| --- | --- | --- |
+| Alerts and forecast | National Weather Service | Location rounded to about two-thirds of a mile |
+| Snow | NOAA NOHRSC modeled depth, in meters | Same rounded location |
+| Rivers | USGS `latest-continuous`, replacing WaterServices, which shuts down February 22, 2027 | Nothing about the person: always the whole region |
+
+It never judges safety, and it can't see closures or grooming, so it links to land managers for those.
+Pennsylvania's park road data has snowmobile status and grooming fields, which could help once DCNR
+gives permission.
+
+## Trail details
+
+Climb is an estimate from elevation samples about 145 ft apart. Mapped lines have no real direction, so
+each counts its harder way, which can overstate a trail that goes up and back down. Estimated effort uses the National Park Service's Shenandoah
+formula, the square root of gain times 2 times miles, which the park itself calls approximate because it
+misses short steep trails. Difficulty, dogs, wheelchair access and visibility appear only where
+OpenStreetMap tags cover enough of the trail, and always read "mapped as".
 
 ## Official sources
 

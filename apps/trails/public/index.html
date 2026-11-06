@@ -171,9 +171,16 @@
     <form method="dialog"><button class="button">Close</button></form>
   </dialog>
 
+  <dialog id="conditionsDialog" class="panel" aria-labelledby="conditionsTitle">
+    <h2 id="conditionsTitle">Conditions</h2>
+    <div id="conditionsList"></div>
+    <form method="dialog"><button class="button">Close</button></form>
+  </dialog>
+
   <dialog id="moreDialog" class="panel" aria-labelledby="moreTitle">
     <h2 id="moreTitle">More</h2>
     <div class="stack">
+      <button id="openConditions" type="button" class="button">Conditions here</button>
       <button id="openBackup" type="button" class="button">Backup</button>
       <button id="openCaches" type="button" class="button">Geocaches</button>
       <button id="openPhotos" type="button" class="button">My photos</button>

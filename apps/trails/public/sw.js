@@ -1,5 +1,5 @@
 // Offline is the normal case on a trail. Bump SHELL_CACHE when the file list changes.
-const SHELL_CACHE = 'hike-shell-v10';
+const SHELL_CACHE = 'hike-shell-v11';
 const SAVED_CACHE = 'hike-saved-v1'; // Areas the hiker chose to keep; only they can clear it.
 const AUTO_CACHE = 'hike-auto-v1'; // Tiles and shards already seen; trimmed automatically.
 const TILE_HOST = 'https://basemap.nationalmap.gov';
@@ -15,6 +15,7 @@ const SHELL = [
   'modules/app.js',
   'modules/backup.js',
   'modules/checkpoints.js',
+  'modules/conditions.js',
   'modules/device.js',
   'modules/geo.js',
   'modules/geocaches.js',
@@ -31,6 +32,7 @@ const SHELL = [
   'modules/store.js',
   'modules/terrain.js',
   'modules/terrain-view.js',
+  'modules/trail-details.js',
   'modules/tracker.js',
   'modules/trails.js',
   'data/index.json',
@@ -40,6 +42,7 @@ const SHELL = [
   'data/official.json',
   'data/outfitters.json',
   'data/stays.json',
+  'data/gauges.json',
   'data/checkpoints.json',
 ];
 

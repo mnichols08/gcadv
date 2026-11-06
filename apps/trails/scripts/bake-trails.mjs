@@ -11,6 +11,7 @@ import { distanceMiles, simplifyLine } from '../public/modules/geo.js';
 import { shardKey, SHARD_DEGREES } from '../public/modules/landscape.js';
 import { blockAt, BLOCK_SAMPLES } from '../public/modules/terrain.js';
 import { activityBit, activityNames, ATV, DIRT_BIKE, osmActivities, pointInRings, routeActivities, SNOWMOBILE, UTV, usfsUse, usgsActivities } from '../public/modules/activities.js';
+import { trailDetails } from '../public/modules/trail-details.js';
 import { applyOfficial, classifyOsm, classifyUsgs, cleanName, conflate, decodeTrail, encodeTrail } from '../public/modules/trails.js';
 
 const here = new URL('.', import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1');
@@ -43,7 +44,8 @@ for (const element of osm.elements) {
   if (!kind) continue;
   const names = [cleanName(element.tags.name), ...(relationNames.get(element.id) || [])].filter(Boolean);
   const surface = element.tags.surface || '';
-  osmLines.push({ names: [...new Set(names)], kind, surface, activities: osmActivities(element.tags, relationRoutes.get(element.id)), coords: element.geometry.map(({ lon, lat }) => [lon, lat]) });
+  const { sac_scale: sac, 'mtb:scale:imba': imba, trail_visibility: visibility, dog, wheelchair } = element.tags;
+  osmLines.push({ names: [...new Set(names)], kind, surface, tags: { sac, imba, visibility, dog, wheelchair }, activities: osmActivities(element.tags, relationRoutes.get(element.id)), coords: element.geometry.map(({ lon, lat }) => [lon, lat]) });
 }
 
 const usgsLines = [];
@@ -130,6 +132,14 @@ function groundAt([lon, lat]) {
   }
   return blockFiles.get(key)[row * BLOCK_SAMPLES + column];
 }
+const groundOrNull = coord => {
+  try {
+    const feet = groundAt(coord);
+    return Number.isFinite(feet) ? feet : null;
+  } catch {
+    return null; // Outside the captured elevation.
+  }
+};
 const elevationRange = coords => {
   const values = coords.map(groundAt);
   return { lowFeet: Math.min(...values), highFeet: Math.max(...values) };
@@ -177,6 +187,7 @@ for (const hike of catalog.hikes) {
   const usedSources = new Set(lines.flatMap(line => line.sources));
   hikes.push({
     ...base,
+    ...trailDetails(lines, groundOrNull, 1),
     activities: lines.reduce((bits, line) => bits | line.activities, 1),
     county: countyAt({ lat: (Math.min(...lats) + Math.max(...lats)) / 2, lon: (Math.min(...lons) + Math.max(...lons)) / 2 }),
     ...elevationRange(lines.flatMap(line => line.coords)),
@@ -308,6 +319,7 @@ for (const [name, lines] of byName) {
       activities,
       miles: Math.round(miles * 100) / 100,
       ...routeOfficial(cluster.lines),
+      ...trailDetails(cluster.lines, groundOrNull, activities),
       center,
       bounds: { south: round(cluster.box.south), north: round(cluster.box.north), west: round(cluster.box.west), east: round(cluster.box.east) },
       sources: [...new Set(cluster.lines.flatMap(line => line.sources))].sort(),
@@ -378,6 +390,7 @@ writeFileSync(join(data, 'official.json'), JSON.stringify({ checkedAt: officialS
 const outfitterSource = JSON.parse(readFileSync(join(sources, 'outfitters.source.json'), 'utf8'));
 const outfitters = outfitterSource.outfitters.map(directoryEntry);
 writeFileSync(join(data, 'outfitters.json'), JSON.stringify({ checkedAt: outfitterSource.checkedAt, outfitters }));
+writeFileSync(join(data, 'gauges.json'), JSON.stringify({ gauges: JSON.parse(readFileSync(join(sources, 'gauges.source.json'), 'utf8')).gauges }));
 console.log(`${stayList.length} stays, ${officialSource.official.length} official pages, ${outfitters.length} outfitters`);
 
 for (const hike of hikes) {

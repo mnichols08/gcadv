@@ -6,6 +6,8 @@ import * as backup from './backup.js';
 import { arrivedAt, groupCheckpoints, progress, progressText } from './checkpoints.js';
 import { cacheFacts, MAX_FILE_BYTES, mergeCaches, nearestFirst, parseGpx } from './geocaches.js';
 import { ACTIVITIES, activityById, activityNames, filterRoutes, matchesActivity, routeLines } from './activities.js';
+import { fetchConditions, gaugeText, isFresh, roughly, snowText, withSaved } from './conditions.js';
+import { detailFacts, profilePath } from './trail-details.js';
 import { nearbyDirectory, NEARBY_MILES, planTrip, seasonalActivities } from './planner.js';
 import { accessFact, boundsCenter, decodeHike, directionsUrl, groupHikes, hikeFacts, nearestAccess, routeProgress, withMargin } from './hikes.js';
 import { buildPlaceIndex, decodeLine, nearestOnLines, nearestPlace, nearestWater, shardKey, shardsForBounds, SHARD_DEGREES } from './landscape.js';
@@ -1117,6 +1119,30 @@ function outfitterRow({ entry, miles: away }) {
   return row;
 }
 
+// Facts and the elevation sparkline, for both hand-picked hikes and listed trails.
+function detailNodes(item) {
+  const nodes = detailFacts(item).map(fact => {
+    const line = document.createElement('small');
+    line.textContent = fact;
+    return line;
+  });
+  if (item.profile?.length > 1) {
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('class', 'profile');
+    svg.setAttribute('viewBox', '0 0 240 40');
+    svg.setAttribute('preserveAspectRatio', 'none');
+    svg.setAttribute('role', 'img');
+    const low = Math.min(...item.profile);
+    const high = Math.max(...item.profile);
+    svg.setAttribute('aria-label', `Elevation over ${item.profileMiles} miles of the longest mapped section, from ${formatFeet(low)} to ${formatFeet(high)}`);
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', profilePath(item.profile, 240, 40));
+    svg.append(path);
+    nodes.push(svg);
+  }
+  return nodes;
+}
+
 function directorySection(heading, rows, build) {
   if (!rows.length) return null;
   const section = document.createElement('div');
@@ -1224,6 +1250,7 @@ async function renderPlan() {
     return;
   }
   const trip = planTrip({ stay, activityIds: seasonalActivities(month).map(({ id }) => id).filter(id => chosen.has(id)), routes: routeData.routes, outfitters: directory.outfitters, official: directory.official, guides: directory.guides });
+  results.append(textButton(`Conditions near ${stay.label}`, () => openConditions(stay, stay.label)));
   for (const { activity, trails, outfitters, official } of trip.sections) {
     const section = document.createElement('section');
     section.className = 'plan-section';
@@ -1276,6 +1303,144 @@ async function renderPlan() {
   }
 }
 
+/* Conditions */
+const clock = time => new Date(time).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+const dayAndClock = time => new Date(time).toLocaleString('en-US', { weekday: 'short', hour: 'numeric', minute: '2-digit' });
+const conditionsKey = place => {
+  const { lat, lon } = roughly(place);
+  return `trail-conditions:${lat},${lon}`;
+};
+
+function savedConditions(place) {
+  try {
+    return JSON.parse(localStorage.getItem(conditionsKey(place)));
+  } catch {
+    return null;
+  }
+}
+
+function saveConditions(place, conditions) {
+  try {
+    localStorage.setItem(conditionsKey(place), JSON.stringify(conditions));
+  } catch { /* Saved readings are only a convenience. */ }
+}
+
+async function loadGauges() {
+  state.gauges ||= (await (await fetch(dataUrl('gauges.json'))).json()).gauges;
+  return state.gauges;
+}
+
+function conditionsSection(heading, ...children) {
+  const section = document.createElement('section');
+  section.className = 'plan-section';
+  const title = document.createElement('h3');
+  title.textContent = heading;
+  section.append(title, ...children);
+  return section;
+}
+
+const textLine = (text, tag = 'p', className = 'fine') => {
+  const line = document.createElement(tag);
+  line.className = className;
+  line.textContent = text;
+  return line;
+};
+
+function renderConditions(conditions, directory, place) {
+  const holder = $('conditionsList');
+  holder.replaceChildren();
+  const unavailable = 'Not available right now.';
+  const savedNote = section => (conditions.savedSections?.includes(section) ? [textLine(`No connection, so this is from ${dayAndClock(conditions.savedAt)}.`)] : []);
+
+  const alerts = (conditions.alerts || []).map(alert => {
+    const row = document.createElement('li');
+    row.className = 'alert';
+    const strong = document.createElement('strong');
+    strong.textContent = alert.headline;
+    row.append(strong);
+    return row;
+  });
+  if (alerts.length) {
+    const list = document.createElement('ul');
+    list.className = 'list';
+    list.append(...alerts);
+    holder.append(conditionsSection('Weather alerts', list, ...savedNote('alerts')));
+  } else {
+    holder.append(conditionsSection('Weather alerts', textLine(conditions.alerts === null ? unavailable : 'None active from the National Weather Service.'), ...savedNote('alerts')));
+  }
+
+  const forecastList = document.createElement('ul');
+  forecastList.className = 'list';
+  forecastList.append(...(conditions.forecast || []).map(period => {
+    const row = document.createElement('li');
+    const name = document.createElement('strong');
+    name.textContent = `${period.name}: ${period.temperature}`;
+    const summary = document.createElement('small');
+    summary.textContent = [period.summary, period.wind && `wind ${period.wind}`].filter(Boolean).join(', ');
+    const title = document.createElement('span');
+    title.className = 'item-title';
+    title.append(name, summary);
+    row.append(title);
+    return row;
+  }));
+  holder.append(conditionsSection('Forecast', conditions.forecast ? forecastList : textLine(unavailable), ...savedNote('forecast')));
+
+  holder.append(conditionsSection('Snow on the ground',
+    textLine(conditions.snowInches === null ? unavailable : snowText(conditions.snowInches), 'p', 'hike-note'),
+    textLine('NOAA\'s modeled estimate for this area, not a trail report. It doesn\'t show grooming.'),
+    ...savedNote('snowInches')));
+
+  const riverList = document.createElement('ul');
+  riverList.className = 'list';
+  riverList.append(...(conditions.rivers || []).map(river => {
+    const row = document.createElement('li');
+    const title = document.createElement('span');
+    title.className = 'item-title';
+    const name = document.createElement('strong');
+    name.textContent = river.name;
+    const level = document.createElement('small');
+    level.textContent = gaugeText(river);
+    const when = document.createElement('small');
+    when.textContent = `${clock(river.time)} · about ${Math.round(river.miles)} mi away`;
+    title.append(name, level, when);
+    row.append(title);
+    return row;
+  }));
+  const hasRivers = conditions.rivers?.length;
+  holder.append(conditionsSection('Rivers nearby',
+    hasRivers ? riverList : textLine(conditions.rivers === null ? unavailable : 'No gauge reporting nearby.'),
+    textLine('USGS readings, which are provisional. They don\'t say whether a river is safe, so check with an outfitter or land manager before paddling.'),
+    ...savedNote('rivers')));
+
+  const managers = nearbyDirectory(directory.official, place, null, 3);
+  const closures = managers.map(({ entry }) => externalLink(entry.name, entry.url));
+  holder.append(conditionsSection('Closures and trail status', textLine('This app can\'t see closures, so check the land manager.'), ...closures));
+  holder.append(textLine(`Updated ${clock(conditions.fetchedAt)}. Looking this up sends a rough location, to about two-thirds of a mile, to NOAA and the National Weather Service.`));
+}
+
+async function openConditions(place, label) {
+  $('conditionsTitle').textContent = `Conditions near ${label}`;
+  const holder = $('conditionsList');
+  holder.replaceChildren(textLine('Checking…'));
+  $('conditionsDialog').showModal();
+  const ticket = (state.conditionsTicket = (state.conditionsTicket || 0) + 1);
+  try {
+    const [gauges, directory] = await Promise.all([loadGauges(), loadDirectory()]);
+    const saved = savedConditions(place);
+    let conditions = isFresh(saved) ? saved : null;
+    if (!conditions) {
+      const fresh = await fetchConditions(place, gauges);
+      conditions = withSaved(fresh, saved);
+      // A section that failed keeps its older reading, so only new answers overwrite.
+      const nothingNew = ['alerts', 'forecast', 'snowInches', 'rivers'].every(section => fresh[section] === null);
+      if (!nothingNew) saveConditions(place, { ...conditions, savedSections: [] });
+    }
+    if (ticket === state.conditionsTicket) renderConditions(conditions, directory, place);
+  } catch {
+    if (ticket === state.conditionsTicket) holder.replaceChildren(textLine('Conditions aren\'t available. Reopen the app with signal once to store what they need.'));
+  }
+}
+
 function openPlan() {
   $('planDialog').showModal();
   renderPlan();
@@ -1295,7 +1460,7 @@ function routeRow(route, away = null, closeDialog = () => $('finderDialog').clos
   facts.textContent = [`${route.miles.toFixed(route.miles < 10 ? 2 : 1)} mi of mapped trail`, route.surface && `surface: ${route.surface.toLowerCase()}`].filter(Boolean).join(' · ');
   const marked = document.createElement('small');
   marked.textContent = `Marked for ${activityNames(route.activities).join(', ')}`;
-  title.append(name, area, facts, marked);
+  title.append(name, area, facts, marked, ...detailNodes(route));
   if (route.noUse) {
     const closed = document.createElement('small');
     closed.className = 'official-note';
@@ -1332,6 +1497,7 @@ function routeRow(route, away = null, closeDialog = () => $('finderDialog').clos
       }
     }),
   );
+  row.append(textButton('Conditions', () => openConditions(route.center, route.name)));
   if (route.official) row.append(externalLink(route.official.label, route.official.url));
   const way = route.access?.[0] || route.center;
   const link = document.createElement('a');
@@ -1428,7 +1594,7 @@ async function renderFinder() {
       area.textContent = hike.area;
       const facts = document.createElement('small');
       facts.textContent = hikeFacts(hike);
-      title.append(name, area, facts);
+      title.append(name, area, facts, ...detailNodes(hike));
       row.append(title);
       const access = document.createElement('small');
       access.textContent = accessFact(hike);
@@ -1449,6 +1615,7 @@ async function renderFinder() {
           $('finderDialog').close();
           openMaps(withMargin(hike.bounds));
         }),
+        textButton('Conditions', () => openConditions(hike.point || boundsCenter(hike.bounds), hike.name)),
       );
       const way = hike.access?.[0] || hike.point;
       if (way) {
@@ -1857,7 +2024,7 @@ async function openBackup() {
     renderBackup();
     renderBackupResult(state.backupLast);
   } catch (error) {
-    if (error.status === 503) {
+    if (error.status === 503 || error.code === 'backup_unavailable') {
       state.backupAvailable = false;
       renderBackup('Backup isn\'t set up on this site yet. Everything is safe on this phone.');
     } else if (error.status === 401) {
@@ -2499,6 +2666,10 @@ $('goWater').addEventListener('click', () => {
 $('guideStop').addEventListener('click', () => (state.route ? endRoute() : setTarget(null)));
 $('activityChip').addEventListener('click', () => setActivity(''));
 $('openPlan').addEventListener('click', openPlan);
+$('openConditions').addEventListener('click', () => {
+  $('moreDialog').close();
+  openConditions(state.fix || map.center, state.fix ? 'where you are' : 'the middle of the map');
+});
 $('planHere').addEventListener('click', () => {
   rememberPlan({ ...readPlan(), here: true });
   renderPlan();
