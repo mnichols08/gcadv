@@ -214,3 +214,18 @@ test('a trail page link shows the trail without asking for location', async ({ p
   await expect(dialog).toContainText('Unexploded shells');
   expect(await page.evaluate(() => window.__watching)).toBe(0);
 });
+
+test('a printed card opens the planner with its town chosen', async ({ page }) => {
+  await page.goto('about:blank');
+  await page.goto('/trails/#plan=ohiopyle-pa');
+  await expect(page.locator('#planDialog')).toBeVisible();
+  await expect(page.locator('#planStay')).toHaveValue('ohiopyle-pa');
+  await expect(page.locator('#planResults')).toContainText('Pick one or more');
+});
+
+test('a card for a town the app does not know still opens the planner', async ({ page }) => {
+  await page.goto('about:blank');
+  await page.goto('/trails/#plan=nowhere');
+  await expect(page.locator('#planDialog')).toBeVisible();
+  await expect(page.locator('#planResults')).toContainText('Pick where you');
+});
