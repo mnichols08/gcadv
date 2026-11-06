@@ -593,3 +593,31 @@ button, a, select { -webkit-tap-highlight-color: transparent; }
   .home-page .local-section::before { clip-path: polygon(0 42px, 100% 0, 100% calc(100% - 42px), 0 100%); }
   .home-page .local-section-image { clip-path: polygon(0 22px, 100% 0, 100% calc(100% - 22px), 0 100%); }
 }
+
+.article-body .trail-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 0 0 22px; padding: 0; list-style: none; }
+.article-body .trail-facts li { margin: 0; padding: 12px 14px; border: 1px solid var(--line); border-radius: 9px; background: var(--surface-raised); line-height: 1.35; }
+.trail-facts strong, .trail-facts span { display: block; }
+.trail-facts strong { color: var(--ink); font-family: "Manrope", system-ui, sans-serif; font-size: 18px; }
+.trail-facts span { margin-top: 3px; color: var(--muted); font-size: 12px; }
+.trail-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.article-body .trail-actions a { text-decoration: none; }
+.article-body .trail-actions .button-primary { color: var(--page); }
+.article-body .trail-actions .button:not(.button-primary) { border-color: var(--line); background: var(--surface-raised); }
+.trail-figure { margin: 0 0 22px; }
+.trail-figure figcaption { margin-top: 6px; color: var(--muted); font-size: 12px; line-height: 1.5; }
+.trail-outline, .trail-profile { display: block; width: 100%; border: 1px solid var(--line); border-radius: 9px; background: var(--surface-raised); }
+.trail-outline { height: auto; }
+.trail-outline-line { fill: none; stroke: var(--leaf); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.trail-outline-spot { fill: var(--gold); stroke: var(--ink); stroke-width: 1.5; }
+.trail-outline-scale { fill: none; stroke: var(--ink); stroke-width: 2; }
+.trail-outline-text { fill: var(--muted); font-size: 13px; }
+.trail-profile { height: 110px; }
+.trail-profile path { fill: none; stroke: var(--leaf); stroke-width: 2.5; vector-effect: non-scaling-stroke; }
+.trail-warning { padding: 12px 14px; border-left: 4px solid var(--focus); background: var(--surface-soft); font-size: 14px; line-height: 1.6; }
+.trail-official, .trail-caution { padding: 12px 14px; border-left: 4px solid var(--gold); background: var(--surface-soft); font-size: 14px; line-height: 1.6; }
+.article-body .trail-list { padding: 0; list-style: none; }
+.article-body .trail-list li { padding: 0; margin: 0 0 6px; line-height: 1.5; }
+.trail-list small, .trail-places small { color: var(--muted); }
+.article-body .trail-places { padding: 0; list-style: none; }
+.article-body .trail-places li { padding: 0; margin: 0 0 16px; line-height: 1.55; }
+.trail-credit { margin-top: 30px; color: var(--muted); font-size: 12px; }

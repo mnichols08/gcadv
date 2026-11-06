@@ -1,5 +1,5 @@
 // Offline is the normal case on a trail. Bump SHELL_CACHE when the file list changes.
-const SHELL_CACHE = 'hike-shell-v11';
+const SHELL_CACHE = 'hike-shell-v12';
 const SAVED_CACHE = 'hike-saved-v1'; // Areas the hiker chose to keep; only they can clear it.
 const AUTO_CACHE = 'hike-auto-v1'; // Tiles and shards already seen; trimmed automatically.
 const TILE_HOST = 'https://basemap.nationalmap.gov';

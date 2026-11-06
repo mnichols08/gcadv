@@ -123,8 +123,19 @@ export function trailDetails(rawLines, groundAt, activities = 0) {
   return details;
 }
 
+// A long route is many short mapped pieces, and rail and canal grades run through cuts and over
+// bridges that the elevation data doesn't see. Either way every piece adds noise to the climb, so
+// the Great Allegheny Passage would otherwise read as 20,000 ft and very strenuous.
+const LONGEST_MEASURED_MILES = 25;
+const GENTLE_GRADE = /\b(rail|railroad|canal|towpath|passage|deckers creek|allegheny highlands|indian creek valley|blackwater canyon|coal (and |& )?coke|mon river|west virginia northern)\b/i;
+export const climbIsReliable = ({ miles, name = '' }) => !(miles >= LONGEST_MEASURED_MILES) && !GENTLE_GRADE.test(name);
+
 export function detailFacts(item) {
   const facts = [];
+  if (!climbIsReliable(item)) {
+    facts.push(...detailFacts({ ...item, miles: 0, name: '', climbFeet: undefined, effort: undefined }));
+    return facts;
+  }
   if (Number.isFinite(item.climbFeet)) facts.push(item.climbFeet < 50 ? 'Nearly flat' : `About ${formatFeet(item.climbFeet)} of climbing, going the harder way`);
   if (item.effort) facts.push(`Estimated effort: ${item.effort}, from length and climb only`);
   if (item.sac) facts.push(SAC_TEXT[item.sac]);

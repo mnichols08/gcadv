@@ -109,13 +109,16 @@ self.addEventListener("activate", event => event.waitUntil((async () => {
         if (!page) return next();
         response.setHeader("Content-Type", page.name.endsWith(".xml") ? "application/xml" :
           page.name.endsWith(".txt") ? "text/plain; charset=utf-8" : "text/html; charset=utf-8");
-        response.end(page.source.replaceAll("./site.css", "./src/site.scss"));
+        response.end(page.source.replaceAll("./site.css", "./src/site.scss").replaceAll('"/site.css"', '"/src/site.scss"'));
       });
     },
     closeBundle() {
       if (command !== "build") return;
       site ||= buildSite();
-      for (const page of site.pages) fs.writeFileSync(path.join(DIST, page.name), page.source);
+      for (const page of site.pages) {
+        fs.mkdirSync(path.dirname(path.join(DIST, page.name)), { recursive: true });
+        fs.writeFileSync(path.join(DIST, page.name), page.source);
+      }
       fs.cpSync(TRAILS, path.join(DIST, "trails"), { recursive: true });
       fs.mkdirSync(path.join(DIST, "trails", "vendor"), { recursive: true });
       for (const name of ["mapbox-gl.js", "mapbox-gl.css"]) {
@@ -134,8 +137,9 @@ self.addEventListener("activate", event => event.waitUntil((async () => {
       }
 
       // The trail app caches itself, and its map data is far too large to download on every first visit.
+      // Nor should a first visit download hundreds of trail pages.
       const assets = walkFiles(DIST).filter((name) => name !== "service-worker.js" &&
-        name !== "map-config.json" && !name.endsWith(".map") && !name.startsWith("trails/")).sort();
+        name !== "map-config.json" && !name.endsWith(".map") && !name.startsWith("trails/") && !name.startsWith("trail/") && !name.startsWith("trails-in/")).sort();
       const hash = crypto.createHash("sha256");
       for (const name of assets) {
         hash.update(name);

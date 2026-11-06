@@ -199,3 +199,18 @@ test('the app links to a privacy page that loads', async ({ page }) => {
   await expect(policy.getByRole('heading', { name: 'Privacy', exact: true })).toBeVisible();
   await expect(policy.getByText('stay on your phone')).toBeVisible();
 });
+
+test('a trail page link shows the trail without asking for location', async ({ page }) => {
+  await page.addInitScript(() => {
+    const original = navigator.geolocation.watchPosition;
+    window.__watching = 0;
+    navigator.geolocation.watchPosition = (...args) => { window.__watching += 1; return original.apply(navigator.geolocation, args); };
+  });
+  await page.goto('about:blank');
+  await page.goto('/trails/#trail=rohrbaugh-trail');
+  const dialog = page.locator('#finderDialog');
+  await expect(dialog.getByText('Rohrbaugh Trail', { exact: true })).toBeVisible();
+  await expect(dialog.getByRole('button', { name: 'Follow this trail' })).toBeVisible();
+  await expect(dialog).toContainText('Unexploded shells');
+  expect(await page.evaluate(() => window.__watching)).toBe(0);
+});

@@ -9,7 +9,7 @@ import { ACTIVITIES, activityById, activityNames, filterRoutes, matchesActivity,
 import { fetchConditions, gaugeText, isFresh, roughly, snowText, withSaved } from './conditions.js';
 import { detailFacts, profilePath } from './trail-details.js';
 import { nearbyDirectory, NEARBY_MILES, planTrip, seasonalActivities } from './planner.js';
-import { accessFact, boundsCenter, decodeHike, directionsUrl, groupHikes, hikeFacts, nearestAccess, routeProgress, withMargin } from './hikes.js';
+import { areaWarning, accessFact, boundsCenter, decodeHike, directionsUrl, groupHikes, hikeFacts, nearestAccess, routeProgress, withMargin } from './hikes.js';
 import { buildPlaceIndex, decodeLine, nearestOnLines, nearestPlace, nearestWater, shardKey, shardsForBounds, SHARD_DEGREES } from './landscape.js';
 import { scaleBar, TopoMap } from './map.js';
 import { clearSaved, planArea, saveArea, tileUrl, TILE_MAX_ZOOM } from './offline.js';
@@ -1207,7 +1207,7 @@ async function renderPlan() {
   let directory;
   let routeData;
   try {
-    [directory, routeData] = await Promise.all([loadDirectory(), loadRoutes()]);
+    [directory, routeData] = await Promise.all([loadDirectory(), loadRoutes(), loadHikes()]);
   } catch {
     results.textContent = 'The planner\'s lists aren\'t available. Reopen the app with signal once to store them.';
     return;
@@ -1461,6 +1461,13 @@ function routeRow(route, away = null, closeDialog = () => $('finderDialog').clos
   const marked = document.createElement('small');
   marked.textContent = `Marked for ${activityNames(route.activities).join(', ')}`;
   title.append(name, area, facts, marked, ...detailNodes(route));
+  const warning = areaWarning(route, state.hikes || []);
+  if (warning) {
+    const danger = document.createElement('small');
+    danger.className = 'official-note';
+    danger.textContent = warning;
+    title.append(danger);
+  }
   if (route.noUse) {
     const closed = document.createElement('small');
     closed.className = 'official-note';
@@ -2680,6 +2687,28 @@ const openPlanFromLink = () => {
 };
 window.addEventListener('hashchange', openPlanFromLink);
 openPlanFromLink();
+// Trail pages link here. This only shows the trail: following it turns on GPS, and that stays a choice.
+async function openTrailFromLink() {
+  const id = /^#trail=([\w-]+)$/.exec(location.hash)?.[1];
+  if (!id || $('finderDialog').open) return;
+  const [{ routes }] = await Promise.all([loadRoutes(), loadHikes()]);
+  const route = routes.find(item => item.id === id);
+  if (!route) return;
+  const shards = await Promise.all(shardsForBounds(route.bounds).map(loadTrailShard));
+  const decoded = routeLines(shards, route);
+  state.viewing = { hike: { id: route.id }, line: decoded.flatMap((line, seg) => line.points.map(point => ({ ...point, seg }))) };
+  setFollow(false);
+  fitViews(route.bounds);
+  renderFinderChoices();
+  const list = document.createElement('ul');
+  list.className = 'list route-list';
+  list.append(routeRow(route));
+  $('finderList').replaceChildren(list);
+  $('finderHelp').replaceChildren();
+  $('finderDialog').showModal();
+  redraw();
+}
+window.addEventListener('hashchange', openTrailFromLink);
 $('openFinder').addEventListener('click', () => {
   $('finderDialog').showModal();
   renderFinder();
@@ -2735,6 +2764,7 @@ fetch(dataUrl('index.json')).then(response => response.json()).then(index => {
   state.trailIndex = index.trailShards || [];
   state.terrainIndex = index.terrainBlocks || [];
   viewChanged();
+  openTrailFromLink();
 }).catch(() => {});
 
 try {

@@ -74,8 +74,8 @@ test('a listed trail has conditions and its details', async ({ page }) => {
   await stubServices(page);
   await page.getByRole('button', { name: 'Find a trail' }).click();
   await page.locator('#finderCounty').selectOption('Tucker County, WV');
-  const row = page.locator('#finderList .route-list li').first();
-  await expect(row).toContainText(/climbing|Nearly flat/);
+  const row = page.locator('#finderList .route-list li').filter({ hasText: /climbing|Nearly flat/ }).first();
+  await expect(row).toBeVisible();
   await row.getByRole('button', { name: 'Conditions' }).click();
   await expect(page.locator('#conditionsTitle')).toContainText('Conditions near');
   await expect(page.locator('#conditionsList')).toContainText('Tonight: 28°F');
