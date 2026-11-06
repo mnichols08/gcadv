@@ -211,5 +211,6 @@ test('a trail page link shows the trail without asking for location', async ({ p
   const dialog = page.locator('#finderDialog');
   await expect(dialog.getByText('Rohrbaugh Trail', { exact: true })).toBeVisible();
   await expect(dialog.getByRole('button', { name: 'Follow this trail' })).toBeVisible();
+  await expect(dialog).toContainText('Unexploded shells');
   expect(await page.evaluate(() => window.__watching)).toBe(0);
 });

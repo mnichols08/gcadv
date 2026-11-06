@@ -3,7 +3,7 @@
 import fs from 'node:fs';
 import { ACTIVITIES, activityNames, ATV, DIRT_BIKE, routeLines, SNOWMOBILE, UTV } from '../apps/trails/public/modules/activities.js';
 import { distanceMiles, formatFeet } from '../apps/trails/public/modules/geo.js';
-import { directionsUrl } from '../apps/trails/public/modules/hikes.js';
+import { areaWarning, directionsUrl } from '../apps/trails/public/modules/hikes.js';
 import { shardsForBounds } from '../apps/trails/public/modules/landscape.js';
 import { climbIsReliable, detailFacts, profilePath } from '../apps/trails/public/modules/trail-details.js';
 import { decodeTrail } from '../apps/trails/public/modules/trails.js';
@@ -154,7 +154,7 @@ const breadcrumbData = (siteUrl, crumbs) => ({
   itemListElement: crumbs.map(([name, href], index) => ({ '@type': 'ListItem', position: index + 1, name, ...(href ? { item: `${siteUrl}${href}` } : {}) })),
 });
 
-export function trailPage(route, lines, nearby, { siteUrl, escapeHtml }) {
+export function trailPage(route, lines, nearby, { siteUrl, escapeHtml, hikes = [] }) {
   const marked = activityNames(route.activities);
   const counties = countiesOf(route);
   const others = counties.filter(county => county !== route.county);
@@ -165,12 +165,14 @@ export function trailPage(route, lines, nearby, { siteUrl, escapeHtml }) {
   const closed = route.noUse ? `<li>Forest Service: no ${escapeHtml(activityNames(route.noUse).join(', no '))}</li>` : '';
   const seasons = Object.entries(route.seasons || {}).map(([bit, text]) => `<li>Forest Service season for ${escapeHtml(activityNames(Number(bit))[0])}: ${escapeHtml(text)}</li>`).join('');
   const official = route.official ? `<p class="trail-official">${escapeHtml(route.official.note)} <a href="${escapeHtml(route.official.url)}" rel="noopener">${escapeHtml(route.official.label)}</a>.</p>` : '';
+  const warning = areaWarning(route, hikes);
   const way = route.access?.[0] || route.center;
   const access = (route.access || []).map(spot => {
     const label = `${spot.type === 'trailhead' ? 'Trailhead' : 'Parking'}${spot.name ? `: ${spot.name}` : ''}`;
     return `<li>${escapeHtml(label)}, about ${escapeHtml(formatFeet(spot.feet))} from the mapped trail. <a href="${escapeHtml(directionsUrl(spot))}" rel="noopener">Driving directions</a></li>`;
   }).join('');
   const body = `
+    ${warning ? `<p class="trail-warning"><strong>Safety warning.</strong> ${escapeHtml(warning)}</p>` : ''}
     ${official}
     <ul class="trail-facts">
       <li><strong>${milesText(route.miles)}</strong><span>mapped trail</span></li>
@@ -253,7 +255,8 @@ function directoryPage(counties, official, { siteUrl, escapeHtml }) {
 export function buildTrailPages({ siteUrl, escapeHtml }) {
   const { routes, counties } = readData('routes.json');
   const { official } = readData('official.json');
-  const context = { siteUrl, escapeHtml };
+  const { hikes } = readData('hikes.json');
+  const context = { siteUrl, escapeHtml, hikes };
   const shards = new Map();
   const withLines = publishableRoutes(routes).map(route => ({ route, lines: loadLines(route, shards) })).filter(({ lines }) => lines.length);
   const published = withLines.map(({ route }) => route);

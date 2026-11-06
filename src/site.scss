@@ -613,6 +613,7 @@ button, a, select { -webkit-tap-highlight-color: transparent; }
 .trail-outline-text { fill: var(--muted); font-size: 13px; }
 .trail-profile { height: 110px; }
 .trail-profile path { fill: none; stroke: var(--leaf); stroke-width: 2.5; vector-effect: non-scaling-stroke; }
+.trail-warning { padding: 12px 14px; border-left: 4px solid var(--focus); background: var(--surface-soft); font-size: 14px; line-height: 1.6; }
 .trail-official, .trail-caution { padding: 12px 14px; border-left: 4px solid var(--gold); background: var(--surface-soft); font-size: 14px; line-height: 1.6; }
 .article-body .trail-list { padding: 0; list-style: none; }
 .article-body .trail-list li { padding: 0; margin: 0 0 6px; line-height: 1.5; }

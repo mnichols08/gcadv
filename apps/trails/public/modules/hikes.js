@@ -7,6 +7,20 @@ import { decodeTrail } from './trails.js';
 export const OFF_ROUTE_FEET = 300;
 export const BACK_ON_ROUTE_FEET = 150;
 
+// The shells warning is written on a few hand-picked hikes, but it's true of the land, not just those
+// trails, so it reaches every trail within the area they cover. It says shells are found "here", so
+// it stops there rather than reaching into neighboring valleys it may not be true of.
+export function areaWarning(route, hikes) {
+  const warned = hikes.filter(hike => /unexploded/i.test(hike.note || ''));
+  if (!warned.length) return '';
+  const { lat, lon } = route.center;
+  const within = lat >= Math.min(...warned.map(hike => hike.bounds.south))
+    && lat <= Math.max(...warned.map(hike => hike.bounds.north))
+    && lon >= Math.min(...warned.map(hike => hike.bounds.west))
+    && lon <= Math.max(...warned.map(hike => hike.bounds.east));
+  return within ? warned[0].note : '';
+}
+
 export const decodeHike = hike => ({ ...hike, decoded: (hike.lines || []).map(decodeTrail) });
 
 export function groupHikes(hikes, position = null) {

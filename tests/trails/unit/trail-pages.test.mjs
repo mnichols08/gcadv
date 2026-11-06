@@ -109,3 +109,12 @@ test('a long route or a rail grade shows no climb or effort', () => {
   assert.doesNotMatch(rail, /900 ft|Strenuous/);
   assert.match(trailPage(route(), lines, [], context).source, /400 ft/);
 });
+
+test('trails on or near the old Dolly Sods training ground carry the shells warning', () => {
+  const page = id => trailPages.find(item => item.name === 'trail/' + id + '.html').source;
+  for (const id of ['rohrbaugh-trail', 'red-creek-trail', 'blackbird-knob-trail', 'fisher-spring-run-trail', 'wildlife-trail']) {
+    assert.match(page(id), /Unexploded shells/, id);
+    assert.match(page(id), /1-888-283-0303/, id);
+  }
+  for (const id of ['lostland-run-trail', 'swallow-falls-trail', 'great-allegheny-passage', 'farm-view-trail', 'middle-valley-trail-2']) assert.doesNotMatch(page(id), /Unexploded/, id);
+});
