@@ -52,6 +52,7 @@ export const countySlug = county => county.toLowerCase().replace(/[^a-z]+/g, '-'
 export const trailPath = route => `/trail/${route.id}.html`;
 export const countyPath = county => `/trails-in/${countySlug(county)}.html`;
 export const DIRECTORY_PATH = '/trail-directory.html';
+export const HUNTING_PATH = '/hunting.html';
 
 const milesText = miles => `${miles.toFixed(miles < 10 ? 2 : 1)} mi`;
 const listText = items => (items.length < 2 ? items.join('') : `${items.slice(0, -1).join(', ')} and ${items.at(-1)}`);
@@ -144,7 +145,7 @@ const shell = ({ siteUrl, escapeHtml, path, title, description, jsonLd, crumbs, 
       <p class="article-dek">${escapeHtml(dek)}</p>
       <div class="article-body">${body}</div>
     </article></div>
-    <footer class="editorial-footer"><a href="${DIRECTORY_PATH}">Browse trails by county</a><a href="/#trip-guides">Browse trip guides</a><a href="/trails/">Open the trail app</a><a href="/privacy.html">Privacy</a></footer>
+    <footer class="editorial-footer"><a href="${DIRECTORY_PATH}">Browse trails by county</a><a href="/#trip-guides">Browse trip guides</a><a href="/trails/">Open the trail app</a><a href="${HUNTING_PATH}">Hunting and trapping</a><a href="/privacy.html">Privacy</a></footer>
   </main>
 </body>
 </html>`;
@@ -186,6 +187,7 @@ export function trailPage(route, lines, nearby, { siteUrl, escapeHtml, hikes = [
     <h2>Marked for</h2>
     <p>${escapeHtml(listText(marked.map((name, index) => (index ? name : name[0].toUpperCase() + name.slice(1)))))}.</p>
     <p class="trail-caution">That comes from map data and can be wrong or out of date. Confirm the rules, closures and any permit with the land manager before you go.</p>
+    <p class="trail-caution"><strong>Hunting season:</strong> this trail may be on or near land open to hunting. In season, wear blaze orange or other high-visibility colors, and put some on your dog. <a href="${HUNTING_PATH}">See season dates and safety</a>.</p>
     ${facts.length || closed || seasons ? `<h2>What the map data says</h2><ul>${facts.map(fact => `<li>${escapeHtml(fact)}</li>`).join('')}${closed}${seasons}</ul>` : ''}
     ${access ? `<h2>Getting there</h2><ul>${access}</ul>` : ''}
     ${others.length ? `<p>This trail also reaches ${escapeHtml(listText(others))}. The length covers only what's mapped in this region, and it includes every mapped branch, so it may not match a sign or the loop you plan.</p>` : '<p>The length includes every mapped branch, so it may not match a sign or the loop you plan.</p>'}
@@ -247,7 +249,50 @@ function directoryPage(counties, official, { siteUrl, escapeHtml }) {
       <p><a href="/trails/#plan">Plan a trip in the trail app</a> to see what's closest to where you're staying.</p>
       <h2>Snowmobile, ATV and UTV riding</h2>
       <p>Riding rules change by the season and the land manager, so we only give a motorized trail its own page when a land manager confirms it. Start with the managers below, and see the <a href="/trails/">trail app</a> for trails a map source marks for riding.</p>
+      <h2>Hunting and trapping</h2>
+      <p>Many of these trails are on or near land open to hunting. In season, wear blaze orange or other high-visibility colors. <a href="${HUNTING_PATH}">See season dates, safety and each state's rules</a>.</p>
       <h2>Parks and forests</h2><ul class="trail-places">${places}</ul>`,
+    }),
+  };
+}
+
+const longDate = day => new Date(`${day}T12:00:00`).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
+export function huntingPage({ season, checkedAt, firearms, states }, { siteUrl, escapeHtml }) {
+  const crumbs = [['Trails', DIRECTORY_PATH], ['Hunting and trapping', null]];
+  const dateRows = firearms.map(({ name, from, to, label, area }) => `<tr><td>${escapeHtml(name)}</td><td>${escapeHtml(longDate(from))} to ${escapeHtml(longDate(to))}</td><td>${escapeHtml(label)}. ${escapeHtml(area)}.</td></tr>`).join('');
+  const stateSections = states.map(({ name, sundays, links }) => `<h3>${escapeHtml(name)}</h3><p>${escapeHtml(sundays)}</p><ul>${links.map(({ label, url }) => `<li><a href="${escapeHtml(url)}" rel="noopener">${escapeHtml(label)}</a></li>`).join('')}</ul>`).join('');
+  return {
+    name: HUNTING_PATH.slice(1),
+    source: shell({
+      siteUrl, escapeHtml, path: HUNTING_PATH, crumbs,
+      title: 'Hunting and Trapping Around Garrett County: Seasons and Rules',
+      description: `${season} firearms deer season dates and official hunting and trapping links for Maryland, West Virginia and Pennsylvania, plus safety for anyone on the trails.`,
+      heading: 'Hunting and trapping around Garrett County',
+      dek: 'Season dates and official rules for hunters and trappers, and what everyone else on the trails should know.',
+      jsonLd: { '@context': 'https://schema.org', ...breadcrumbData(siteUrl, crumbs) },
+      body: `
+      <p class="trail-caution">This is a starting point, not the law. Each state's own regulations decide, and rules differ by county, land and season. Dates were checked ${escapeHtml(longDate(checkedAt))}.</p>
+      <h2>If you're hiking or riding where people hunt</h2>
+      <p>Many trails here cross land open to hunting, including state forests, game lands and national forest. Even if you aren't hunting:</p>
+      <ul>
+        <li><strong>Wear high-visibility colors.</strong> Blaze orange is best, on your head and upper body so you can be seen from every side.</li>
+        <li><strong>Put high-visibility colors on your dog,</strong> like an orange vest or collar, and keep it close.</li>
+        <li><strong>Avoid white, tan, brown and black.</strong> These can look like game through the trees.</li>
+        <li><strong>Take extra care at dawn and dusk,</strong> when many hunters are out and it's harder to see you.</li>
+        <li><strong>Stay on the trail and be easy to hear.</strong> Talking as you go lets hunters know you're there.</li>
+        <li><strong>Don't count on Sundays being quiet.</strong> All three states have Sunday hunting here.</li>
+        <li><strong>Check with the land manager if you're unsure.</strong> Some areas close to other uses during firearms season.</li>
+      </ul>
+      <h2>Firearms deer season, ${escapeHtml(season)}</h2>
+      <table><thead><tr><th scope="col">State</th><th scope="col">Dates</th><th scope="col">Season</th></tr></thead><tbody>${dateRows}</tbody></table>
+      <p>Other seasons, including archery, muzzleloader, bear and turkey, run at other times. Each state's calendar below has them all.</p>
+      <h2>Rules, licenses and trapping seasons</h2>
+      ${stateSections}
+      <h2>Public land</h2>
+      <p>Public land isn't automatically open to hunting or trapping. Parks and other areas have their own limits, and the land manager or state rules decide. Know whose land you're on, since this site doesn't show private property lines.</p>
+      <h2>Using the trail app in the field</h2>
+      <p>The <a href="/trails/">trail app</a> shows your GPS position on a topographic map and works with no signal once you've saved an area. You can mark spots, like your truck or a stand, and they stay on your phone. We never receive them.</p>`,
     }),
   };
 }
@@ -269,5 +314,6 @@ export function buildTrailPages({ siteUrl, escapeHtml }) {
   const byCounty = counties.map(county => [county, published.filter(route => countiesOf(route).includes(county))]).filter(([, listed]) => listed.length);
   pages.push(...byCounty.map(([county, listed]) => countyPage(county, listed, context)));
   pages.push(directoryPage(byCounty, official, context));
+  pages.push(huntingPage(readData('hunting.json'), context));
   return pages;
 }

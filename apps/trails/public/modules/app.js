@@ -20,6 +20,7 @@ import { point as pointFeature, readToken, routeFeatures, streamFeatures, trailF
 import { hasTerrainAt, needsNewWindow, stitchWindow, viewWindow, windowBlocks, blockKey } from './terrain.js';
 import { averagePosition, createRecorder, elapsedSeconds, routeLine, RULES } from './tracker.js';
 import { decodeTrail, KIND_LABELS } from './trails.js';
+import { huntingNotice } from './hunting.js';
 
 const $ = id => document.getElementById(id);
 const LOST_SIGNAL_MS = 30000;
@@ -1071,6 +1072,28 @@ function externalLink(text, url) {
   return link;
 }
 
+async function showHuntingNotice(holder) {
+  let firearms = [];
+  try {
+    state.hunting ||= await (await fetch(dataUrl('hunting.json'))).json();
+    ({ firearms } = state.hunting);
+  } catch { /* The note still stands without this year's dates. */ }
+  const text = huntingNotice(new Date(), firearms);
+  if (!text) {
+    holder.replaceChildren();
+    return;
+  }
+  const note = document.createElement('p');
+  note.className = 'fine official-note';
+  const link = document.createElement('a');
+  link.href = '../hunting.html';
+  link.target = '_blank';
+  link.rel = 'noopener';
+  link.textContent = 'Season dates and rules';
+  note.append(`${text} `, link, '.');
+  holder.replaceChildren(note);
+}
+
 async function loadTowns() {
   if (!state.towns) {
     const response = await fetch(dataUrl('stays.json'));
@@ -1220,6 +1243,7 @@ async function renderPlan() {
   planRender += 1;
   const thisRender = planRender;
   results.replaceChildren();
+  showHuntingNotice($('planHunting'));
   // The town list is tiny and the trail list isn't. On a weak signal, a guest scanning a card should
   // see their town straight away.
   let towns;
@@ -1587,6 +1611,7 @@ function renderFinderChoices() {
 async function renderFinder() {
   const holder = $('finderList');
   holder.replaceChildren();
+  showHuntingNotice($('finderHunting'));
   renderFinderChoices();
   let hikes;
   let routeData;
@@ -2743,6 +2768,7 @@ async function openTrailFromLink() {
   list.append(routeRow(route));
   $('finderList').replaceChildren(list);
   $('finderHelp').replaceChildren();
+  showHuntingNotice($('finderHunting'));
   $('finderDialog').showModal();
   redraw();
 }

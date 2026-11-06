@@ -1,0 +1,42 @@
+{
+  "season": "2026-27",
+  "checkedAt": "2026-11-06",
+  "firearms": [
+    { "state": "WV", "name": "West Virginia", "from": "2026-11-23", "to": "2026-12-06", "label": "Buck firearms season", "area": "Tucker, Grant, Preston and Mineral are among the open counties" },
+    { "state": "MD", "name": "Maryland", "from": "2026-11-28", "to": "2026-12-12", "label": "Antlered deer, firearms", "area": "Statewide, including Garrett and Allegany. Other deer seasons run before and after" },
+    { "state": "PA", "name": "Pennsylvania", "from": "2026-11-28", "to": "2026-12-13", "label": "Regular firearms deer season", "area": "Statewide, including Somerset, Fayette and Bedford" }
+  ],
+  "states": [
+    {
+      "name": "Maryland",
+      "sundays": "Garrett and Allegany counties are open to Sunday deer hunting on private land and on designated public land, including during firearms season.",
+      "links": [
+        { "label": "Hunting and trapping season calendar", "url": "https://dnr.maryland.gov/wildlife/Documents/Hunting-Seasons-Calendar.pdf" },
+        { "label": "Sunday deer hunting chart", "url": "https://dnr.maryland.gov/huntersguide/documents/sundaydeerhuntingcalendar.pdf" },
+        { "label": "Hunter's guide", "url": "https://dnr.maryland.gov/huntersguide/Pages/default.aspx" },
+        { "label": "Buy a license", "url": "https://dnr.maryland.gov/Pages/licensing.aspx" },
+        { "label": "Wildlife management area maps", "url": "https://dnr.maryland.gov/wildlife/Pages/publiclands/allbyregion.aspx" }
+      ]
+    },
+    {
+      "name": "West Virginia",
+      "sundays": "Sunday hunting is legal on private land with the landowner's written permission, and on federal and state land where hunting is permitted.",
+      "links": [
+        { "label": "Hunting and trapping season dates", "url": "https://wvdnr.gov/hunting-seasons/" },
+        { "label": "Hunting and trapping regulations summary", "url": "https://wvdnr.gov/wp-content/uploads/2026/07/Pub_Regs_HuntTrap_202627_DNR_WILD_20260724.pdf" },
+        { "label": "Buy a license", "url": "https://www.wvhunt.com/login" },
+        { "label": "Wildlife management areas", "url": "https://wvdnr.gov/lands-waters/wildlife-management-areas/" }
+      ]
+    },
+    {
+      "name": "Pennsylvania",
+      "sundays": "The Game Commission says all 2026-27 seasons include the Sundays within their dates, except migratory game birds.",
+      "links": [
+        { "label": "Hunting and trapping seasons", "url": "https://www.pa.gov/agencies/pgc/huntingandtrapping/regulations/seasons-and-bag-limits" },
+        { "label": "Hunting and trapping digest", "url": "https://www.pa.gov/agencies/pgc/huntingandtrapping/regulations/hunting-trapping-digest" },
+        { "label": "Licenses and permits", "url": "https://www.pa.gov/agencies/pgc/huntingandtrapping/licenses-and-permits" },
+        { "label": "State game land maps", "url": "https://www.pa.gov/agencies/pgc/huntingandtrapping/where-to-hunt/state-game-land-maps" }
+      ]
+    }
+  ]
+}
