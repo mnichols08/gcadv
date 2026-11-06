@@ -44,6 +44,7 @@ test('every page links to the policy', () => {
   }
 });
 
-test('the contact address has been filled in before publishing', { todo: 'Needs the contact email from the site owner' }, () => {
-  assert.doesNotMatch(policy, /\[CONTACT EMAIL\]/);
+test('the policy gives a real way to reach someone', () => {
+  assert.doesNotMatch(policy, /\[[A-Z ]+\]/);
+  assert.match(policy, /https:\/\/mnix\.dev/);
 });
