@@ -200,3 +200,12 @@ test('baked trails: private ways were left out', () => {
   const { lines } = json(`public/data/trails/${shardKey(39.5, -79.42)}.json`);
   assert.ok(lines.map(decodeTrail).some(({ name, kind }) => name === 'Canyon Trail' && kind === 'foot'));
 });
+
+test('climb and effort are left out where the numbers would mislead', async () => {
+  const { climbIsReliable, detailFacts } = await import('../../../apps/trails/public/modules/trail-details.js');
+  assert.equal(climbIsReliable({ miles: 3, name: 'Rohrbaugh Trail' }), true);
+  assert.equal(climbIsReliable({ miles: 130, name: 'Great Allegheny Passage' }), false);
+  assert.equal(climbIsReliable({ miles: 4, name: 'Western Maryland Rail Trail' }), false);
+  const facts = detailFacts({ miles: 130, name: 'Long Trail', climbFeet: 20450, effort: 'Very strenuous', dogs: 'yes' });
+  assert.deepEqual(facts, ['Mapped as open to dogs']);
+});

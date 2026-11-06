@@ -2680,6 +2680,27 @@ const openPlanFromLink = () => {
 };
 window.addEventListener('hashchange', openPlanFromLink);
 openPlanFromLink();
+// Trail pages link here. This only shows the trail: following it turns on GPS, and that stays a choice.
+async function openTrailFromLink() {
+  const id = /^#trail=([\w-]+)$/.exec(location.hash)?.[1];
+  if (!id || $('finderDialog').open) return;
+  const route = (await loadRoutes()).routes.find(item => item.id === id);
+  if (!route) return;
+  const shards = await Promise.all(shardsForBounds(route.bounds).map(loadTrailShard));
+  const decoded = routeLines(shards, route);
+  state.viewing = { hike: { id: route.id }, line: decoded.flatMap((line, seg) => line.points.map(point => ({ ...point, seg }))) };
+  setFollow(false);
+  fitViews(route.bounds);
+  renderFinderChoices();
+  const list = document.createElement('ul');
+  list.className = 'list route-list';
+  list.append(routeRow(route));
+  $('finderList').replaceChildren(list);
+  $('finderHelp').replaceChildren();
+  $('finderDialog').showModal();
+  redraw();
+}
+window.addEventListener('hashchange', openTrailFromLink);
 $('openFinder').addEventListener('click', () => {
   $('finderDialog').showModal();
   renderFinder();
@@ -2735,6 +2756,7 @@ fetch(dataUrl('index.json')).then(response => response.json()).then(index => {
   state.trailIndex = index.trailShards || [];
   state.terrainIndex = index.terrainBlocks || [];
   viewChanged();
+  openTrailFromLink();
 }).catch(() => {});
 
 try {
