@@ -9,6 +9,9 @@
     "typecheck": "tsc --noEmit",
     "test": "tsx --test tests/*.test.ts",
     "test:rust": "cargo test --manifest-path rust/Cargo.toml",
+    "test:trails": "node --test tests/trails/unit/*.test.mjs",
+    "test:trails:e2e": "playwright test",
+    "serve:trails": "node scripts/trails-test-server.mjs",
     "refresh:hikes": "tsx scripts/refresh-hikes.ts",
     "dev": "node scripts/dev-server.js",
     "start": "serve dist -l 3000 --no-port-switching",
@@ -30,6 +33,7 @@
   },
   "homepage": "https://github.com/mnichols08/chingu-mapbox#readme",
   "devDependencies": {
+    "@playwright/test": "^1.64.1",
     "@types/geojson": "^7946.0.16",
     "sass": "^1.105.1",
     "serve": "^14.2.6",

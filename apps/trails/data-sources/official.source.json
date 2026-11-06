@@ -1,0 +1,225 @@
+{
+  "note": "Land managers' own pages, with what those pages say. Linking needs no data license. Only tag an activity if the cited page says something specific about it, and keep 'about' to what the page states.",
+  "checkedAt": "2026-11-05",
+  "official": [
+    {
+      "id": "wolf-den-run",
+      "name": "Wolf Den Run State Park",
+      "town": "Kitzmiller",
+      "state": "MD",
+      "activities": [
+        "motor",
+        "snowmobile"
+      ],
+      "about": "Maryland DNR's designated ORV riding system, with 12.5 miles of motorized trail, 6.5 of them open to full-size vehicles. Motorized use needs a reservation before you arrive, and every vehicle needs a DNR ORV sticker or MVA registration. Helmets are required. Riding areas aren't connected, and the county roads between them need a Garrett County ATV/OHV permit. Snowmobiles are allowed only on the Huckleberry Rocks loop, when there's snow. It closes to motorized use around Thanksgiving for firearms season. Check fees and days with the park.",
+      "url": "https://dnr.maryland.gov/publiclands/Pages/western/WolfDenRun/ORV-and-Trail-Use.aspx",
+      "label": "ORV rules and reservations"
+    },
+    {
+      "id": "deep-creek-state-park",
+      "name": "Deep Creek Lake State Park",
+      "town": "Swanton",
+      "state": "MD",
+      "activities": [
+        "snowmobile"
+      ],
+      "about": "Main staging area for the Deep Creek Lake Snowmobile Trail. Every snowmobile needs a valid Maryland permit decal before entering the trail. The main gate closes during snowmobile season.",
+      "url": "https://dnr.maryland.gov/publiclands/Pages/western/deepcreek.aspx",
+      "label": "Park page and permit rules"
+    },
+    {
+      "id": "potomac-garrett",
+      "name": "Potomac-Garrett State Forest",
+      "town": "Oakland",
+      "state": "MD",
+      "activities": [
+        "motor",
+        "snowmobile"
+      ],
+      "about": "DNR lists seasonal snowmobile trails here, and maps Snaggy Mountain Road as a 3.2-mile designated ORV trail.",
+      "url": "https://dnr.maryland.gov/forests/Pages/publiclands/western_potomacgarrettforest.aspx",
+      "label": "Forest page"
+    },
+    {
+      "id": "savage-river",
+      "name": "Savage River State Forest",
+      "town": "Grantsville",
+      "state": "MD",
+      "activities": [
+        "motor",
+        "snowmobile",
+        "hike",
+        "bike",
+        "ski"
+      ],
+      "about": "DNR's trail guide says 4 miles of the Meadow Mountain trail near I-68, known as East Shale Road, is open to ORVs. The other 8 miles is closed to off-road vehicles except snowmobiles. Permits are sold at forest headquarters.",
+      "url": "https://dnr.maryland.gov/forests/Pages/savageguide.aspx",
+      "label": "Forest trail guide"
+    },
+    {
+      "id": "herrington-manor",
+      "name": "Herrington Manor State Park",
+      "town": "Oakland",
+      "state": "MD",
+      "activities": [
+        "snowmobile"
+      ],
+      "about": "Snowmobiles are not permitted inside the park, but the park office sells Maryland snowmobile permits.",
+      "url": "https://dnr.maryland.gov/publiclands/Pages/western/herrington.aspx",
+      "label": "Park page and permit rules"
+    },
+    {
+      "id": "new-germany",
+      "name": "New Germany State Park",
+      "town": "Grantsville",
+      "state": "MD",
+      "activities": [
+        "snowmobile"
+      ],
+      "about": "Snowmobiles are not permitted inside the park, but the park office sells Maryland snowmobile permits.",
+      "url": "https://dnr.maryland.gov/publiclands/Pages/western/newgermany.aspx",
+      "label": "Park page and permit rules"
+    },
+    {
+      "id": "swallow-falls",
+      "name": "Swallow Falls State Park",
+      "town": "Oakland",
+      "state": "MD",
+      "about": "Park hours, fees and trail information from Maryland DNR.",
+      "url": "https://dnr.maryland.gov/publiclands/Pages/western/swallowfalls.aspx",
+      "label": "Park page"
+    },
+    {
+      "id": "green-ridge",
+      "name": "Green Ridge State Forest",
+      "town": "Flintstone",
+      "state": "MD",
+      "about": "Forest information from Maryland DNR, with a printable trail map.",
+      "url": "https://dnr.maryland.gov/forests/Documents/GRSF_map.pdf",
+      "label": "Forest map"
+    },
+    {
+      "id": "rocky-gap",
+      "name": "Rocky Gap State Park",
+      "town": "Flintstone",
+      "state": "MD",
+      "about": "Park information from Maryland DNR.",
+      "url": "https://dnr.maryland.gov/publiclands/Pages/western/rockygap.aspx",
+      "label": "Park page"
+    },
+    {
+      "id": "monongahela",
+      "name": "Monongahela National Forest",
+      "town": "Parsons",
+      "state": "WV",
+      "activities": [
+        "bike"
+      ],
+      "about": "The Forest Service says mountain bikes are permitted on most National Forest roads and trails, with exceptions in designated areas.",
+      "url": "https://www.fs.usda.gov/r09/monongahela",
+      "label": "Forest page"
+    },
+    {
+      "id": "blackwater-falls",
+      "name": "Blackwater Falls State Park",
+      "town": "Davis",
+      "state": "WV",
+      "about": "Park information from West Virginia State Parks.",
+      "url": "https://wvstateparks.com/parks/blackwater-falls-state-park/",
+      "label": "Park page"
+    },
+    {
+      "id": "canaan-valley",
+      "name": "Canaan Valley Resort State Park",
+      "town": "Davis",
+      "state": "WV",
+      "about": "Park information from West Virginia State Parks.",
+      "url": "https://wvstateparks.com/parks/canaan-valley-resort-state-park/",
+      "label": "Park page"
+    },
+    {
+      "id": "pa-snowmobile",
+      "name": "Pennsylvania State Forest snowmobile trails",
+      "town": "Somerset",
+      "state": "PA",
+      "activities": [
+        "snowmobile"
+      ],
+      "about": "DCNR's page for state forest snowmobile trail maps, trail conditions and joint-use road status.",
+      "url": "https://iframeapps.dcnr.pa.gov/forestry/snowmobileiframe/snowindex",
+      "label": "Maps and conditions"
+    },
+    {
+      "id": "forbes",
+      "name": "Forbes State Forest",
+      "town": "Somerset",
+      "state": "PA",
+      "activities": [
+        "snowmobile",
+        "horse"
+      ],
+      "about": "DCNR publishes a public use map, an equestrian brochure and maps of the Laurel Highlands Snowmobile Trail.",
+      "url": "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-forests/find-a-forest/forbes/maps",
+      "label": "Forest maps"
+    },
+    {
+      "id": "gallitzin",
+      "name": "Gallitzin State Forest",
+      "town": "Somerset",
+      "state": "PA",
+      "about": "DCNR's public use and trail maps for this forest.",
+      "url": "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-forests/find-a-forest/gallitzin/maps",
+      "label": "Forest maps"
+    },
+    {
+      "id": "buchanan",
+      "name": "Buchanan State Forest",
+      "town": "Bedford",
+      "state": "PA",
+      "about": "DCNR's public use and trail maps for this forest.",
+      "url": "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-forests/find-a-forest/buchanan/maps",
+      "label": "Forest maps"
+    },
+    {
+      "id": "ohiopyle",
+      "name": "Ohiopyle State Park",
+      "town": "Ohiopyle",
+      "state": "PA",
+      "activities": [
+        "bike",
+        "hike",
+        "horse"
+      ],
+      "about": "DCNR lists hiking, biking, mountain biking and horseback riding among the park's activities.",
+      "url": "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/ohiopyle-state-park",
+      "label": "Park page"
+    },
+    {
+      "id": "laurel-ridge",
+      "name": "Laurel Ridge State Park",
+      "town": "Rockwood",
+      "state": "PA",
+      "about": "Park information from Pennsylvania DCNR.",
+      "url": "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/laurel-ridge-state-park",
+      "label": "Park page"
+    },
+    {
+      "id": "laurel-hill",
+      "name": "Laurel Hill State Park",
+      "town": "Somerset",
+      "state": "PA",
+      "about": "Park information from Pennsylvania DCNR.",
+      "url": "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/laurel-hill-state-park",
+      "label": "Park page"
+    },
+    {
+      "id": "shawnee",
+      "name": "Shawnee State Park",
+      "town": "Bedford",
+      "state": "PA",
+      "about": "Park information from Pennsylvania DCNR.",
+      "url": "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/shawnee-state-park",
+      "label": "Park page"
+    }
+  ]
+}

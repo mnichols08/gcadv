@@ -254,7 +254,37 @@ function articlePage(article) {
       ${sourcesHtml}
       <aside class="article-install"><h2>Keep planning wherever you go</h2><p>Add the guides and saved trip details to your home screen. Some guide and trail information is available offline; map tiles need an internet connection.</p><button id="install-app" class="button button-primary" type="button">Install the app</button><details class="install-help"><summary>How to add it on this device</summary><p>On Windows, use the Install app button in Chrome or Edge’s address bar or menu. On Mac in Safari, choose File &gt; Add to Dock. On iPhone or iPad, open this page in Safari, tap Share, then choose Add to Home Screen. On Android, open your browser menu and choose Install app or Add to Home Screen.</p></details><p id="install-status" class="install-status" role="status"></p></aside>
     </article>
-    <footer class="editorial-footer"><a href="./#trip-guides">Browse all trip guides</a><span>Built with &lt;3 by <a href="https://mnix.dev">Mikey Nichols</a></span><a href="./explore.html">Open the adventure map</a></footer>
+    <footer class="editorial-footer"><a href="./#trip-guides">Browse all trip guides</a><span>Built with &lt;3 by <a href="https://mnix.dev">Mikey Nichols</a></span><a href="./explore.html">Open the adventure map</a><a href="./privacy.html">Privacy</a></footer>
+  </main>
+</body>
+</html>`;
+}
+
+function privacyPage() {
+  const body = fs.readFileSync(path.join(__dirname, "..", "content", "privacy.html"), "utf8");
+  return `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#203a31">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="What Garrett County Adventures and its trail app do with your location, routes and photos.">
+  <link rel="canonical" href="${SITE_URL}/privacy.html">
+  <link rel="stylesheet" href="./site.css">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./images/gcadv-logo.png" type="image/png">
+  <script defer src="./site.js"></script>
+  <title>Privacy | Garrett County Adventures</title>
+</head>
+<body class="editorial-page">
+  <header class="editorial-header"><a class="editorial-brand" href="./" aria-label="Garrett County Adventures home">Garrett County Adventures</a></header>
+  <main class="article-main">
+    <div class="article-layout no-contents"><article class="guide-article">
+      <h1>Privacy</h1>
+      <div class="article-body">${body}</div>
+    </article></div>
+    <footer class="editorial-footer"><a href="./#trip-guides">Browse all trip guides</a><a href="./trails/">Open the trail app</a></footer>
   </main>
 </body>
 </html>`;
@@ -292,8 +322,9 @@ function buildSite() {
   const localCards = articles.filter((article) => !planningSlugs.has(article.permalink)).map((article) => card(article, "LOCAL DISCOVERY")).join("\n");
   const homeCards = `${planningCards}\n${localCards}`;
   const pages = articles.map((article) => ({ name: article.permalink.slice(1), source: articlePage(article) }));
+  pages.push({ name: "privacy.html", source: privacyPage() });
   pages.push({ name: "sitemap.xml", source: `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${[
-    `${SITE_URL}/`, `${SITE_URL}/explore.html`, ...articles.map((article) => `${SITE_URL}${article.permalink}`),
+    `${SITE_URL}/`, `${SITE_URL}/explore.html`, `${SITE_URL}/privacy.html`, ...articles.map((article) => `${SITE_URL}${article.permalink}`),
   ].map((url) => `  <url><loc>${escapeHtml(url)}</loc></url>`).join("\n")}\n</urlset>\n` });
   pages.push({ name: "robots.txt", source: `User-agent: *\nAllow: /\nSitemap: ${SITE_URL}/sitemap.xml\n` });
   return { articles, homeCards, planningCards, localCards, pages };

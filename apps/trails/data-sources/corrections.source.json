@@ -1,0 +1,30 @@
+{
+  "note": "Changes to a mapped trail's activities, each backed by something a land manager published. A correction that matches no trail stops the bake. Only add what a primary source says, and remove a listing when a primary source contradicts it.",
+  "corrections": [
+    {
+      "name": "Snaggy Mountain Road",
+      "near": [39.47, -79.47],
+      "radius": 5,
+      "add": ["atv"],
+      "official": {
+        "note": "Maryland DNR's map shows this as a designated ORV trail, 3.2 miles. Off-road vehicles need a Maryland permit decal.",
+        "label": "DNR's map of this trail",
+        "url": "https://dnr.maryland.gov/forests/Documents/garrett/snaggy_orv.pdf"
+      }
+    },
+    {
+      "name": "Piney Mountain Road",
+      "near": [39.4, -79.3],
+      "radius": 15,
+      "remove": ["atv"],
+      "reason": "OpenStreetMap tags it ATV-designated, but Maryland DNR's trail inventory marks the Piney Mountain trails closed to ATVs, apart from an accessible hunter road. Treated as closed to general ATV riding."
+    },
+    {
+      "name": "Burkholder Road ATV Trail",
+      "near": [39.4, -79.3],
+      "radius": 15,
+      "remove": ["atv"],
+      "reason": "Only the OpenStreetMap name says ATV. Maryland DNR's trail inventory lists this road's trail as seasonal, contact DNR, under a snowmobile trail name. Not listed as open ATV riding without DNR's confirmation."
+    }
+  ]
+}

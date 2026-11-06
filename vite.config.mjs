@@ -11,6 +11,19 @@ const { buildSite } = require("./scripts/content-site");
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const DIST = path.join(ROOT, "dist");
+// The trail app is a static PWA with its own service worker, so it is copied in rather than bundled.
+const TRAILS = path.join(ROOT, "apps", "trails", "public");
+const MAPBOX_DIST = path.join(ROOT, "node_modules", "mapbox-gl", "dist");
+const TRAIL_TYPES = { ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8",
+  ".json": "application/json", ".webmanifest": "application/manifest+json", ".png": "image/png", ".txt": "text/plain; charset=utf-8" };
+
+function trailFile(pathname) {
+  const relative = pathname.replace(/^\/trails\//, "") || "index.html";
+  const vendor = relative.match(/^vendor\/(mapbox-gl\.(?:js|css))$/);
+  const file = vendor ? path.join(MAPBOX_DIST, vendor[1]) : path.resolve(TRAILS, relative);
+  if (!vendor && file !== TRAILS && !file.startsWith(TRAILS + path.sep)) return null;
+  return fs.existsSync(file) && fs.statSync(file).isFile() ? file : null;
+}
 
 function walkFiles(directory, prefix = "") {
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
@@ -51,6 +64,19 @@ function sitePlugin(command, environment) {
     configureServer(server) {
       server.middlewares.use((request, response, next) => {
         const pathname = new URL(request.url, "http://localhost").pathname;
+        if (pathname === "/trails") {
+          response.statusCode = 301;
+          response.setHeader("Location", "/trails/");
+          response.end();
+          return;
+        }
+        if (pathname.startsWith("/trails/")) {
+          const file = trailFile(pathname);
+          if (!file) return next();
+          response.setHeader("Content-Type", TRAIL_TYPES[path.extname(file)] || "application/octet-stream");
+          fs.createReadStream(file).pipe(response);
+          return;
+        }
         if (pathname === "/service-worker.js") {
           response.setHeader("Content-Type", "text/javascript; charset=utf-8");
           response.setHeader("Cache-Control", "no-store");
@@ -90,6 +116,11 @@ self.addEventListener("activate", event => event.waitUntil((async () => {
       if (command !== "build") return;
       site ||= buildSite();
       for (const page of site.pages) fs.writeFileSync(path.join(DIST, page.name), page.source);
+      fs.cpSync(TRAILS, path.join(DIST, "trails"), { recursive: true });
+      fs.mkdirSync(path.join(DIST, "trails", "vendor"), { recursive: true });
+      for (const name of ["mapbox-gl.js", "mapbox-gl.css"]) {
+        fs.copyFileSync(path.join(MAPBOX_DIST, name), path.join(DIST, "trails", "vendor", name));
+      }
       fs.writeFileSync(path.join(DIST, "site.css"),
         sass.compile(path.join(ROOT, "src", "site.scss"), { style: "compressed" }).css);
 
@@ -102,8 +133,9 @@ self.addEventListener("activate", event => event.waitUntil((async () => {
         console.warn("No map token configured. Set map-config.local.json, MAPBOX_PUBLIC_TOKEN, or deploy map-config.json separately to enable the basemap.");
       }
 
+      // The trail app caches itself, and its map data is far too large to download on every first visit.
       const assets = walkFiles(DIST).filter((name) => name !== "service-worker.js" &&
-        name !== "map-config.json" && !name.endsWith(".map")).sort();
+        name !== "map-config.json" && !name.endsWith(".map") && !name.startsWith("trails/")).sort();
       const hash = crypto.createHash("sha256");
       for (const name of assets) {
         hash.update(name);

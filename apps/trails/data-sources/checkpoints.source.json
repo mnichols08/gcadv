@@ -1,0 +1,15 @@
+{
+  "note": "Hand-picked checkpoints. Each is found in the captured data and must sit near its hike's mapped trail, or the bake fails. Nothing is placed on the ground. Skip anywhere a route crosses private land.",
+  "checkpoints": [
+    { "id": "fairfax-stone", "name": "Fairfax Stone", "group": "Near Gormania", "area": "Source area of the North Branch Potomac", "hikeId": "fairfax-stone", "fromHike": true, "radiusFeet": 200, "about": "The North Branch of the Potomac begins in this area." },
+    { "id": "cascade-falls", "name": "Cascade Falls", "group": "Near Gormania", "area": "Potomac State Forest", "hikeId": "lostland-run", "alongLine": "Cascade Falls Trail", "radiusFeet": 300, "about": "A waterfall reached from the Lostland Run Trail." },
+    { "id": "muddy-creek-falls", "name": "Muddy Creek Falls", "group": "Garrett County", "area": "Swallow Falls State Park", "hikeId": "swallow-falls", "place": "Muddy Creek Falls", "near": [39.501, -79.417], "radiusFeet": 200, "about": "Muddy Creek drops toward the Youghiogheny here." },
+    { "id": "lower-swallow-falls", "name": "Lower Swallow Falls", "group": "Garrett County", "area": "Swallow Falls State Park", "hikeId": "swallow-falls", "place": "Lower Swallow Falls", "near": [39.497, -79.417], "radiusFeet": 200, "about": "One of the falls on the Youghiogheny along the Canyon Trail." },
+    { "id": "tolliver-falls", "name": "Tolliver Falls", "group": "Garrett County", "area": "Swallow Falls State Park", "hikeId": "swallow-falls", "place": "Tolliver Falls", "near": [39.495, -79.418], "radiusFeet": 200, "about": "A smaller fall near the southern end of the Canyon Trail." },
+    { "id": "lindy-point", "name": "Lindy Point Overlook", "group": "Tucker County", "area": "Blackwater Falls State Park", "hikeId": "lindy-point", "place": "Lindy Point Overlook", "near": [39.1, -79.532], "radiusFeet": 200, "about": "A short walk to a view over Blackwater Canyon." },
+    { "id": "elakala-falls", "name": "Elakala Falls", "group": "Tucker County", "area": "Blackwater Falls State Park", "hikeId": "elakala", "place": "Elakala Falls", "near": [39.107, -79.499], "radiusFeet": 200, "about": "A waterfall on Shays Run." },
+    { "id": "blackwater-falls", "name": "Blackwater Falls", "group": "Tucker County", "area": "Blackwater Falls State Park", "hikeId": "blackwater-boardwalk", "place": "Blackwater Falls", "near": [39.1135, -79.483], "radiusFeet": 250, "about": "The park's namesake falls, reached by boardwalk." },
+    { "id": "table-rock", "name": "Table Rock", "group": "Tucker County", "area": "Canaan Mountain", "hikeId": "table-rock", "place": "Table Rock", "near": [39.0547, -79.5828], "radiusFeet": 250, "about": "An overlook at the end of the Table Rock Trail." },
+    { "id": "bear-rocks", "name": "Bear Rocks Trailhead", "group": "Tucker County", "area": "Dolly Sods Wilderness", "hikeId": "bear-rocks", "place": "Bear Rocks Trailhead", "near": [39.0636, -79.3031], "radiusFeet": 200, "about": "The way into the northern end of Dolly Sods.", "noteKey": "dolly" }
+  ]
+}
