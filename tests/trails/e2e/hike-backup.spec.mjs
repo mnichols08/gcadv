@@ -78,7 +78,7 @@ async function recordHike(page, name) {
 
 test('it stays optional, and says plainly what leaves the phone', async ({ browser, baseURL }) => {
   const { context, page } = await newPhone(browser, baseURL);
-  await expect(page.locator('.credit')).toContainText('unless you turn on backup');
+  await expect(page.locator('.credit')).toContainText('stays on this phone');
   await more(page, 'Backup');
   await expect(page.locator('#backupOut')).toContainText('optional');
   await expect(page.locator('#backupOut')).toContainText("aren't end-to-end encrypted");

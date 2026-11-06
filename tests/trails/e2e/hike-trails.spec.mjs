@@ -192,3 +192,10 @@ test('an activity shows what land managers say, including where it is not allowe
   await expect(page.locator('#finderHelp')).toContainText('From the land managers');
   await expect(page.locator('#finderHelp a').first()).toHaveAttribute('target', '_blank');
 });
+
+test('the app links to a privacy page that loads', async ({ page }) => {
+  const [policy] = await Promise.all([page.context().waitForEvent('page'), page.getByRole('link', { name: 'Privacy' }).click()]);
+  await policy.waitForLoadState();
+  await expect(policy.getByRole('heading', { name: 'Privacy', exact: true })).toBeVisible();
+  await expect(policy.getByText('stay on your phone')).toBeVisible();
+});
