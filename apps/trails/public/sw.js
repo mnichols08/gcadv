@@ -21,6 +21,7 @@ const SHELL = [
   'modules/geocaches.js',
   'modules/gpx.js',
   'modules/hikes.js',
+  'modules/hunting.js',
   'modules/landscape.js',
   'modules/map.js',
   'modules/mapbox-data.js',
@@ -42,6 +43,7 @@ const SHELL = [
   'data/official.json',
   'data/outfitters.json',
   'data/stays.json',
+  'data/hunting.json',
   'data/gauges.json',
   'data/checkpoints.json',
 ];

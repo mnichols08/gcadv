@@ -241,3 +241,23 @@ test('a card shows its town right away, before the big trail list arrives', asyn
   await expect(page.locator('#planActivities').getByRole('button', { name: 'Hike' })).toBeVisible();
   await expect(page.locator('#planResults')).toContainText('Loading');
 });
+
+test('the finder and planner warn about firearms season, with a link to the rules', async ({ page }) => {
+  await page.clock.setFixedTime(new Date('2026-12-01T12:00:00'));
+  await page.goto('about:blank');
+  await page.goto('/trails/#plan=mchenry-md');
+  const planNote = page.locator('#planHunting');
+  await expect(planNote).toContainText('Firearms deer season is on in WV through Dec 6');
+  await expect(planNote.getByRole('link', { name: 'Season dates and rules' })).toHaveAttribute('href', '../hunting.html');
+  await page.locator('#planDialog').getByRole('button', { name: 'Close' }).click();
+  await page.getByRole('button', { name: 'Find a trail' }).click();
+  await expect(page.locator('#finderHunting')).toContainText('Wear orange on any trail');
+});
+
+test('no hunting note in summer', async ({ page }) => {
+  await page.clock.setFixedTime(new Date('2027-07-15T12:00:00'));
+  await page.goto('about:blank');
+  await page.goto('/trails/#plan=mchenry-md');
+  await expect(page.locator('#planStay')).toHaveValue('mchenry-md');
+  await expect(page.locator('#planHunting')).toBeEmpty();
+});
