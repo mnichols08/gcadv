@@ -621,3 +621,41 @@ button, a, select { -webkit-tap-highlight-color: transparent; }
 .article-body .trail-places { padding: 0; list-style: none; }
 .article-body .trail-places li { padding: 0; margin: 0 0 16px; line-height: 1.55; }
 .trail-credit { margin-top: 30px; color: var(--muted); font-size: 12px; }
+:root {
+  --land-allowed: #dcefdf; --land-allowed-ink: #17532b;
+  --land-limited: #f7e8c4; --land-limited-ink: #694808;
+  --land-permit: #dbe7f6; --land-permit-ink: #1c4578;
+  --land-no: #f8dcd7; --land-no-ink: #8a1f12;
+  --land-ask: #e6e8e3; --land-ask-ink: #4a544d;
+}
+:root[data-theme="dark"] {
+  --land-allowed: #1e4029; --land-allowed-ink: #b6e6c1;
+  --land-limited: #453713; --land-limited-ink: #f2dca0;
+  --land-permit: #1f3553; --land-permit-ink: #bdd6f6;
+  --land-no: #4b211b; --land-no-ink: #f9c3b9;
+  --land-ask: #2c342e; --land-ask-ink: #c1cbc3;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]):not([data-theme="dark"]) {
+    --land-allowed: #1e4029; --land-allowed-ink: #b6e6c1;
+    --land-limited: #453713; --land-limited-ink: #f2dca0;
+    --land-permit: #1f3553; --land-permit-ink: #bdd6f6;
+    --land-no: #4b211b; --land-no-ink: #f9c3b9;
+    --land-ask: #2c342e; --land-ask-ink: #c1cbc3;
+  }
+}
+.land-status { display: inline-block; padding: 1px 7px; border-radius: 3px; font-size: 12px; font-weight: 700; line-height: 1.6; white-space: nowrap; }
+.land-status--allowed { background: var(--land-allowed); color: var(--land-allowed-ink); }
+.land-status--restricted { background: var(--land-limited); color: var(--land-limited-ink); }
+.land-status--by_permit { background: var(--land-permit); color: var(--land-permit-ink); }
+.land-status--prohibited { background: var(--land-no); color: var(--land-no-ink); }
+.land-status--not_confirmed { background: var(--land-ask); color: var(--land-ask-ink); }
+.land-table { overflow-x: auto; margin: 20px 0 28px; }
+.article-body .land-table table { min-width: 720px; margin: 0; }
+.land-table tbody th { font-weight: 600; text-align: left; }
+.land-area { scroll-margin-top: 16px; }
+.land-area-facts { color: var(--muted); font-size: 14px; overflow-wrap: anywhere; }
+.article-body .land-rules { padding: 0; list-style: none; }
+.article-body .land-rules li { padding: 0; margin: 0 0 10px; line-height: 1.55; overflow-wrap: anywhere; }
+.land-water { margin-bottom: 20px; font-size: 14px; overflow-wrap: anywhere; }
+.land-water summary { cursor: pointer; font-weight: 600; }
