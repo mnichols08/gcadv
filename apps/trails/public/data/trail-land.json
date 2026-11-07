@@ -1,0 +1,188 @@
+{
+ "source": "USGS PAD-US, public domain",
+ "trails": {
+  "5-5-mile-trail": [
+   "potomac-garrett-state-forest",
+   "swallow-falls-state-park",
+   "herrington-manor-state-park"
+  ],
+  "acorn-loop": [
+   "new-germany-state-park"
+  ],
+  "asa-durst-red-trail": [
+   "savage-river-state-forest"
+  ],
+  "backbone-mountain-trail": [
+   "potomac-garrett-state-forest"
+  ],
+  "bear-ridge": [
+   "rocky-gap-state-park"
+  ],
+  "bear-ridge-alt": [
+   "rocky-gap-state-park"
+  ],
+  "beckmans-trail": [
+   "deep-creek-lake-state-park"
+  ],
+  "big-savage-mountain-trail": [
+   "savage-river-state-forest"
+  ],
+  "cabin-loop": [
+   "new-germany-state-park"
+  ],
+  "cabin-loop-trail": [
+   "savage-river-state-forest",
+   "savage-highlands-state-park"
+  ],
+  "canyon-trail": [
+   "swallow-falls-state-park",
+   "youghiogheny-wild-river-natural-environmental-area"
+  ],
+  "cherry-creek-loop": [
+   "deep-creek-lake-state-park"
+  ],
+  "chesapeake-and-ohio-canal-trail": [
+   "chesapeake-and-ohio-canal-national-historical-park"
+  ],
+  "crosscut-trail": [
+   "deep-creek-lake-state-park"
+  ],
+  "deep-run-big-run-green": [
+   "green-ridge-state-forest"
+  ],
+  "deep-run-big-run-trail": [
+   "green-ridge-state-forest"
+  ],
+  "dynamite-shack-loop": [
+   "savage-river-state-forest",
+   "new-germany-state-park"
+  ],
+  "evitt-s-mountain-homesite-trail": [
+   "rocky-gap-state-park"
+  ],
+  "evitt-s-mountain-trail": [
+   "rocky-gap-state-park"
+  ],
+  "fishermans-trail": [
+   "youghiogheny-wild-river-natural-environmental-area"
+  ],
+  "gazebo-loop": [
+   "new-germany-state-park"
+  ],
+  "great-allegheny-passage": [
+   "great-allegheny-passage"
+  ],
+  "great-eastern-trail": [
+   "green-ridge-state-forest"
+  ],
+  "green-ridge-trail": [
+   "green-ridge-state-forest"
+  ],
+  "hemlock-trail": [
+   "new-germany-state-park"
+  ],
+  "ice-house-loop": [
+   "new-germany-state-park"
+  ],
+  "indian-turnip-trail": [
+   "deep-creek-lake-state-park"
+  ],
+  "kendall-trail": [
+   "youghiogheny-wild-river-natural-environmental-area"
+  ],
+  "lakeside-loop": [
+   "rocky-gap-state-park"
+  ],
+  "log-roll-orange-trail": [
+   "green-ridge-state-forest",
+   "chesapeake-and-ohio-canal-national-historical-park"
+  ],
+  "lonacona-loop": [
+   "dans-mountain-state-park"
+  ],
+  "long-pond-red": [
+   "green-ridge-state-forest"
+  ],
+  "lookout-trail-2": [
+   "deep-creek-lake-state-park"
+  ],
+  "lostland-run-trail": [
+   "potomac-garrett-state-forest"
+  ],
+  "margraff-blue-trail": [
+   "savage-river-state-forest"
+  ],
+  "margraff-mtn-bike": [
+   "savage-river-state-forest"
+  ],
+  "margraff-orange-trail": [
+   "savage-river-state-forest"
+  ],
+  "margraff-plantation": [
+   "savage-river-state-forest"
+  ],
+  "margraff-red-trail": [
+   "savage-river-state-forest"
+  ],
+  "margraff-white-trail": [
+   "savage-river-state-forest"
+  ],
+  "meadow-mountain-trail": [
+   "savage-river-state-forest",
+   "new-germany-state-park"
+  ],
+  "mid-state-pennsylvania-trail": [
+   "green-ridge-state-forest"
+  ],
+  "monroe-run-hiking-trail": [
+   "savage-river-state-forest",
+   "big-run-state-park"
+  ],
+  "mt-aetna-loop-trail": [
+   "savage-river-state-forest",
+   "savage-highlands-state-park"
+  ],
+  "negro-mountain": [
+   "savage-river-state-forest"
+  ],
+  "orchard-loop": [
+   "new-germany-state-park"
+  ],
+  "pine-lick-blue": [
+   "green-ridge-state-forest"
+  ],
+  "pine-lick-trail": [
+   "green-ridge-state-forest"
+  ],
+  "poplar-lick-trail": [
+   "savage-river-state-forest"
+  ],
+  "rocky-trail": [
+   "rocky-gap-state-park"
+  ],
+  "snaggy-mountain-road": [
+   "potomac-garrett-state-forest"
+  ],
+  "swallow-falls-trail": [
+   "swallow-falls-state-park",
+   "youghiogheny-wild-river-natural-environmental-area"
+  ],
+  "thayer-trace-purple": [
+   "savage-river-state-forest",
+   "deep-creek-lake-state-park"
+  ],
+  "turnpike-trail": [
+   "new-germany-state-park"
+  ],
+  "twin-oaks-trail": [
+   "green-ridge-state-forest"
+  ],
+  "western-maryland-rail-trail": [
+   "chesapeake-and-ohio-canal-national-historical-park"
+  ],
+  "wilderness-ranch-trail": [
+   "potomac-garrett-state-forest",
+   "cranesville-swamp-preserve"
+  ]
+ }
+}

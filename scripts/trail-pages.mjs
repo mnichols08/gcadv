@@ -53,13 +53,14 @@ export const trailPath = route => `/trail/${route.id}.html`;
 export const countyPath = county => `/trails-in/${countySlug(county)}.html`;
 export const DIRECTORY_PATH = '/trail-directory.html';
 export const HUNTING_PATH = '/hunting.html';
+export const LAND_RULES_PATH = '/land-rules.html';
 
 const milesText = miles => `${miles.toFixed(miles < 10 ? 2 : 1)} mi`;
 const listText = items => (items.length < 2 ? items.join('') : `${items.slice(0, -1).join(', ')} and ${items.at(-1)}`);
 const countiesOf = route => route.counties || [route.county];
 const showsClimb = route => climbIsReliable(route) && Number.isFinite(route.climbFeet);
 
-function loadLines(route, shards) {
+export function loadLines(route, shards) {
   const loaded = shardsForBounds(route.bounds).map(key => {
     if (!shards.has(key)) {
       const file = new URL(`trails/${key}.json`, DATA);
@@ -145,7 +146,7 @@ const shell = ({ siteUrl, escapeHtml, path, title, description, jsonLd, crumbs, 
       <p class="article-dek">${escapeHtml(dek)}</p>
       <div class="article-body">${body}</div>
     </article></div>
-    <footer class="editorial-footer"><a href="${DIRECTORY_PATH}">Browse trails by county</a><a href="/#trip-guides">Browse trip guides</a><a href="/trails/">Open the trail app</a><a href="${HUNTING_PATH}">Hunting and trapping</a><a href="/privacy.html">Privacy</a></footer>
+    <footer class="editorial-footer"><a href="${DIRECTORY_PATH}">Browse trails by county</a><a href="/#trip-guides">Browse trip guides</a><a href="/trails/">Open the trail app</a><a href="${HUNTING_PATH}">Hunting and trapping</a><a href="${LAND_RULES_PATH}">Public land rules</a><a href="/privacy.html">Privacy</a></footer>
   </main>
 </body>
 </html>`;
@@ -155,7 +156,17 @@ const breadcrumbData = (siteUrl, crumbs) => ({
   itemListElement: crumbs.map(([name, href], index) => ({ '@type': 'ListItem', position: index + 1, name, ...(href ? { item: `${siteUrl}${href}` } : {}) })),
 });
 
-export function trailPage(route, lines, nearby, { siteUrl, escapeHtml, hikes = [] }) {
+const LAND_RULES_COUNTIES = new Set(['Garrett County, MD', 'Allegany County, MD']);
+
+function landSection(route, areas, escapeHtml) {
+  if (!areas.length) return '';
+  const elsewhere = countiesOf(route).filter(county => !LAND_RULES_COUNTIES.has(county));
+  return `
+    <h2>Land along this trail</h2>
+    <p>Map data shows part or all of this trail on or next to ${listText(areas.map(area => `<a href="${LAND_RULES_PATH}#${area.id}">${escapeHtml(area.name)}</a>`))}. Follow those links to see what the rules say there about hunting, fishing and foraging. Other stretches may cross other public or private land that isn't named here. ${elsewhere.length ? `Our land rules cover only Garrett and Allegany counties in Maryland, so they don't apply in ${escapeHtml(listText(elsewhere))}. ` : ''}The data can lag and its boundaries are approximate, so go by posted signs.</p>`;
+}
+
+export function trailPage(route, lines, nearby, { siteUrl, escapeHtml, hikes = [], land = [] }) {
   const marked = activityNames(route.activities);
   const counties = countiesOf(route);
   const others = counties.filter(county => county !== route.county);
@@ -188,11 +199,12 @@ export function trailPage(route, lines, nearby, { siteUrl, escapeHtml, hikes = [
     <p>${escapeHtml(listText(marked.map((name, index) => (index ? name : name[0].toUpperCase() + name.slice(1)))))}.</p>
     <p class="trail-caution">That comes from map data and can be wrong or out of date. Confirm the rules, closures and any permit with the land manager before you go.</p>
     <p class="trail-caution"><strong>Hunting season:</strong> this trail may be on or near land open to hunting. In season, wear blaze orange or other high-visibility colors, and put some on your dog. <a href="${HUNTING_PATH}">See season dates and safety</a>.</p>
+    ${landSection(route, land, escapeHtml)}
     ${facts.length || closed || seasons ? `<h2>What the map data says</h2><ul>${facts.map(fact => `<li>${escapeHtml(fact)}</li>`).join('')}${closed}${seasons}</ul>` : ''}
     ${access ? `<h2>Getting there</h2><ul>${access}</ul>` : ''}
     ${others.length ? `<p>This trail also reaches ${escapeHtml(listText(others))}. The length covers only what's mapped in this region, and it includes every mapped branch, so it may not match a sign or the loop you plan.</p>` : '<p>The length includes every mapped branch, so it may not match a sign or the loop you plan.</p>'}
     ${nearby.length ? `<h2>Trails nearby</h2><ul>${nearby.map(({ route: other, miles }) => `<li><a href="${trailPath(other)}">${escapeHtml(other.name)}</a>, about ${Math.max(1, Math.round(miles))} mi away</li>`).join('')}</ul>` : ''}
-    <p class="trail-credit">Trail data: ${route.sources.map(source => SOURCE_CREDITS[source]).filter(Boolean).join(', ')}. <a href="/trails/data/TRAILS-LICENSE.txt">Data license</a>.</p>`;
+    <p class="trail-credit">Trail data: ${route.sources.map(source => SOURCE_CREDITS[source]).filter(Boolean).join(', ')}.${land.length ? ' Land names: USGS PAD-US.' : ''} <a href="/trails/data/TRAILS-LICENSE.txt">Data license</a>.</p>`;
   return {
     name: trailPath(route).slice(1),
     source: shell({
@@ -251,6 +263,8 @@ function directoryPage(counties, official, { siteUrl, escapeHtml }) {
       <p>Riding rules change by the season and the land manager, so we only give a motorized trail its own page when a land manager confirms it. Start with the managers below, and see the <a href="/trails/">trail app</a> for trails a map source marks for riding.</p>
       <h2>Hunting and trapping</h2>
       <p>Many of these trails are on or near land open to hunting. In season, wear blaze orange or other high-visibility colors. <a href="${HUNTING_PATH}">See season dates, safety and each state's rules</a>.</p>
+      <h2>Hunting, fishing and foraging on public land</h2>
+      <p><a href="${LAND_RULES_PATH}">See what's allowed</a> on each state forest, park and preserve in Garrett and Allegany counties, including ginseng, ramps and mushrooms.</p>
       <h2>Parks and forests</h2><ul class="trail-places">${places}</ul>`,
     }),
   };
@@ -290,9 +304,77 @@ export function huntingPage({ season, checkedAt, firearms, states }, { siteUrl, 
       <h2>Rules, licenses and trapping seasons</h2>
       ${stateSections}
       <h2>Public land</h2>
-      <p>Public land isn't automatically open to hunting or trapping. Parks and other areas have their own limits, and the land manager or state rules decide. Know whose land you're on, since this site doesn't show private property lines.</p>
+      <p>Public land isn't automatically open to hunting or trapping. Parks and other areas have their own limits, and the land manager or state rules decide. Know whose land you're on, since this site doesn't show private property lines. In Garrett and Allegany counties, <a href="${LAND_RULES_PATH}">see what's allowed on each land area</a>.</p>
       <h2>Using the trail app in the field</h2>
       <p>The <a href="/trails/">trail app</a> shows your GPS position on a topographic map and works with no signal once you've saved an area. You can mark spots, like your truck or a stand, and they stay on your phone. We never receive them.</p>`,
+    }),
+  };
+}
+
+const LAND_ACTIVITIES = [['hunting', 'Hunting'], ['trapping', 'Trapping'], ['fishing', 'Fishing'], ['gathering', 'Mushrooms and berries'], ['ginseng', 'Ginseng'], ['ramps', 'Ramps']];
+const LAND_STATUS = { allowed: 'Allowed', restricted: 'Limited', by_permit: 'Permit', prohibited: 'No', not_confirmed: 'Not confirmed' };
+const LAND_GROUPS = ['State forests', 'State parks and natural areas', 'Wildlife management areas', 'Fishery areas', 'Federal land', 'Nonprofit preserves', 'Reservoirs and trails'];
+
+const landStatus = (status, escapeHtml) => `<span class="land-status land-status--${escapeHtml(status)}">${LAND_STATUS[status]}</span>`;
+
+// A web address in a note becomes a short link, so it can be followed and can't widen a phone screen.
+const linkedText = (text, escapeHtml) => escapeHtml(text).replace(/https:\/\/[^\s)]+/g, match => {
+  const [, url, tail] = match.match(/^(.*?)([.,;]*)$/);
+  return `<a href="${url}" rel="noopener">link</a>${tail}`;
+});
+
+function landArea(area, escapeHtml) {
+  const rules = LAND_ACTIVITIES.map(([key, label]) => {
+    const { status, summary, source } = area.rules[key];
+    return `<li><strong>${label}:</strong> ${landStatus(status, escapeHtml)} ${escapeHtml(summary)}${source ? ` <a href="${escapeHtml(source)}" rel="noopener">Source</a>.` : ''}</li>`;
+  }).join('');
+  const counties = area.counties.length > 1 ? `${area.counties.join(' and ')} counties` : `${area.counties[0]} County`;
+  return `<section class="land-area" id="${area.id}">
+      <h3>${escapeHtml(area.name)}</h3>
+      <p class="land-area-facts">${escapeHtml(counties)}. ${escapeHtml(area.manager)}${area.manager.endsWith('.') ? '' : '.'}${area.contact ? ` ${escapeHtml(area.contact)}${area.contact.endsWith('.') ? '' : '.'}` : ''}${area.url ? ` <a href="${escapeHtml(area.url)}" rel="noopener">Official page</a>.` : ''}</p>
+      ${area.note ? `<p>${escapeHtml(area.note)}</p>` : ''}
+      <ul class="land-rules">${rules}</ul>
+      ${area.waterNote ? `<details class="land-water"><summary>Water rules</summary><p>${linkedText(area.waterNote, escapeHtml)}</p></details>` : ''}
+    </section>`;
+}
+
+export function landRulesPage({ checkedAt, areas }, { siteUrl, escapeHtml }) {
+  const crumbs = [['Trails', DIRECTORY_PATH], ["What's allowed on public land", null]];
+  const groups = LAND_GROUPS.map(group => [group, areas.filter(area => area.group === group)]).filter(([, listed]) => listed.length);
+  const glance = groups.map(([group, listed]) => `<tbody><tr><th colspan="7" scope="rowgroup">${escapeHtml(group)}</th></tr>${listed.map(area => `<tr id="glance-${area.id}"><th scope="row"><a href="#${area.id}">${escapeHtml(area.name)}</a></th>${LAND_ACTIVITIES.map(([key]) => `<td>${landStatus(area.rules[key].status, escapeHtml)}</td>`).join('')}</tr>`).join('')}</tbody>`).join('');
+  const sections = groups.map(([group, listed]) => `<h2>${escapeHtml(group)}</h2>${listed.map(area => landArea(area, escapeHtml)).join('')}`).join('');
+  return {
+    name: LAND_RULES_PATH.slice(1),
+    source: shell({
+      siteUrl, escapeHtml, path: LAND_RULES_PATH, crumbs,
+      title: "What's Allowed on Public Land in Garrett and Allegany Counties",
+      description: `What the rules say about hunting, trapping, fishing, mushrooms, berries, ginseng and ramps on ${areas.length} state forests, parks, wildlife areas and preserves in Garrett and Allegany counties, Maryland.`,
+      heading: "What's allowed on public land",
+      dek: 'Hunting, trapping, fishing and foraging on state forests, parks and preserves in Garrett and Allegany counties, Maryland.',
+      jsonLd: { '@context': 'https://schema.org', ...breadcrumbData(siteUrl, crumbs) },
+      body: `
+      <p class="trail-caution">This is a starting point, not the law or legal advice, and no agency has reviewed it. On ${escapeHtml(longDate(checkedAt))} we read state and federal rules, Maryland's guides and land managers' own pages where we could find them. Some managers publish no rules, and those rows say so. Rules and closures change, and posted signs and the land manager decide. If you're unsure, call first.</p>
+      <h2>What the answers mean</h2>
+      <ul class="land-rules">
+        <li>${landStatus('allowed', escapeHtml)} Open with the normal license and state rules. Read the limits listed with it.</li>
+        <li>${landStatus('restricted', escapeHtml)} Only in part of the area, or only by certain methods or seasons.</li>
+        <li>${landStatus('by_permit', escapeHtml)} Needs a permit from the land manager, on top of any state license.</li>
+        <li>${landStatus('prohibited', escapeHtml)} A rule or the owner bans it. That includes a ban "except by permit" where we found no sign a permit is offered.</li>
+        <li>${landStatus('not_confirmed', escapeHtml)} We couldn't find an answer. This does not mean it's allowed, so ask first.</li>
+      </ul>
+      <h2>Before you go</h2>
+      <ul>
+        <li><strong>Hunting gear:</strong> <a href="https://www.eregulations.com/maryland/hunting/public-hunting-lands" rel="noopener">Maryland's hunting guide</a> says possessing or using hunting devices in state forests and state parks is prohibited outside regular open hunting seasons.</li>
+        <li><strong>Trapping:</strong> <a href="https://www.eregulations.com/maryland/hunting/furbearer-hunting-trapping" rel="noopener">Maryland requires</a> a Furbearer Permit to hunt or trap furbearers, with some exceptions, and nonresidents also need a Nonresident Hunting License and Nonresident Trapping License.</li>
+        <li><strong>Ginseng on private land:</strong> <a href="https://mda.maryland.gov/media/2960" rel="noopener">the state's collecting permit form</a> sets a September 1 through December 1 season and size and age limits, and you need the landowner's permission.</li>
+        <li><strong>Mushrooms and wild plants:</strong> we don't identify anything as safe to eat. If you think someone has eaten something poisonous, call Poison Control at 1-800-222-1222.</li>
+        <li><strong>Private land:</strong> this page covers public land and preserves open to visitors. Everywhere else, you need the owner's permission.</li>
+        <li><strong>Hunting season:</strong> wear blaze orange or other high-visibility colors on any trail. <a href="${HUNTING_PATH}">See season dates and safety</a>.</li>
+      </ul>
+      <h2>At a glance</h2>
+      <div class="land-table"><table><thead><tr><th scope="col">Land area</th>${LAND_ACTIVITIES.map(([, label]) => `<th scope="col">${label}</th>`).join('')}</tr></thead>${glance}</table></div>
+      ${sections}
+      <p class="trail-credit">Rules: linked from each land manager and the state's guides. We'll add more counties over time. To correct something here, <a href="/privacy.html">see how to reach us</a>.</p>`,
     }),
   };
 }
@@ -301,6 +383,8 @@ export function buildTrailPages({ siteUrl, escapeHtml }) {
   const { routes, counties } = readData('routes.json');
   const { official } = readData('official.json');
   const { hikes } = readData('hikes.json');
+  const landRules = readData('land-rules.json');
+  const { trails: trailLand } = readData('trail-land.json');
   const context = { siteUrl, escapeHtml, hikes };
   const shards = new Map();
   const withLines = publishableRoutes(routes).map(route => ({ route, lines: loadLines(route, shards) })).filter(({ lines }) => lines.length);
@@ -309,11 +393,13 @@ export function buildTrailPages({ siteUrl, escapeHtml }) {
     const nearby = published.filter(other => other !== route)
       .map(other => ({ route: other, miles: distanceMiles(route.center, other.center) }))
       .sort((a, b) => a.miles - b.miles).slice(0, 5);
-    return trailPage(route, lines, nearby, context);
+    const land = (trailLand[route.id] || []).map(id => landRules.areas.find(area => area.id === id));
+    return trailPage(route, lines, nearby, { ...context, land });
   });
   const byCounty = counties.map(county => [county, published.filter(route => countiesOf(route).includes(county))]).filter(([, listed]) => listed.length);
   pages.push(...byCounty.map(([county, listed]) => countyPage(county, listed, context)));
   pages.push(directoryPage(byCounty, official, context));
   pages.push(huntingPage(readData('hunting.json'), context));
+  pages.push(landRulesPage(landRules, context));
   return pages;
 }

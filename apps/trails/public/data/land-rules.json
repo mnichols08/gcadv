@@ -1,0 +1,2561 @@
+{
+ "checkedAt": "2026-11-07",
+ "areas": [
+  {
+   "id": "savage-river-state-forest",
+   "name": "Savage River State Forest",
+   "group": "State forests",
+   "landType": "state forest",
+   "counties": [
+    "Garrett",
+    "Allegany"
+   ],
+   "manager": "Maryland Department of Natural Resources, Maryland Forest Service",
+   "url": "https://dnr.maryland.gov/forests/Pages/publiclands/western_savageriverforest.aspx",
+   "contact": "Forest headquarters, 301-895-5759",
+   "note": "In its State Wildlands you may hunt, fish and trap only if otherwise permitted; motor vehicles, wheeled transport such as game carts, and temporary structures and equipment are barred. Ask about portable stands.",
+   "waterNote": "Rules from COMAR 08.02.11.01 and the 2026 Maryland fishing guide. Savage River mainstem and tributaries above the reservoir dam: artificial flies and lures only, no bait or scented devices, no brook trout kept; the guide adds 2 other trout daily, 4 in possession, and bars barbed hooks, which the regulation doesn't, so use barbless. That area excludes Savage River Reservoir, New Germany Lake and the river from the reservoir up to Poplar Lick Run. The stretch up to Poplar Lick is closed to all fishing from the first Sunday after March 4 to the last Saturday in March, apart from a youth day for under-16s; no brook trout kept, and usual fishing hours are 5:30 a.m. to 10 p.m. Dam down to the Allegany Bridge: artificial flies only on conventional fly tackle, no centerpin, spinning, spincast or casting reels. Allegany Bridge down to the Route 135 bridge: artificial lures or flies with a single hook, no treble hooks. Both stretches below the dam: open all year, no bait or scented devices, 2 trout daily, 4 in possession, brook trout 12 inches and brown trout 18 inches minimum. Ask DNR Fisheries at 301-334-8218.",
+   "rules": {
+    "hunting": {
+     "status": "allowed",
+     "scope": "this_land_area",
+     "summary": "Allowed in season with a Maryland license, except posted safety zones, Big Run and New Germany State Parks, and private land without written permission; Savage Highlands and Savage River Reservoir have their own entries. No baiting, stands must cause no tree damage and be removed daily, and Sunday hunting is limited; call headquarters, 301-895-5759.",
+     "source": "https://dnr.maryland.gov/forests/Pages/publiclands/SavageRiver/hunting-trapping.aspx",
+     "quote": "Hunting is permitted throughout Savage River State Forest except where posted with safety zone signs."
+    },
+    "trapping": {
+     "status": "by_permit",
+     "scope": "this_land_area",
+     "summary": "Allowed on land and in water with a written permit, a hunting license and DNR trapper education certificate, but the permit isn't shown to cover the state parks inside the forest or Savage River Reservoir. The hunting guide lists 301-895-5759 for permits; the forest page says DNR's Flintstone office issues them, so call first.",
+     "source": "https://dnr.maryland.gov/forests/Pages/publiclands/SavageRiver/hunting-trapping.aspx",
+     "quote": "Trapping is permitted on land and in water throughout the forest. Permits are issued at the Regional DNR Wildlife Office in Flintstone."
+    },
+    "fishing": {
+     "status": "restricted",
+     "scope": "this_land_area",
+     "summary": "Finfish only with a Maryland license, outside posted areas; much of the Savage River is limited to flies or lures, with special trout limits, and the stretch from the reservoir up to Poplar Lick closes for most of March. See the water rules and ask DNR Fisheries at 301-334-8218 first.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.02.11.01",
+     "quote": "A person may use only artificial flies and lures"
+    },
+    "gathering": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Maryland DNR's stated position is that state forest and park rules bar removing plants and natural items, so don't forage here. The rule doesn't name mushrooms, berries or nuts; call headquarters at 301-895-5759 with questions.",
+     "source": "https://mgaleg.maryland.gov/cmte_testimony/2026/eee/1Wt-lOOX9TPFwLCZZYnUuAqppGs5NUhJM.pdf",
+     "quote": "Current Forest and Parks regulations prohibit removing or disturbing plants and natural items on State-owned public lands"
+    },
+    "ginseng": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Ginseng harvest isn't allowed here, even with a state collecting permit, because this is state land managed by Maryland DNR. Call headquarters at 301-895-5759 with questions.",
+     "source": "https://mda.maryland.gov/media/2960",
+     "quote": "As of the 2013 collecting season, ginseng harvest on state lands managed by the Maryland Department of Natural Resources is no longer permitted."
+    },
+    "ramps": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "The state forest rule bars removing or disturbing any plant without a permit, and we found no sign a permit is offered for ramps. The rule doesn't name ramps; call headquarters at 301-895-5759 with questions.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.07.01.13",
+     "quote": "Except as authorized in Regulation .03 of this chapter and §§C and D of this regulation, an individual may not remove, disturb, damage, or destroy any plant, rock, mineral, or animal in a State forest."
+    }
+   }
+  },
+  {
+   "id": "potomac-garrett-state-forest",
+   "name": "Potomac-Garrett State Forest",
+   "group": "State forests",
+   "landType": "state forest",
+   "counties": [
+    "Garrett"
+   ],
+   "manager": "Maryland Forest Service, Maryland Department of Natural Resources",
+   "url": "https://dnr.maryland.gov/forests/Pages/publiclands/western_potomacgarrettforest.aspx",
+   "contact": "Forest headquarters, 1431 Potomac Camp Road, Oakland, MD 21550; 301-707-6539; office hours listed as Monday, 7 am to 3:30 pm (staff often in the field, call ahead). Closed for unsafe bridges: Lostland Run Road at Campsite 22 and the 5½ Mile Trail bridge over Toliver Run; call for current closures.",
+   "note": "In its State Wildlands you may hunt, fish and trap only if otherwise permitted; motor vehicles, wheeled transport such as game carts, and temporary structures and equipment are barred. Ask about portable stands.",
+   "waterNote": "North Branch Potomac River, from the forest's lower boundary near Lostland Run up to its upper boundary at Wallman, is a delayed-harvest trout area under COMAR 08.02.11.01. From Oct 1 to June 15: no trout kept, no natural or live bait or scented lures, and no barbed hooks. From June 16 to Sept 30: five trout a day. Western Maryland Fisheries: 301-334-8218.",
+   "rules": {
+    "hunting": {
+     "status": "allowed",
+     "scope": "this_land_area",
+     "summary": "Allowed in regular seasons except where posted with safety zone signs, with limited Sunday hunting; no baiting, and stands must come out with you each day. Herrington Manor and Swallow Falls State Parks are closed to hunting, and private land needs the owner's written permission; call 301-707-6539.",
+     "source": "https://dnr.maryland.gov/forests/Pages/publiclands/PotomacGarrett/hunting-trapping.aspx",
+     "quote": "Hunting is permitted throughout Potomac-Garrett State Forest except where posted with safety zone signs."
+    },
+    "trapping": {
+     "status": "by_permit",
+     "scope": "this_land_area",
+     "summary": "Allowed on land and in water with a trapping permit from the DNR Wildlife Office at Mount Nebo WMA in Oakland, 301-334-4255. Apply with a valid hunting license, a letter from forest headquarters (301-707-6539) and a trapper education certificate.",
+     "source": "https://dnr.maryland.gov/forests/Pages/publiclands/PotomacGarrett/hunting-trapping.aspx",
+     "quote": "A trapping permit must be obtained from the Regional DNR Wildlife Office at Mount Nebo Wildlife Management Area in Oakland."
+    },
+    "fishing": {
+     "status": "restricted",
+     "scope": "manager_or_land_type_rule",
+     "summary": "On the North Branch from Oct 1 to June 15: keep no trout and use no bait or barbed hooks. Finfish are open outside posted areas with a Maryland freshwater license, plus a trout stamp for trout. Fishing for anything else needs a permit, and we found no sign one is offered here; ask 301-707-6539.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.07.01.05",
+     "quote": "Except in a posted area, an individual may fish in the waters of a State forest for finfish, if the individual complies with the State fishing laws."
+    },
+    "gathering": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Maryland DNR's stated position is that state forest and park rules bar removing plants and natural items, so don't forage here. The rule doesn't name mushrooms, berries or nuts; call 301-707-6539 with questions.",
+     "source": "https://mgaleg.maryland.gov/cmte_testimony/2026/eee/1Wt-lOOX9TPFwLCZZYnUuAqppGs5NUhJM.pdf",
+     "quote": "Current Forest and Parks regulations prohibit removing or disturbing plants and natural items on State-owned public lands"
+    },
+    "ginseng": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "No ginseng digging: the Maryland Department of Agriculture's ginseng collecting permit application says harvest on DNR-managed state land is no longer permitted. Call 301-707-6539 with questions.",
+     "source": "https://mda.maryland.gov/media/2960",
+     "quote": "As of the 2013 collecting season, ginseng harvest on state lands managed by the Maryland Department of Natural Resources is no longer permitted."
+    },
+    "ramps": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not without a permit, and we found no sign one is offered here. Ask the manager at 301-707-6539; the state forest plant rule doesn't name ramps.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.07.01.13",
+     "quote": "an individual may not remove, disturb, damage, or destroy any plant, rock, mineral, or animal in a State forest."
+    }
+   }
+  },
+  {
+   "id": "green-ridge-state-forest",
+   "name": "Green Ridge State Forest",
+   "group": "State forests",
+   "landType": "state forest",
+   "counties": [
+    "Allegany"
+   ],
+   "manager": "Maryland Department of Natural Resources, Maryland Forest Service",
+   "url": "https://dnr.maryland.gov/forests/Pages/publiclands/western_greenridgeforest.aspx",
+   "contact": "Headquarters, 301-478-3124",
+   "note": "In its State Wildlands (Deep Run, Maple Run, Potomac Bends, Hoop Pole Hollow) you may hunt, fish and trap only if otherwise permitted; motor vehicles, wheeled transport such as game carts, and temporary structures and equipment are barred. Ask about portable stands and flood-closed roads.",
+   "waterNote": "Town Creek (two posted sections in the forest): from Oct. 1, catch and release only, with no natural or live bait, scented devices or barbed hooks. COMAR 08.02.11.01 ends this May 31, but DNR's Town Creek page says June 15, so follow June 15. Fifteen Mile Creek watershed: closed to all fishing from the first Sunday after March 4 through the last Saturday in March, per COMAR 08.02.11.01 (March 8-28 in 2026). Sideling Hill Creek: the forest recreation page lists stream closures, but the 2026 state fishing guide shows none, so ask DNR Fisheries at 301-334-8218.",
+   "rules": {
+    "hunting": {
+     "status": "allowed",
+     "scope": "this_land_area",
+     "summary": "Allowed in regular seasons with a Maryland hunting license, except where safety zone signs are posted. No baiting, only stands you carry out each day, limited Sunday hunting and written landowner permission for private land in or next to the forest; call 301-478-3124.",
+     "source": "https://dnr.maryland.gov/forests/Pages/publiclands/Greenridge/hunting-trapping.aspx",
+     "quote": "Hunting is permitted throughout Green Ridge State Forest except where posted with safety zone signs."
+    },
+    "trapping": {
+     "status": "by_permit",
+     "scope": "this_land_area",
+     "summary": "Allowed on land and in water with a free forest trapping permit, a Maryland hunting license and a DNR trapper education certificate. The forest page says permits come from the DNR Wildlife Office in Flintstone and the state guide lists 301-478-3124, so call that number first.",
+     "source": "https://dnr.maryland.gov/forests/Pages/publiclands/Greenridge/hunting-trapping.aspx",
+     "quote": "Trapping is permitted on land and in water throughout the forest. Permits are issued at the Regional DNR Wildlife Office in Flintstone."
+    },
+    "fishing": {
+     "status": "allowed",
+     "scope": "this_land_area",
+     "summary": "Town Creek's posted sections are catch and release from Oct 1, with no bait or barbed hooks. Finfish only, outside posted areas, with a Maryland license and, for trout, a stamp; we found no sign the permit for anything else is offered, so ask 301-478-3124. Fifteen Mile Creek watershed closes most of March and the forest page lists Sideling Hill Creek closures the guide doesn't show, so call DNR Fisheries at 301-334-8218.",
+     "source": "https://dnr.maryland.gov/forests/Pages/publiclands/Greenridge/recreation-trails.aspx",
+     "quote": "A valid Maryland Freshwater Fishing License is required."
+    },
+    "gathering": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Maryland DNR's stated position is that state forest and park rules bar removing plants and natural items, so don't pick here. The rule doesn't name mushrooms, berries or nuts; call 301-478-3124 with questions.",
+     "source": "https://mgaleg.maryland.gov/cmte_testimony/2026/eee/1Wt-lOOX9TPFwLCZZYnUuAqppGs5NUhJM.pdf",
+     "quote": "Current Forest and Parks regulations prohibit removing or disturbing plants and natural items on State-owned public lands"
+    },
+    "ginseng": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not allowed, even with a state collecting permit: Maryland's ginseng permit application says harvest is no longer permitted on land Maryland DNR manages, which includes this forest. Call 301-478-3124 with questions.",
+     "source": "https://mda.maryland.gov/media/2960",
+     "quote": "As of the 2013 collecting season, ginseng harvest on state lands managed by the Maryland Department of Natural Resources is no longer permitted."
+    },
+    "ramps": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not without a permit, and we found no sign one is offered here; the state forest rule against removing any plant doesn't name ramps. Ask the manager at 301-478-3124.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.07.01.13",
+     "quote": "an individual may not remove, disturb, damage, or destroy any plant, rock, mineral, or animal in a State forest"
+    }
+   }
+  },
+  {
+   "id": "big-run-state-park",
+   "name": "Big Run State Park",
+   "group": "State parks and natural areas",
+   "landType": "state park",
+   "counties": [
+    "Garrett"
+   ],
+   "manager": "Maryland Park Service, Maryland Department of Natural Resources (run from New Germany State Park)",
+   "url": "https://dnr.maryland.gov/publiclands/Pages/western/bigrun.aspx",
+   "contact": "(301) 895-5453",
+   "note": "Big Run is a small park inside Savage River State Forest, and the rules change at the park boundary; from May 2027, Big Run Road will close just north of Savage River Road for up to four months.",
+   "waterNote": "Savage River and tributaries above the reservoir dam, apparently including Big Run and Monroe Run, except the put-and-take water below: artificial flies and lures only, no natural or live bait or scented devices, no brook trout in possession (COMAR 08.02.11.01 H(2)). Maryland's 2026 fishing guide also bars barbed hooks here, which the regulation does not list, and limits other trout to 2 a day and 4 in possession. Savage River from the reservoir up to Poplar Lick: put-and-take water, closed to all fishing from the first Sunday after March 4 to the last Saturday in March, except under-16 anglers on Youth Trout Fishing Day; brook trout can't be kept, other trout 5 a day and 10 in possession (COMAR 08.02.11.01 B and I). Savage River Reservoir, at the park's southern edge: COMAR 08.02.11.01 lists no closure and the same put-and-take limits, but DNR's reservoir page says \"There is a brief lake closure each spring when trout stocking begins.\" Everywhere: nontidal license, plus a trout stamp at 16 and older to catch, try to catch or keep trout, per the state fishing guide.",
+   "rules": {
+    "hunting": {
+     "status": "prohibited",
+     "scope": "this_land_area",
+     "summary": "No hunting in the park. Hunting is permitted in the adjacent state forest, so know which side of the boundary you are on, and call (301) 895-5453 with questions.",
+     "source": "https://dnr.maryland.gov/publiclands/Pages/parkinfo.aspx?parkname=Big%20Run",
+     "quote": "No Hunting"
+    },
+    "trapping": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not without a written permit, and we found no sign one is offered here. Ask the manager at (301) 895-5453.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.07.06.03",
+     "quote": "Except by written permit, an individual may not trap or attempt to trap game in a State park."
+    },
+    "fishing": {
+     "status": "restricted",
+     "scope": "this_land_area",
+     "summary": "Park streams are barbless flies and lures only, no bait, no brook trout kept; anything but finfish needs a permit, and we found no sign of one. The Savage River from the reservoir to Poplar Lick closes first Sunday after March 4 to March's last Saturday; ask (301) 895-5453 about the reservoir's brief spring closure.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.02.11.01",
+     "quote": "Savage River mainstem and tributaries upstream of the Savage River Reservoir dam, excluding impoundments and Put-and-Take Trout Fishing Areas"
+    },
+    "gathering": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Maryland DNR says state forest and park rules bar removing plants and natural items, which leaves the public no general legal way to forage here. The rule doesn't name mushrooms, berries or nuts, so call (301) 895-5453 with questions.",
+     "source": "https://mgaleg.maryland.gov/cmte_testimony/2026/eee/1Wt-lOOX9TPFwLCZZYnUuAqppGs5NUhJM.pdf",
+     "quote": "Current Forest and Parks regulations prohibit removing or disturbing plants and natural items on State-owned public lands"
+    },
+    "ginseng": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "No ginseng harvest here. Maryland Department of Agriculture's ginseng permit application says harvest is no longer permitted on state lands managed by Maryland DNR, which runs this park; call (301) 895-5453 with questions.",
+     "source": "https://mda.maryland.gov/media/2960",
+     "quote": "As of the 2013 collecting season, ginseng harvest on state lands managed by the Maryland Department of Natural Resources is no longer permitted."
+    },
+    "ramps": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not without a permit, and we found no sign one is offered here. Ask the manager at (301) 895-5453; the state park rule against removing plants doesn't name ramps.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.07.06.13",
+     "quote": "Remove, disturb, damage, or destroy a plant, rock, mineral, or animal;"
+    }
+   }
+  },
+  {
+   "id": "casselman-river-bridge-state-park",
+   "name": "Casselman River Bridge State Park",
+   "group": "State parks and natural areas",
+   "landType": "State park",
+   "counties": [
+    "Garrett"
+   ],
+   "manager": "Maryland Park Service, Maryland Department of Natural Resources",
+   "url": "https://dnr.maryland.gov/publiclands/Pages/western/casselman.aspx",
+   "contact": "301-895-5453",
+   "note": "DNR's status page says the whole park is closed during bridge repairs, expected to finish in fall 2027. The park's page still has older wording that the bridge is open, so treat the park as closed and call 301-895-5453 to ask about any access.",
+   "waterNote": "Casselman River from the two red posts on the south side of the I-68 eastbound bridge down to the Pennsylvania line is delayed-harvest trout water. From Oct. 1 through June 15, release all trout, don't carry or use natural or live bait or scented devices, and don't fish barbed hooks; from June 16 through Sept. 30, the limit is five trout daily and ten in possession (COMAR 08.02.11.01).",
+   "rules": {
+    "hunting": {
+     "status": "prohibited",
+     "scope": "this_land_area",
+     "summary": "No hunting: DNR lists this park as No Hunting, and the park is also closed during bridge repairs expected to run into fall 2027. Questions: call 301-895-5453.",
+     "source": "https://dnr.maryland.gov/publiclands/Pages/parkinfo.aspx?parkname=Casselman+River+Bridge",
+     "quote": "No Hunting"
+    },
+    "trapping": {
+     "status": "prohibited",
+     "scope": "this_land_area",
+     "summary": "The whole park is closed during bridge repairs, expected to run into fall 2027, so no trapping. After it reopens, state park rules still bar trapping game or removing any animal without a permit, and we found no sign one is offered; ask 301-895-5453.",
+     "source": "https://dnr.maryland.gov/Pages/park-status-dashboard.aspx",
+     "quote": "The state park will remain closed for the duration of the repair."
+    },
+    "fishing": {
+     "status": "prohibited",
+     "scope": "this_land_area",
+     "summary": "No fishing inside the park during bridge repairs, expected to run into fall 2027; fencing also blocks a small part of the river. DNR says anglers can fish the river outside the park; call 301-895-5453 with questions.",
+     "source": "https://dnr.maryland.gov/publiclands/Pages/western/casselman.aspx",
+     "quote": "Anglers can still access the river to fish at locations outside of the state park."
+    },
+    "gathering": {
+     "status": "prohibited",
+     "scope": "this_land_area",
+     "summary": "Not while the park is closed for bridge repairs, expected to run into fall 2027. After that, it's DNR's stated position that state forest and park rules bar removing plants and natural items, though the rule doesn't name mushrooms, berries or nuts; call 301-895-5453.",
+     "source": "https://dnr.maryland.gov/Pages/park-status-dashboard.aspx",
+     "quote": "The state park will remain closed for the duration of the repair."
+    },
+    "ginseng": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "No ginseng digging on state land managed by Maryland DNR, which includes this park, according to Maryland Department of Agriculture's ginseng permit form. The park is also closed during bridge repairs; call 301-895-5453 with questions.",
+     "source": "https://mda.maryland.gov/media/2960",
+     "quote": "As of the 2013 collecting season, ginseng harvest on state lands managed by the Maryland Department of Natural Resources is no longer permitted."
+    },
+    "ramps": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not without a permit, and we found no sign one is offered here; the park is also closed during bridge repairs. Ask the manager at 301-895-5453; the state park rule against removing plants doesn't name ramps.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.07.06.13",
+     "quote": "Remove, disturb, damage, or destroy a plant, rock, mineral, or animal"
+    }
+   }
+  },
+  {
+   "id": "deep-creek-lake-state-park",
+   "name": "Deep Creek Lake State Park",
+   "group": "State parks and natural areas",
+   "landType": "state park",
+   "counties": [
+    "Garrett"
+   ],
+   "manager": "Maryland Park Service (Maryland Department of Natural Resources)",
+   "url": "https://dnr.maryland.gov/publiclands/pages/western/deepcreek.aspx",
+   "contact": "301-387-5563",
+   "note": "The park is separate from the Deep Creek Lake Natural Resources Management Area, which handles the lake and its shoreline Buffer Strip, and the rules differ.",
+   "waterNote": "Deep Creek Lake: walleye have a 15-inch minimum, all fish 18 to 21 inches must be released, and the season is closed March 1 through April 15 (COMAR 08.02.11.04). The lake is put-and-take trout water with no closure: no brook trout kept, other trout 5 a day and 10 in possession (COMAR 08.02.11.01 B).",
+   "rules": {
+    "hunting": {
+     "status": "restricted",
+     "scope": "this_land_area",
+     "summary": "Only inside the posted 551-acre area, Monday through Saturday, with weapons unloaded until inside it, no firearms hunting until October 15, no bait, and temporary stands and blinds removed daily. Waterfowl hunting is only at designated lake sites by permit and reservation, and other hunting is banned on the lake's Buffer Strip; call 301-387-5563.",
+     "source": "https://dnr.maryland.gov/publiclands/Pages/western/DeepCreek/Hunting.aspx",
+     "quote": "General hunting permitted in 551-acre designated hunting area"
+    },
+    "trapping": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not without a written permit from the Superintendent of the Maryland Park Service, and we found no sign one is offered here, so ask the park at 301-387-5563. The hunting guide's trapping permit number, 301-334-4255, is for the separate Deep Creek Lake Natural Resources Management Area, not the park.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.07.06.03",
+     "quote": "Except by written permit, an individual may not trap or attempt to trap game in a State park."
+    },
+    "fishing": {
+     "status": "allowed",
+     "scope": "this_land_area",
+     "summary": "Allowed from shore and park docks with a Maryland license, plus a trout stamp at 16 and older to catch, try to catch or keep trout; release all brook trout and 18-to-21-inch walleye. No ranger docks, swim area or private docks; walleye season closed March 1 through April 15; non-finfish need a permit; call 301-387-5563.",
+     "source": "https://dnr.maryland.gov/publiclands/pages/western/deepcreek.aspx",
+     "quote": "Anglers can fish from the shore and from the docks along the park shoreline."
+    },
+    "gathering": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Maryland DNR's stated position is that state forest and park rules bar removing plants and natural items, so don't forage here. The rule doesn't name mushrooms, berries or nuts; call the park at 301-387-5563 with questions.",
+     "source": "https://mgaleg.maryland.gov/cmte_testimony/2026/eee/1Wt-lOOX9TPFwLCZZYnUuAqppGs5NUhJM.pdf",
+     "quote": "Current Forest and Parks regulations prohibit removing or disturbing plants and natural items on State-owned public lands"
+    },
+    "ginseng": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "No ginseng digging here: the Maryland Department of Agriculture says harvest is not permitted on land managed by Maryland DNR. Call the park at 301-387-5563 with questions.",
+     "source": "https://mda.maryland.gov/media/2960",
+     "quote": "As of the 2013 collecting season, ginseng harvest on state lands managed by the Maryland Department of Natural Resources is no longer permitted."
+    },
+    "ramps": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "The state park rule doesn't name ramps, but it bars removing or disturbing any plant. Not without a permit, and we found no sign one is offered here; ask the park at 301-387-5563.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.07.06.13",
+     "quote": "Remove, disturb, damage, or destroy a plant, rock, mineral, or animal;"
+    }
+   }
+  },
+  {
+   "id": "herrington-manor-state-park",
+   "name": "Herrington Manor State Park",
+   "group": "State parks and natural areas",
+   "landType": "state park",
+   "counties": [
+    "Garrett"
+   ],
+   "manager": "Maryland Park Service (DNR)",
+   "url": "https://dnr.maryland.gov/publiclands/Pages/western/herrington.aspx",
+   "contact": "Herrington Manor State Park, 222 Herrington Lane, Oakland, MD 21550, 301-334-9180",
+   "note": "The park sits within Potomac-Garrett State Forest, and many of its trails cross onto forest land that is open to hunting, so wear bright colors in season and know which land you are on.",
+   "waterNote": "Herrington Lake and the main stem of Herrington Creek are listed as put-and-take trout waters with no seasonal closure: release all brook trout and keep up to 5 other trout a day, 10 in possession. See the Maryland fishing guide: https://www.eregulations.com/maryland/fishing/put-and-take-trout-fishing-areas",
+   "rules": {
+    "hunting": {
+     "status": "prohibited",
+     "scope": "this_land_area",
+     "summary": "No hunting in the park, but many of its trails cross into Potomac-Garrett State Forest, which is open to hunting under its own rules. Ask the park at 301-334-9180 which land you are on.",
+     "source": "https://dnr.maryland.gov/publiclands/Pages/western/HerringtonManor/Hiking-Trail-Maps.aspx",
+     "quote": "Herrington Manor State Park does not permit hunting"
+    },
+    "trapping": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not without a written permit from the Superintendent of the Maryland Park Service, and we found no sign one is offered here. Ask the park at 301-334-9180.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.07.06.03",
+     "quote": "Except by written permit, an individual may not trap or attempt to trap game in a State park."
+    },
+    "fishing": {
+     "status": "allowed",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Finfish fishing is allowed except in posted areas, with a Maryland freshwater license from age 16 plus a trout stamp for trout. Fishing for anything else needs a permit, and we found no sign one is offered here; ask the park at 301-334-9180.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.07.06.05",
+     "quote": "Except in a posted area, an individual may fish in the waters of a State park for finfish, if the individual complies with State fishing laws."
+    },
+    "gathering": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Maryland DNR's stated position is that state forest and park rules prohibit removing plants and natural items, so don't forage here. The rule doesn't name mushrooms, berries or nuts; ask the park at 301-334-9180.",
+     "source": "https://mgaleg.maryland.gov/cmte_testimony/2026/eee/1Wt-lOOX9TPFwLCZZYnUuAqppGs5NUhJM.pdf",
+     "quote": "Current Forest and Parks regulations prohibit removing or disturbing plants and natural items on State-owned public lands"
+    },
+    "ginseng": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "No ginseng digging here: the Maryland Department of Agriculture says harvest is no longer permitted on state lands managed by DNR, which include this park. Ask the park at 301-334-9180 with questions.",
+     "source": "https://mda.maryland.gov/media/2960",
+     "quote": "As of the 2013 collecting season, ginseng harvest on state lands managed by the Maryland Department of Natural Resources is no longer permitted."
+    },
+    "ramps": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not without a permit, and we found no sign one is offered here. Ask the manager at 301-334-9180; the state park rule against removing plants doesn't name ramps.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.07.06.13",
+     "quote": "Remove, disturb, damage, or destroy a plant, rock, mineral, or animal;"
+    }
+   }
+  },
+  {
+   "id": "new-germany-state-park",
+   "name": "New Germany State Park",
+   "group": "State parks and natural areas",
+   "landType": "state park",
+   "counties": [
+    "Garrett"
+   ],
+   "manager": "Maryland Park Service (DNR)",
+   "url": "https://dnr.maryland.gov/publiclands/pages/western/newgermany.aspx",
+   "contact": "301-895-5453",
+   "note": "The park sits inside Savage River State Forest, but hunting is banned in the park and the forest's trapping permit doesn't replace the written permit park rules require. Cabins, campsites and pavilions will close at various times during water and wastewater work in 2026-2027.",
+   "waterNote": "",
+   "rules": {
+    "hunting": {
+     "status": "prohibited",
+     "scope": "this_land_area",
+     "summary": "No hunting in the park, though the surrounding Savage River State Forest is open to it. In season, licensed hunters may carry across the park only to reach land open to hunting, firearms unloaded and cased or with breech open or broken, arrows in a quiver or case; call 301-895-5453.",
+     "source": "https://dnr.maryland.gov/forests/Pages/publiclands/SavageRiver/hunting-trapping.aspx",
+     "quote": "Big Run State Park and New Germany State Park are situated within the forest boundaries; hunting is prohibited in both state parks."
+    },
+    "trapping": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not without a written permit from the Superintendent of the Maryland Park Service, and we found no sign one is offered here. The forest's trapping permit comes from a different office and does not replace it, so ask the park at 301-895-5453.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.07.06.03",
+     "quote": "Except by written permit, an individual may not trap or attempt to trap game in a State park. The permit shall be issued by the Superintendent."
+    },
+    "fishing": {
+     "status": "allowed",
+     "scope": "this_land_area",
+     "summary": "Fish for finfish outside posted areas with a Maryland non-tidal license, plus a trout stamp for trout; anything else needs a permit, and we found no sign one is offered. State rules list no closure, but the park's lake page mentions a brief spring closure during trout stocking, so call 301-895-5453 in spring.",
+     "source": "https://dnr.maryland.gov/publiclands/pages/western/newgermany/lake-activities.aspx",
+     "quote": "Fishing is permitted with a non-tidal fishing license."
+    },
+    "gathering": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "By DNR's stated position, state forest and park rules bar removing plants and natural items, so don't forage here. The rule doesn't name mushrooms, berries or nuts; call 301-895-5453 with questions.",
+     "source": "https://mgaleg.maryland.gov/cmte_testimony/2026/eee/1Wt-lOOX9TPFwLCZZYnUuAqppGs5NUhJM.pdf",
+     "quote": "Current Forest and Parks regulations prohibit removing or disturbing plants and natural items on State-owned public lands"
+    },
+    "ginseng": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "No ginseng digging here: Maryland's ginseng collecting permit application says harvest is no longer permitted on state land managed by DNR. Questions go to the park at 301-895-5453.",
+     "source": "https://mda.maryland.gov/media/2960",
+     "quote": "As of the 2013 collecting season, ginseng harvest on state lands managed by the Maryland Department of Natural Resources is no longer permitted."
+    },
+    "ramps": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not without a permit, and we found no sign one is offered here. Ask the manager at 301-895-5453; the state park rule against removing plants doesn't name ramps.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.07.06.13",
+     "quote": "Remove, disturb, damage, or destroy a plant, rock, mineral, or animal;"
+    }
+   }
+  },
+  {
+   "id": "sang-run-state-park",
+   "name": "Sang Run State Park",
+   "group": "State parks and natural areas",
+   "landType": "state park",
+   "counties": [
+    "Garrett"
+   ],
+   "manager": "Maryland Park Service, Maryland Department of Natural Resources (managed by the Deep Creek Lake State Park Complex)",
+   "url": "https://dnr.maryland.gov/publiclands/Pages/western/sangrun.aspx",
+   "contact": "301-387-5563 (year-round); 667-270-0541 (May-September)",
+   "note": "Park hours are 8 a.m. to sunset, and the park asks you to check first if any activity means being there before or after those hours; it names only fishing and boat launching as examples allowed outside them.",
+   "waterNote": "Youghiogheny River, from a red post about 100 yards above the Deep Creek Lake tailrace down 4 miles to the Sang Run Bridge: artificial lures only, no bait or scented devices, no barbed hooks, all trout released, under COMAR 08.02.11.01 C(3).",
+   "rules": {
+    "hunting": {
+     "status": "restricted",
+     "scope": "this_land_area",
+     "summary": "Hunting is allowed only in the signed 122-acre area, Monday through Saturday, with no baiting; temporary stands and blinds must come out daily. Park hours are 8 a.m. to sunset with no hunting exception listed, and a 2021 DNR sheet says no hunting, so call 301-387-5563 before any hunt.",
+     "source": "https://dnr.maryland.gov/publiclands/Pages/parkinfo.aspx?parkname=Sang+Run",
+     "quote": "The 122- acre designated hunting area is marked with managed hunting area signs. Hunting is permitted Monday-Saturday."
+    },
+    "trapping": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not without a written permit from the Superintendent of the Maryland Park Service, and we found no sign one is offered here. State park rules also bar removing or disturbing any animal, so ask the park at 301-387-5563.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.07.06.03",
+     "quote": "Except by written permit, an individual may not trap or attempt to trap game in a State park."
+    },
+    "fishing": {
+     "status": "restricted",
+     "scope": "manager_or_land_type_rule",
+     "summary": "On the Youghiogheny above Sang Run Bridge: lures only, no bait, no barbed hooks, release all trout. Finfish fishing is allowed with a Maryland license and trout stamp where needed, except in posted areas; other catch needs a permit, and we found no sign one is offered. Much of the nearby riverbank is outside the mapped park and may be private, so ask the park at 301-387-5563 where to reach the water.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.07.06.05",
+     "quote": "Except in a posted area, an individual may fish in the waters of a State park for finfish, if the individual complies with State fishing laws."
+    },
+    "gathering": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "DNR's stated position is that state forest and park rules bar removing plants and natural items, which leaves no general legal way to forage here. The rule doesn't name mushrooms, berries or nuts, so call 301-387-5563 with questions.",
+     "source": "https://mgaleg.maryland.gov/cmte_testimony/2026/eee/1Wt-lOOX9TPFwLCZZYnUuAqppGs5NUhJM.pdf",
+     "quote": "Current Forest and Parks regulations prohibit removing or disturbing plants and natural items on State-owned public lands"
+    },
+    "ginseng": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Ginseng digging is not allowed on land managed by Maryland DNR, including this park, even with a state collecting permit. Call the park at 301-387-5563 with questions.",
+     "source": "https://mda.maryland.gov/media/2960",
+     "quote": "As of the 2013 collecting season, ginseng harvest on state lands managed by the Maryland Department of Natural Resources is no longer permitted."
+    },
+    "ramps": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not without a permit, and we found no sign one is offered here. Ask the park at 301-387-5563; the state park rule against removing or disturbing plants doesn't name ramps.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.07.06.13",
+     "quote": "Remove, disturb, damage, or destroy a plant, rock, mineral, or animal;"
+    }
+   }
+  },
+  {
+   "id": "savage-highlands-state-park",
+   "name": "Savage Highlands State Park",
+   "group": "State parks and natural areas",
+   "landType": "state park",
+   "counties": [
+    "Garrett"
+   ],
+   "manager": "Maryland Park Service (DNR), managed as part of the New Germany State Park complex",
+   "url": "https://dnr.maryland.gov/publiclands/Pages/western/savagehighlands.aspx",
+   "contact": "(301) 895-5453 (park phone on DNR's Savage Highlands map)",
+   "note": "Maryland's newest state park, formerly Savage River Lodge, is opening in phases and sits inside Savage River State Forest, so do not assume the forest's hunting and trapping rules apply on park land.",
+   "waterNote": "",
+   "rules": {
+    "hunting": {
+     "status": "not_confirmed",
+     "scope": "this_land_area",
+     "summary": "DNR points hunters to the surrounding forest and this park isn't on the state guide's list, so don't hunt here unless the park at (301) 895-5453 confirms it. Weapons are barred, except a licensed hunter crossing in season to reach hunting land with guns unloaded and cased or breech open, arrows cased or quivered.",
+     "source": "https://dnr.maryland.gov/publiclands/Pages/western/savagehighlands.aspx",
+     "quote": "Hunting opportunities and fishing in the Savage River are accessible nearby from the adjacent Savage River State Forest."
+    },
+    "trapping": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not without a written permit from the Maryland Park Service, and we found no sign one is offered here. Ask the manager at (301) 895-5453, and don't assume a state forest trapping permit covers the park.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.07.06.03",
+     "quote": "Except by written permit, an individual may not trap or attempt to trap game in a State park."
+    },
+    "fishing": {
+     "status": "not_confirmed",
+     "scope": "this_land_area",
+     "summary": "DNR places Savage River fishing in the adjacent state forest and doesn't say whether streams in or near this park, such as Mudlick Run, can be fished. State park rules generally allow finfishing with a Maryland license outside posted areas, so call (301) 895-5453 before fishing here.",
+     "source": "https://dnr.maryland.gov/publiclands/Pages/western/savagehighlands.aspx",
+     "quote": "Hunting opportunities and fishing in the Savage River are accessible nearby from the adjacent Savage River State Forest."
+    },
+    "gathering": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Maryland DNR's stated position is that state forest and park rules bar removing plants and natural items, so don't forage here. The rule doesn't name mushrooms, berries or nuts; call (301) 895-5453 with questions.",
+     "source": "https://mgaleg.maryland.gov/cmte_testimony/2026/eee/1Wt-lOOX9TPFwLCZZYnUuAqppGs5NUhJM.pdf",
+     "quote": "Current Forest and Parks regulations prohibit removing or disturbing plants and natural items on State-owned public lands"
+    },
+    "ginseng": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "No ginseng digging: Maryland does not permit harvest on state land managed by DNR, which includes this park. Call (301) 895-5453 with questions.",
+     "source": "https://mda.maryland.gov/media/2960",
+     "quote": "As of the 2013 collecting season, ginseng harvest on state lands managed by the Maryland Department of Natural Resources is no longer permitted."
+    },
+    "ramps": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not without a permit, and we found no sign one is offered here. Ask the manager at (301) 895-5453; the state park rule against removing plants doesn't name ramps.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.07.06.13",
+     "quote": "Remove, disturb, damage, or destroy a plant, rock, mineral, or animal;"
+    }
+   }
+  },
+  {
+   "id": "swallow-falls-state-park",
+   "name": "Swallow Falls State Park",
+   "group": "State parks and natural areas",
+   "landType": "state park",
+   "counties": [
+    "Garrett"
+   ],
+   "manager": "Maryland Park Service (Maryland Department of Natural Resources)",
+   "url": "https://dnr.maryland.gov/publiclands/Pages/western/swallowfalls.aspx",
+   "contact": "Swallow Falls State Park Office, 301-387-6938; Herrington Manor State Park Headquarters, 301-334-9180 (February and March)",
+   "note": "The park is open 8 a.m. to sunset, and day-use reservations are required on weekends and holidays from Memorial Day weekend through Labor Day.",
+   "waterNote": "Muddy Creek and the Youghiogheny above it are put-and-take trout water: release all brook trout and keep up to 5 other trout a day, 10 in possession (COMAR 08.02.11.01 B). Farther down the river, from a red post about 100 yards above the Deep Creek Lake tailrace to Sang Run Bridge, it's artificial lures only, no barbed hooks, all trout released (COMAR 08.02.11.01 C(3)).",
+   "rules": {
+    "hunting": {
+     "status": "prohibited",
+     "scope": "this_land_area",
+     "summary": "No hunting in the park, though the adjacent state forest allows it. A licensed hunter in season may cross with firearms unloaded and either cased or with breech open or broken, and arrows in a quiver or case, to reach hunting land; ask 301-387-6938 before crossing outside park hours, 8 a.m. to sunset.",
+     "source": "https://dnr.maryland.gov/forests/Pages/publiclands/PotomacGarrett/hunting-trapping.aspx",
+     "quote": "The forest surrounds Herrington Manor and Swallow Falls State Parks, where hunting is prohibited."
+    },
+    "trapping": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not without a written permit from the Superintendent of the Maryland Park Service, and we found no sign one is offered here. Ask the park office at 301-387-6938.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.07.06.03",
+     "quote": "Except by written permit, an individual may not trap or attempt to trap game in a State park. The permit shall be issued by the Superintendent."
+    },
+    "fishing": {
+     "status": "allowed",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Finfish fishing is allowed 8 a.m. to sunset under state fishing laws, except in posted areas, with a trout stamp at 16 and older to catch, try to catch or keep trout. Fishing for anything other than finfish: not without a permit, and we found no sign one is offered here; ask 301-387-6938.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.07.06.05",
+     "quote": "Except in a posted area, an individual may fish in the waters of a State park for finfish, if the individual complies with State fishing laws."
+    },
+    "gathering": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Maryland DNR's stated position is that state forest and park rules bar removing plants and natural items, so don't forage here. The rule doesn't name mushrooms, berries or nuts; call 301-387-6938 with questions.",
+     "source": "https://mgaleg.maryland.gov/cmte_testimony/2026/eee/1Wt-lOOX9TPFwLCZZYnUuAqppGs5NUhJM.pdf",
+     "quote": "Current Forest and Parks regulations prohibit removing or disturbing plants and natural items on State-owned public lands"
+    },
+    "ginseng": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "No ginseng digging here: Maryland Department of Agriculture's collecting permit application says harvest is no longer permitted on state lands managed by DNR, and holding a collecting permit doesn't change that. Ask the park office at 301-387-6938.",
+     "source": "https://mda.maryland.gov/media/2960",
+     "quote": "As of the 2013 collecting season, ginseng harvest on state lands managed by the Maryland Department of Natural Resources is no longer permitted."
+    },
+    "ramps": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not without a permit, and we found no sign one is offered here. Ask the park office at 301-387-6938; the state park rule against removing plants doesn't name ramps.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.07.06.13",
+     "quote": "Remove, disturb, damage, or destroy a plant, rock, mineral, or animal;"
+    }
+   }
+  },
+  {
+   "id": "wolf-den-run-state-park",
+   "name": "Wolf Den Run State Park",
+   "group": "State parks and natural areas",
+   "landType": "state park",
+   "counties": [
+    "Garrett"
+   ],
+   "manager": "Maryland Park Service, Maryland Department of Natural Resources",
+   "url": "https://dnr.maryland.gov/publiclands/Pages/western/Wolf-Den-Run.aspx",
+   "contact": "Park office 301-334-1272; the state hunting guide lists (301) 334-9180 for hunting",
+   "note": "This park is shared with off-road vehicle riders, except during the two-week deer firearms season, when only walk-in hunting and other non-motorized use are allowed.",
+   "waterNote": "Under Maryland's trout rule (COMAR 08.02.11.01), the North Branch from Jennings Randolph Lake upstream about 6 miles to the lower Potomac State Forest boundary is put-and-take with no seasonal closure: release all brook trout; keep 5 other trout a day, 10 in possession. Short Run and Wolf Den Run aren't listed there, so the statewide limit of 2 a day, 4 in possession, applies. Ask Western Maryland Fisheries at 301-334-8218 whether the park's frontage is in that stretch.",
+   "rules": {
+    "hunting": {
+     "status": "restricted",
+     "scope": "this_land_area",
+     "summary": "Treat this as deer only, on 1,986 acres, unless the park confirms otherwise at (301) 334-9180; its 2021 list says deer and its hunting page says general. Hunt Monday through Saturday with only temporary stands and blinds removed daily, not in or around the campground, and park outside the gates, which lock at posted hours.",
+     "source": "https://dnr.maryland.gov/publiclands/documents/mps_huntingprogram.pdf",
+     "quote": "Hunting for deer permitted on 1,986 acres"
+    },
+    "trapping": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not without a written permit from the Superintendent of the Maryland Park Service, and we found no sign one is offered here. Ask the park at 301-334-1272.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.07.06.03",
+     "quote": "Except by written permit, an individual may not trap or attempt to trap game in a State park."
+    },
+    "fishing": {
+     "status": "allowed",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Fishing for finfish is allowed outside posted areas with a state license, plus a trout stamp at 16 and older to catch, try to catch or keep trout. Fishing for anything other than finfish: not without a permit, and we found no sign one is offered here; ask 301-334-1272.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.07.06.05",
+     "quote": "Except in a posted area, an individual may fish in the waters of a State park for finfish, if the individual complies with State fishing laws."
+    },
+    "gathering": {
+     "status": "prohibited",
+     "scope": "this_land_area",
+     "summary": "The park's rules ban damaging or moving any natural objects or materials; they don't name mushrooms, berries or nuts, but treat picking them as banned. Call the park at 301-334-1272 with questions.",
+     "source": "https://dnr.maryland.gov/publiclands/documents/wdr_statepark_rules.pdf",
+     "quote": "No damaging or moving any natural objects or materials"
+    },
+    "ginseng": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Ginseng digging is banned here, as on all state land managed by Maryland DNR, according to the Maryland Department of Agriculture's ginseng collecting permit application. Call the park at 301-334-1272 with questions.",
+     "source": "https://mda.maryland.gov/media/2960",
+     "quote": "As of the 2013 collecting season, ginseng harvest on state lands managed by the Maryland Department of Natural Resources is no longer permitted."
+    },
+    "ramps": {
+     "status": "prohibited",
+     "scope": "this_land_area",
+     "summary": "Not without a permit, and we found no sign one is offered here. Ask the manager at 301-334-1272; the park's rules and the state park plant rule don't name ramps.",
+     "source": "https://dnr.maryland.gov/publiclands/documents/wdr_statepark_rules.pdf",
+     "quote": "No damaging or moving any natural objects or materials"
+    }
+   }
+  },
+  {
+   "id": "dans-mountain-state-park",
+   "name": "Dans Mountain State Park",
+   "group": "State parks and natural areas",
+   "landType": "State park",
+   "counties": [
+    "Allegany"
+   ],
+   "manager": "Maryland Park Service, Maryland Department of Natural Resources",
+   "url": "https://dnr.maryland.gov/publiclands/pages/western/dansmountain.aspx",
+   "contact": "301-895-5453",
+   "note": "This park is separate from Dan's Mountain Wildlife Management Area, which has its own hunting and trapping rules, so check which land you are on.",
+   "waterNote": "Dans Mountain Pond is a put-and-take trout area under COMAR 08.02.11.01: 5 trout a day, 10 in possession, brook trout released. It lists the pond as closed from 10 p.m. the first Sunday after March 4 until 6:30 a.m. the last Saturday in March, except an under-16 youth day the Saturday before, 6:30 a.m. to 10 p.m., 2 trout. The state fishing guide requires a trout stamp at 16 and up for trout. No fishing in posted areas. The park is open 8 a.m. to sunset; check with the park at 301-895-5453 before fishing outside those hours.",
+   "rules": {
+    "hunting": {
+     "status": "prohibited",
+     "scope": "this_land_area",
+     "summary": "No hunting in the park; call 301-895-5453 with questions. Dan's Mountain Wildlife Management Area is separate land with its own rules.",
+     "source": "https://dnr.maryland.gov/publiclands/pages/parkinfo.aspx?parkname=dans+mountain",
+     "quote": "No Hunting"
+    },
+    "trapping": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not without a written permit, and we found no sign one is offered here. Ask the manager at 301-895-5453.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.07.06.03",
+     "quote": "Except by written permit, an individual may not trap or attempt to trap game in a State park."
+    },
+    "fishing": {
+     "status": "restricted",
+     "scope": "this_land_area",
+     "summary": "The pond closes for most of March. Finfish only, with a state license; anything else takes a permit, and we found no sign one is offered here. State rules close the pond from the first Sunday after March 4 to the last Saturday in March, though the park's page says otherwise, so stay off unless the park (301-895-5453) confirms.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.02.11.01",
+     "quote": "put-and-take trout fishing areas are closed to all fishing from 10 p.m. of the first date to 5:30 a.m. of the last date"
+    },
+    "gathering": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "DNR's stated position is that state forest and park rules bar removing plants and natural items, though the rule doesn't name mushrooms, berries or nuts. Call the park at 301-895-5453 with questions.",
+     "source": "https://mgaleg.maryland.gov/cmte_testimony/2026/eee/1Wt-lOOX9TPFwLCZZYnUuAqppGs5NUhJM.pdf",
+     "quote": "Current Forest and Parks regulations prohibit removing or disturbing plants and natural items on State-owned public lands"
+    },
+    "ginseng": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "No ginseng harvest on land Maryland DNR manages, which includes this park, according to the Maryland Department of Agriculture's ginseng permit application. Call the park at 301-895-5453 with questions.",
+     "source": "https://mda.maryland.gov/media/2960",
+     "quote": "As of the 2013 collecting season, ginseng harvest on state lands managed by the Maryland Department of Natural Resources is no longer permitted."
+    },
+    "ramps": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not without a permit, and we found no sign one is offered here. Ask the manager at 301-895-5453; state park rules ban removing a plant but don't name ramps.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.07.06.13",
+     "quote": "Remove, disturb, damage, or destroy a plant, rock, mineral, or animal;"
+    }
+   }
+  },
+  {
+   "id": "rocky-gap-state-park",
+   "name": "Rocky Gap State Park",
+   "group": "State parks and natural areas",
+   "landType": "state park",
+   "counties": [
+    "Allegany"
+   ],
+   "manager": "Maryland Park Service, Maryland Department of Natural Resources",
+   "url": "https://dnr.maryland.gov/publiclands/pages/western/rockygap.aspx",
+   "contact": "301-722-1480",
+   "note": "In its 943-acre State Wildlands you may hunt, fish and trap only if otherwise permitted; motor vehicles, wheeled transport such as game carts, and temporary structures and equipment are barred. Ask about portable stands.",
+   "waterNote": "Lake Habeeb is a put-and-take trout area with no seasonal closure: release all brook trout and keep no more than 5 other trout a day and 10 in possession (https://regs.maryland.gov/us/md/exec/comar/08.02.11.01). DNR's lake page lists five trout a day without the brook trout rule, so follow the stricter regulation. Fishing is allowed 24 hours a day; boats are limited to electric motors and paddle craft must launch at the designated launch areas (https://dnr.maryland.gov/fisheries/pages/hotspots/rockygap.aspx). A trout stamp is required at 16 and older to catch, try to catch or possess trout in nontidal waters (https://www.eregulations.com/maryland/fishing/licenses-fees). Questions go to DNR Fishing and Boating Services at 301-334-8218.",
+   "rules": {
+    "hunting": {
+     "status": "restricted",
+     "scope": "this_land_area",
+     "summary": "Only in the posted 1,451-acre general area and the 300-acre bow-only tract, Monday through Saturday, with weapons unloaded and cased until you are inside and temporary stands and blinds removed daily. DNR lists the campground, one walk-in route, as closed for renovations through December 31, 2027, so call 301-722-1480 about that route and crossbows.",
+     "source": "https://dnr.maryland.gov/publiclands/Pages/western/RockyGap/Hunting.aspx",
+     "quote": "General hunting permitted in 1,451 acre designated hunting area"
+    },
+    "trapping": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not without a written permit, and we found no sign one is offered here. Ask the park at 301-722-1480.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.07.06.03",
+     "quote": "Except by written permit, an individual may not trap or attempt to trap game in a State park."
+    },
+    "fishing": {
+     "status": "allowed",
+     "scope": "this_land_area",
+     "summary": "Fish Lake Habeeb from shore or boat with a Maryland non-tidal license at 16 and older, except inside the buoyed swimming beaches and posted areas. Fishing for anything but finfish needs a permit, and we found no sign one is offered; call the park at 301-722-1480.",
+     "source": "https://dnr.maryland.gov/fisheries/pages/hotspots/rockygap.aspx",
+     "quote": "The entire lake is open for angling except for the areas buoyed off at the three public swimming beaches."
+    },
+    "gathering": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "It is DNR's stated position that state park rules bar removing plants and natural items, so do not forage here. The rule doesn't name mushrooms, berries or nuts; call the park at 301-722-1480 with questions.",
+     "source": "https://mgaleg.maryland.gov/cmte_testimony/2026/eee/1Wt-lOOX9TPFwLCZZYnUuAqppGs5NUhJM.pdf",
+     "quote": "Current Forest and Parks regulations prohibit removing or disturbing plants and natural items on State-owned public lands"
+    },
+    "ginseng": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Maryland's ginseng collecting permit form says harvest is no longer permitted on state land managed by DNR, which includes this park. Call the park at 301-722-1480 with questions.",
+     "source": "https://mda.maryland.gov/media/2960",
+     "quote": "As of the 2013 collecting season, ginseng harvest on state lands managed by the Maryland Department of Natural Resources is no longer permitted."
+    },
+    "ramps": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not without a permit, and we found no sign one is offered here; the state park rule against removing plants doesn't name ramps. Call the park at 301-722-1480.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.07.06.13",
+     "quote": "Remove, disturb, damage, or destroy a plant, rock, mineral, or animal"
+    }
+   }
+  },
+  {
+   "id": "sideling-hill-creek-state-park",
+   "name": "Sideling Hill Creek State Park",
+   "group": "State parks and natural areas",
+   "landType": "state park",
+   "counties": [
+    "Allegany"
+   ],
+   "manager": "Maryland Park Service (Maryland Department of Natural Resources)",
+   "url": "https://dnr.maryland.gov/publiclands/Pages/western/Sideling-Hill-Creek.aspx",
+   "contact": "301-842-2155",
+   "note": "DNR says all state land north of the creek is now Sideling Hill Wildlife Management Area, with different rules, so follow posted signs. The Natural Resources Police training center inside is closed to the public; hours are 8 am (10 am November-March) to sunset.",
+   "waterNote": "DNR's 2026 fishing guide (https://www.eregulations.com/maryland/fishing/put-and-take-trout-fishing-areas) lists the Sideling Hill Creek watershed as put-and-take trout water with no closure: release all brook trout; other trout 5 a day, 10 in possession. Green Ridge State Forest's page says the creek has closure restrictions, so ask DNR Fisheries at 301-334-8218.",
+   "rules": {
+    "hunting": {
+     "status": "prohibited",
+     "scope": "this_land_area",
+     "summary": "No hunting in the park. The neighboring Sideling Hill Wildlife Management Area has its own rules and DNR's map boundaries are approximate, so follow the signs and check the boundary with the Indian Springs Wildlife Office at 301-842-2702 before you hunt nearby.",
+     "source": "https://dnr.maryland.gov/publiclands/Pages/parkinfo.aspx?parkname=Sideling+Hill+Creek",
+     "quote": "No Hunting is Permitted"
+    },
+    "trapping": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not without a written permit, and we found no sign one is offered here. Ask the manager at 301-842-2155; a trapping permit for the neighboring wildlife management area is not shown to cover the park.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.07.06.03",
+     "quote": "Except by written permit, an individual may not trap or attempt to trap game in a State park."
+    },
+    "fishing": {
+     "status": "not_confirmed",
+     "scope": "manager_or_land_type_rule",
+     "summary": "DNR calls the creek a stocked trout stream and state park rules generally allow finfishing outside posted areas, but no park page says you may fish here. Green Ridge State Forest's page mentions closures on this creek that the 2026 guide doesn't show, so call 301-842-2155 before fishing on park land.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.07.06.05",
+     "quote": "Except in a posted area, an individual may fish in the waters of a State park for finfish, if the individual complies with State fishing laws."
+    },
+    "gathering": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Maryland DNR's stated position is that state forest and park rules bar removing plants and natural items, which leaves the public no general legal way to forage here. The rule doesn't name mushrooms, berries or nuts, so call 301-842-2155 with questions.",
+     "source": "https://mgaleg.maryland.gov/cmte_testimony/2026/eee/1Wt-lOOX9TPFwLCZZYnUuAqppGs5NUhJM.pdf",
+     "quote": "Current Forest and Parks regulations prohibit removing or disturbing plants and natural items on State-owned public lands"
+    },
+    "ginseng": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "No ginseng digging here, even with a state collecting permit, because the state's permit application bars harvest on Maryland DNR land. Questions go to the park at 301-842-2155.",
+     "source": "https://mda.maryland.gov/media/2960",
+     "quote": "As of the 2013 collecting season, ginseng harvest on state lands managed by the Maryland Department of Natural Resources is no longer permitted."
+    },
+    "ramps": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not without a permit, and we found no sign one is offered here. Ask the manager at 301-842-2155; the state park rule against removing plants doesn't name ramps.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.07.06.13",
+     "quote": "Remove, disturb, damage, or destroy a plant, rock, mineral, or animal;"
+    }
+   }
+  },
+  {
+   "id": "wills-mountain-state-park",
+   "name": "Wills Mountain State Park",
+   "group": "State parks and natural areas",
+   "landType": "State park, closed to the public",
+   "counties": [
+    "Allegany"
+   ],
+   "manager": "Maryland Department of Natural Resources, Maryland Park Service (under Rocky Gap State Park)",
+   "url": "https://news.maryland.gov/dnr/2026/09/24/dnr-announces-next-steps-toward-opening-of-long-awaited-wills-mountain-state-park/",
+   "contact": "Rocky Gap State Park, 301-722-1480, rockygap.statepark@maryland.gov",
+   "note": "This park is closed to the public; DNR said in September 2026 that a repaired road will eventually let it open, with no date. In 2024 DNR said police were issuing warnings and citations for going in, so call Rocky Gap State Park, 301-722-1480.",
+   "waterNote": "",
+   "rules": {
+    "hunting": {
+     "status": "prohibited",
+     "scope": "this_land_area",
+     "summary": "The park is closed to the public and isn't on the state hunting guide's list of Allegany County hunting lands. DNR said in a June 2024 release that police were issuing warnings and citations for going in; call Rocky Gap State Park, 301-722-1480, to check whether this has changed.",
+     "source": "https://news.maryland.gov/dnr/2026/09/24/dnr-announces-next-steps-toward-opening-of-long-awaited-wills-mountain-state-park/",
+     "quote": "Wills Mountain has remained closed to the public for more than two decades"
+    },
+    "trapping": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "The park is closed to the public, and state park rules also bar trapping without a written permit. We found no sign one is offered here, so ask Rocky Gap State Park, 301-722-1480.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.07.06.03",
+     "quote": "Except by written permit, an individual may not trap or attempt to trap game in a State park."
+    },
+    "fishing": {
+     "status": "prohibited",
+     "scope": "this_land_area",
+     "summary": "The park is closed to the public, so you can't go in to fish. This covers park land only, not water on other land nearby; ask Rocky Gap State Park, 301-722-1480.",
+     "source": "https://news.maryland.gov/dnr/2026/09/24/dnr-announces-next-steps-toward-opening-of-long-awaited-wills-mountain-state-park/",
+     "quote": "Wills Mountain has remained closed to the public for more than two decades"
+    },
+    "gathering": {
+     "status": "prohibited",
+     "scope": "this_land_area",
+     "summary": "The park is closed to the public, so you can't go in to pick anything, and Maryland DNR says state forest and park rules bar removing plants and natural items, though the rule doesn't name mushrooms, berries or nuts. Call 301-722-1480 with questions.",
+     "source": "https://news.maryland.gov/dnr/2026/09/24/dnr-announces-next-steps-toward-opening-of-long-awaited-wills-mountain-state-park/",
+     "quote": "Wills Mountain has remained closed to the public for more than two decades"
+    },
+    "ginseng": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Ginseng harvest isn't permitted on state land managed by Maryland DNR, according to Maryland Department of Agriculture's ginseng collecting permit application. This park is also closed to the public; ask Rocky Gap State Park, 301-722-1480.",
+     "source": "https://mda.maryland.gov/media/2960",
+     "quote": "As of the 2013 collecting season, ginseng harvest on state lands managed by the Maryland Department of Natural Resources is no longer permitted."
+    },
+    "ramps": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "The park is closed to the public, and the state park rule against removing or disturbing plants also applies, though it doesn't name ramps. You would need a permit, and we found no sign one is offered here; ask Rocky Gap State Park, 301-722-1480.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.07.06.13",
+     "quote": "Remove, disturb, damage, or destroy a plant, rock, mineral, or animal;"
+    }
+   }
+  },
+  {
+   "id": "deep-creek-lake-natural-resources-management-area",
+   "name": "Deep Creek Lake Natural Resources Management Area",
+   "group": "State parks and natural areas",
+   "landType": "natural resources management area",
+   "counties": [
+    "Garrett"
+   ],
+   "manager": "Maryland Park Service, Maryland Department of Natural Resources (Deep Creek Lake Management Office)",
+   "url": "https://dnr.maryland.gov/publiclands/Pages/western/deepcreeknrma.aspx",
+   "contact": "Deep Creek Lake Management Office, 301-387-4112",
+   "note": "This area is the lake and the narrow state-owned Buffer Strip around it, so you must reach the shore legally. Adjoining Deep Creek Lake State Park has its own rules, including its own hunting area.",
+   "waterNote": "",
+   "rules": {
+    "hunting": {
+     "status": "restricted",
+     "scope": "this_land_area",
+     "summary": "General hunting is banned on the Buffer Strip; the only hunt is DNR's managed waterfowl hunt at assigned blind sites, by lottery, permit and reservation. Hunt dates are Nov. 21-27 and Dec. 15-Jan. 30, and selected hunters were to be contacted after Oct. 18; call the Lake Management Office at 301-387-4112.",
+     "source": "https://dnr.maryland.gov/publiclands/Pages/western/deepcreeknrma.aspx",
+     "quote": "General hunting is prohibited on the Buffer Strip surrounding the lake, with the exception of a managed Canada goose hunt."
+    },
+    "trapping": {
+     "status": "by_permit",
+     "scope": "this_land_area",
+     "summary": "Trapping is by written permit only; Maryland's hunting guide lists a permit line for this area at (301) 334-4255. The guide's code list doesn't mark this area for trapping and DNR bans general hunting on the Buffer Strip, so confirm where a permit applies before setting anything.",
+     "source": "https://www.eregulations.com/maryland/hunting/public-hunting-lands",
+     "quote": "For trapping permit call (301) 334-4255"
+    },
+    "fishing": {
+     "status": "allowed",
+     "scope": "this_land_area",
+     "summary": "Open for finfish with a Maryland fishing license, plus a trout stamp at 16 and older to catch, try to catch or keep trout; release all brook trout. Walleye season closes March 1 through April 15, walleye have a 15-inch minimum, all fish 18 to 21 inches must be released, private docks need written permission, posted areas are closed, and anything but finfish needs a permit; call 301-387-4112.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.07.06.05",
+     "quote": "Except in a posted area, an individual may fish in the waters of a State park for finfish, if the individual complies with State fishing laws."
+    },
+    "gathering": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "This is Maryland DNR's stated position: state forest and park rules bar removing plants and natural items, leaving the public no general legal way to forage here. The rule doesn't name mushrooms, berries or nuts; call 301-387-4112 with questions.",
+     "source": "https://mgaleg.maryland.gov/cmte_testimony/2026/eee/1Wt-lOOX9TPFwLCZZYnUuAqppGs5NUhJM.pdf",
+     "quote": "Current Forest and Parks regulations prohibit removing or disturbing plants and natural items on State-owned public lands"
+    },
+    "ginseng": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "No ginseng digging here, even with a collector's permit: Maryland Department of Agriculture's ginseng permit application says harvest is no longer permitted on state lands DNR manages. Questions go to 301-387-4112.",
+     "source": "https://mda.maryland.gov/media/2960",
+     "quote": "As of the 2013 collecting season, ginseng harvest on state lands managed by the Maryland Department of Natural Resources is no longer permitted."
+    },
+    "ramps": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "The state park rule bars removing or disturbing plants and doesn't name ramps; we found no sign a permit is offered here. Buffer Strip rules also bar modifying vegetation without the lake manager's permit, so ask 301-387-4112.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.07.06.13",
+     "quote": "Remove, disturb, damage, or destroy a plant, rock, mineral, or animal;"
+    }
+   }
+  },
+  {
+   "id": "youghiogheny-wild-river-natural-environmental-area",
+   "name": "Youghiogheny Wild River Natural Environmental Area",
+   "group": "State parks and natural areas",
+   "landType": "natural environment area",
+   "counties": [
+    "Garrett"
+   ],
+   "manager": "Maryland Park Service (Maryland DNR), through Deep Creek Lake State Park",
+   "url": "https://dnr.maryland.gov/publiclands/Pages/parkinfo.aspx?parkname=Youghiogheny%20Wild%20River%20Natural%20Environmental%20Area",
+   "contact": "Deep Creek Lake State Park, 301-387-5563",
+   "note": "Most of the river corridor is private land, DNR says, and isn't open without the owner's consent. DNR's public access points are Swallow Falls and Sang Run state parks, the Kendall Trail south from Friendsville and, for fly-fishing, Hoyes Run.",
+   "waterNote": "Youghiogheny River mainstem, from the red post about 100 yards above the Deep Creek Lake tailrace downstream 4 miles to Sang Run Bridge: artificial lures including flies only, no barbed hooks, no natural or live bait or scented devices, and release all trout and keep none with you (Maryland fishing guide, https://www.eregulations.com/maryland/fishing/special-management-areas-trout). DNR describes Hoyes Run as fly-fishing, catch and release only, so use flies there or call 301-387-5563 (https://dnr.maryland.gov/publiclands/Pages/western/Youghiogheny/Public-Access.aspx).",
+   "rules": {
+    "hunting": {
+     "status": "restricted",
+     "scope": "this_land_area",
+     "summary": "Only in the 1,200-acre designated hunting area, Monday through Saturday in regular seasons, with temporary stands and blinds removed each day. One DNR page doesn't mention the limit, so treat only the designated, posted area as open and confirm its lines with Deep Creek Lake State Park at 301-387-5563.",
+     "source": "https://dnr.maryland.gov/publiclands/Pages/parkinfo.aspx?parkname=Youghiogheny%20Wild%20River%20Natural%20Environmental%20Area",
+     "quote": "General hunting permitted in 1,200 acre designated hunting area"
+    },
+    "trapping": {
+     "status": "by_permit",
+     "scope": "this_land_area",
+     "summary": "Trapping takes a written permit, and the state hunting guide lists this area for trapping by permit. Call Deep Creek Lake State Park at 301-387-5563 to ask for one and where trapping may be done.",
+     "source": "https://www.eregulations.com/maryland/hunting/public-hunting-lands",
+     "quote": "t - trapping allowed by permit"
+    },
+    "fishing": {
+     "status": "restricted",
+     "scope": "manager_or_land_type_rule",
+     "summary": "On the river above Sang Run Bridge: lures only, no bait, no barbed hooks, release all trout. Finfish only, with a Maryland license and trout stamp where needed, except in posted areas; most banks are private, so use DNR's public access points. Fishing for anything other than finfish: not without a permit, and we found no sign one is offered here; ask 301-387-5563.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.07.06.05",
+     "quote": "Except in a posted area, an individual may fish in the waters of a State park for finfish, if the individual complies with State fishing laws."
+    },
+    "gathering": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Maryland DNR's stated position is that state forest and park rules bar removing plants and natural items, so don't forage here. The rule doesn't name mushrooms, berries or nuts; ask Deep Creek Lake State Park at 301-387-5563.",
+     "source": "https://mgaleg.maryland.gov/cmte_testimony/2026/eee/1Wt-lOOX9TPFwLCZZYnUuAqppGs5NUhJM.pdf",
+     "quote": "Current Forest and Parks regulations prohibit removing or disturbing plants and natural items on State-owned public lands"
+    },
+    "ginseng": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "No ginseng digging on this state land, according to the Maryland Department of Agriculture's ginseng collecting permit application. Private land in the corridor needs the owner's permission; ask Deep Creek Lake State Park at 301-387-5563.",
+     "source": "https://mda.maryland.gov/media/2960",
+     "quote": "As of the 2013 collecting season, ginseng harvest on state lands managed by the Maryland Department of Natural Resources is no longer permitted."
+    },
+    "ramps": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not without a permit, and we found no sign one is offered here. Ask Deep Creek Lake State Park at 301-387-5563; the state park rule against removing or disturbing a plant doesn't name ramps.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.07.06.13",
+     "quote": "Remove, disturb, damage, or destroy a plant, rock, mineral, or animal;"
+    }
+   }
+  },
+  {
+   "id": "mt-nebo-wildlife-management-area",
+   "name": "Mt. Nebo Wildlife Management Area",
+   "group": "Wildlife management areas",
+   "landType": "wildlife management area",
+   "counties": [
+    "Garrett"
+   ],
+   "manager": "Maryland DNR, Wildlife and Heritage Service",
+   "url": "https://dnr.maryland.gov/wildlife/Pages/publiclands/western/mtnebo.aspx",
+   "contact": "(301) 334-4255",
+   "note": "",
+   "waterNote": "",
+   "rules": {
+    "hunting": {
+     "status": "allowed",
+     "scope": "this_land_area",
+     "summary": "Open in season with the usual license and stamps; black bear requires a lottery-drawn permit, stands and blinds must be temporary and removed daily, and Sunday hunting is limited. One area off Mt. Nebo Road toward the impoundment is open only during firearm deer season, so ask the office at (301) 334-4255.",
+     "source": "https://dnr.maryland.gov/wildlife/Pages/publiclands/western/mtnebo.aspx",
+     "quote": "No special permits or drawings are required to hunt this area, except appropriate licenses and stamps."
+    },
+    "trapping": {
+     "status": "by_permit",
+     "scope": "this_land_area",
+     "summary": "Trapping is by permit only. Apply in writing through the Mt. Nebo office, (301) 334-4255.",
+     "source": "https://dnr.maryland.gov/wildlife/Pages/publiclands/western/mtnebo.aspx",
+     "quote": "Trapping by permit only."
+    },
+    "fishing": {
+     "status": "not_confirmed",
+     "scope": "manager_or_land_type_rule",
+     "summary": "We found no rule that opens this area to fishing, and DNR's page for it doesn't mention fishing. State rules say only that DNR may open wildlife management areas to it, so ask the office at (301) 334-4255 first.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.03.02.01",
+     "quote": "The Department may open these areas to nature-based outdoor recreational activities, including hunting, fishing, hiking, camping, and wildlife watching."
+    },
+    "gathering": {
+     "status": "not_confirmed",
+     "scope": "this_land_area",
+     "summary": "Not settled: DNR calls mushroom hunting a popular use here but doesn't say picking is allowed, and the state rule against removing any part of a plant doesn't name fungi or settle picked fruit. Ask the office at (301) 334-4255 before you pick.",
+     "source": "https://dnr.maryland.gov/wildlife/Pages/publiclands/western/mtnebo.aspx",
+     "quote": "Bird watching, hiking and mushroom hunting are popular uses of this area"
+    },
+    "ginseng": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "No ginseng digging here. Maryland Department of Agriculture's ginseng collecting permit application (file dated July 10, 2026) says harvest is no longer permitted on state lands managed by DNR; questions go to the office at (301) 334-4255.",
+     "source": "https://mda.maryland.gov/media/2960",
+     "quote": "As of the 2013 collecting season, ginseng harvest on state lands managed by the Maryland Department of Natural Resources is no longer permitted."
+    },
+    "ramps": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not without a written permit, and we found no sign one is offered here. The state rule bars removing any part of a plant but doesn't name ramps, so ask the office at (301) 334-4255.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.03.02.10",
+     "quote": "Except with a use permit from the Service, on Service controlled lands and waters a person may not remove, disturb, damage or destroy any portion of a"
+    }
+   }
+  },
+  {
+   "id": "cunningham-swamp-wildlife-management-area",
+   "name": "Cunningham Swamp Wildlife Management Area",
+   "group": "Wildlife management areas",
+   "landType": "wildlife management area",
+   "counties": [
+    "Garrett"
+   ],
+   "manager": "Maryland DNR, Wildlife and Heritage Service; Mt. Nebo Wildlife Office",
+   "url": "https://dnr.maryland.gov/wildlife/Pages/publiclands/western/cunninghamswamp.aspx",
+   "contact": "Mt. Nebo Wildlife Office, (301) 334-4255",
+   "note": "",
+   "waterNote": "",
+   "rules": {
+    "hunting": {
+     "status": "allowed",
+     "scope": "this_land_area",
+     "summary": "Hunting is allowed in open seasons with the usual licenses and stamps, with no area permit or drawing. Remove temporary stands daily, Sunday hunting is limited, black bear requires a lottery-drawn permit, and the Mt. Nebo Wildlife Office at (301) 334-4255 takes questions.",
+     "source": "https://dnr.maryland.gov/wildlife/Pages/publiclands/western/cunninghamswamp.aspx",
+     "quote": "No special permits or drawings are required to hunt this area, except appropriate licenses and stamps."
+    },
+    "trapping": {
+     "status": "by_permit",
+     "scope": "this_land_area",
+     "summary": "Trapping is by permit only. Call the Mt. Nebo Wildlife Office at (301) 334-4255 and get written permission before you trap.",
+     "source": "https://dnr.maryland.gov/wildlife/Pages/publiclands/western/cunninghamswamp.aspx",
+     "quote": "Trapping by permit only."
+    },
+    "fishing": {
+     "status": "not_confirmed",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Maryland's rule says DNR may open wildlife areas to fishing, but we found nothing saying this one is open. Ask the Mt. Nebo Wildlife Office at (301) 334-4255 before you fish.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.03.02.01",
+     "quote": "The Department may open these areas to nature-based outdoor recreational activities, including hunting, fishing, hiking, camping, and wildlife watching."
+    },
+    "gathering": {
+     "status": "not_confirmed",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Maryland's wildlife-area rule bars removing any portion of a plant without a permit, but it doesn't settle fungi or picked fruit. Ask the Mt. Nebo Wildlife Office at (301) 334-4255 before you gather anything.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.03.02.10",
+     "quote": "Except with a use permit from the Service, on Service controlled lands and waters a person may not remove, disturb, damage or destroy any portion of a:"
+    },
+    "ginseng": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Do not dig ginseng here: the Maryland Department of Agriculture's ginseng collecting permit application says harvest is no longer permitted on state land managed by Maryland DNR. Questions go to the Mt. Nebo Wildlife Office at (301) 334-4255.",
+     "source": "https://mda.maryland.gov/media/2960",
+     "quote": "As of the 2013 collecting season, ginseng harvest on state lands managed by the Maryland Department of Natural Resources is no longer permitted."
+    },
+    "ramps": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not without a written permit, and we found no sign one is offered here. Ask the manager, the Mt. Nebo Wildlife Office, at (301) 334-4255; the rule covers removing any part of a plant and doesn't name ramps.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.03.02.10",
+     "quote": "Except with a use permit from the Service, on Service controlled lands and waters a person may not remove, disturb, damage or destroy any portion of a:"
+    }
+   }
+  },
+  {
+   "id": "belle-grove-wildlife-management-area",
+   "name": "Belle Grove Wildlife Management Area",
+   "group": "Wildlife management areas",
+   "landType": "wildlife management area",
+   "counties": [
+    "Allegany"
+   ],
+   "manager": "Maryland DNR, Wildlife and Heritage Service",
+   "url": "https://dnr.maryland.gov/wildlife/Pages/publiclands/western/bellegrove.aspx",
+   "contact": "Billmeyer Wildlife Office, Wildlife and Heritage Service: (301) 478-2525",
+   "note": "DNR's hunting guide lists this 356-acre tract with neighboring Billmeyer as Billmeyer-Belle Grove WMA. Part of it is set aside for hunters with disabilities, so ask the Billmeyer office at (301) 478-2525 where that area is and who may use it.",
+   "waterNote": "",
+   "rules": {
+    "hunting": {
+     "status": "allowed",
+     "scope": "this_land_area",
+     "summary": "Open in season with normal licenses and stamps and no area permit; use only temporary stands removed daily, Sunday hunting is limited, and black bear requires a lottery-drawn permit. On the dove field in September and October, hunt posted days only and stop at 5 p.m. unless the Billmeyer office, (301) 478-2525, says otherwise.",
+     "source": "https://dnr.maryland.gov/wildlife/Pages/publiclands/western/bellegrove.aspx",
+     "quote": "No special permits or drawings are required to hunt this area, except appropriate licenses and stamps."
+    },
+    "trapping": {
+     "status": "by_permit",
+     "scope": "this_land_area",
+     "summary": "Trapping is by permit only. Apply in writing to the area manager through the Billmeyer office, (301) 478-2525.",
+     "source": "https://dnr.maryland.gov/wildlife/Pages/publiclands/western/bellegrove.aspx",
+     "quote": "Trapping by permit only"
+    },
+    "fishing": {
+     "status": "not_confirmed",
+     "scope": "manager_or_land_type_rule",
+     "summary": "We found no rule or DNR page saying fishing is open here, and the area's page doesn't mention fishing or any water. Ask the Billmeyer office at (301) 478-2525 before you fish.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.03.02.01",
+     "quote": "The Department may open these areas to nature-based outdoor recreational activities, including hunting, fishing, hiking, camping, and wildlife watching."
+    },
+    "gathering": {
+     "status": "not_confirmed",
+     "scope": "this_land_area",
+     "summary": "DNR's page calls mushroom hunting a popular use here but doesn't say you may pick, and the state rule against removing any part of a plant without a written permit doesn't settle fungi or picked fruit. Ask the Billmeyer office at (301) 478-2525 before you gather.",
+     "source": "https://dnr.maryland.gov/wildlife/Pages/publiclands/western/bellegrove.aspx",
+     "quote": "Bird watching, hiking and mushroom hunting are popular uses of this area."
+    },
+    "ginseng": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "No ginseng digging here: the state's ginseng permit application says harvest on land managed by DNR is no longer permitted. Questions go to the Billmeyer office at (301) 478-2525.",
+     "source": "https://mda.maryland.gov/media/2960",
+     "quote": "As of the 2013 collecting season, ginseng harvest on state lands managed by the Maryland Department of Natural Resources is no longer permitted."
+    },
+    "ramps": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not without a written permit, and we found no sign one is offered here. Ask the manager at (301) 478-2525; the state rule bars removing any part of a plant on these lands and doesn't name ramps.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.03.02.10",
+     "quote": "Except with a use permit from the Service, on Service controlled lands and waters a person may not remove, disturb, damage or destroy any portion of a:"
+    }
+   }
+  },
+  {
+   "id": "billmeyer-wildlife-management-area",
+   "name": "Billmeyer Wildlife Management Area",
+   "group": "Wildlife management areas",
+   "landType": "wildlife management area",
+   "counties": [
+    "Allegany"
+   ],
+   "manager": "Maryland DNR, Wildlife and Heritage Service",
+   "url": "https://dnr.maryland.gov/wildlife/Pages/publiclands/western/billmeyer.aspx",
+   "contact": "Billmeyer Wildlife Office, (301) 478-2525",
+   "note": "DNR's hunting guide lists this land together with Belle Grove under the name Billmeyer-Belle Grove WMA, so look for it under that name.",
+   "waterNote": "",
+   "rules": {
+    "hunting": {
+     "status": "allowed",
+     "scope": "this_land_area",
+     "summary": "Open in season with your normal licenses and stamps, and no area permit or drawing is needed; black bear requires a lottery-drawn permit. Stands and blinds must be temporary and carried out daily, baiting is banned, and Sunday hunting is limited; call the Billmeyer office at (301) 478-2525 with questions.",
+     "source": "https://dnr.maryland.gov/wildlife/Pages/publiclands/western/billmeyer.aspx",
+     "quote": "No special permits or drawings are required to hunt this area, except appropriate licenses and stamps."
+    },
+    "trapping": {
+     "status": "by_permit",
+     "scope": "this_land_area",
+     "summary": "Trapping is by permit only. Apply in writing to the area manager at the Billmeyer office, (301) 478-2525, and ask whether the area is leased for trapping.",
+     "source": "https://dnr.maryland.gov/wildlife/Pages/publiclands/western/billmeyer.aspx",
+     "quote": "Trapping by permit only"
+    },
+    "fishing": {
+     "status": "not_confirmed",
+     "scope": "manager_or_land_type_rule",
+     "summary": "We found no rule or page that settles fishing here: state rules say only that DNR may open these areas to it, and the Billmeyer page doesn't mention it. Ask the Billmeyer office at (301) 478-2525.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.03.02.01",
+     "quote": "The Department may open these areas to nature-based outdoor recreational activities, including hunting, fishing, hiking, camping, and wildlife watching."
+    },
+    "gathering": {
+     "status": "not_confirmed",
+     "scope": "this_land_area",
+     "summary": "Not settled: DNR's Billmeyer page calls mushroom hunting a popular use but gives no permission, and the rule against removing any part of a plant doesn't say whether it covers fungi or picked fruit. Ask the Billmeyer office at (301) 478-2525 before you pick anything.",
+     "source": "https://dnr.maryland.gov/wildlife/Pages/publiclands/western/billmeyer.aspx",
+     "quote": "Bird watching, hiking and mushroom hunting are popular uses of this area."
+    },
+    "ginseng": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "No ginseng digging here: Maryland Department of Agriculture's ginseng permit application says harvest is no longer permitted on state land managed by DNR. Call the Billmeyer office at (301) 478-2525 with questions.",
+     "source": "https://mda.maryland.gov/media/2960",
+     "quote": "As of the 2013 collecting season, ginseng harvest on state lands managed by the Maryland Department of Natural Resources is no longer permitted."
+    },
+    "ramps": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not without a written permit, and we found no sign one is offered here. Ask the manager at (301) 478-2525; the state rule bars removing any part of a plant on these lands and doesn't name ramps.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.03.02.10",
+     "quote": "Except with a use permit from the Service, on Service controlled lands and waters a person may not remove, disturb, damage or destroy any portion of a:"
+    }
+   }
+  },
+  {
+   "id": "dans-mountain-wildlife-management-area",
+   "name": "Dans Mountain Wildlife Management Area",
+   "group": "Wildlife management areas",
+   "landType": "wildlife management area",
+   "counties": [
+    "Allegany"
+   ],
+   "manager": "Maryland DNR, Wildlife and Heritage Service",
+   "url": "https://dnr.maryland.gov/wildlife/Pages/publiclands/western/danswma.aspx",
+   "contact": "Billmeyer Wildlife Office, (301) 478-2525",
+   "note": "This area is separate from Dans Mountain State Park, and in its State Wildlands (4,047 acres) you may hunt, fish and trap only if otherwise permitted; motor vehicles, wheeled transport such as game carts, and temporary structures and equipment are barred. Ask about portable stands.",
+   "waterNote": "",
+   "rules": {
+    "hunting": {
+     "status": "allowed",
+     "scope": "this_land_area",
+     "summary": "Allowed in open seasons with the usual licenses and stamps, limited on Sundays; black bear requires a lottery-drawn permit, and some roads can close to vehicles in nesting season or bad weather. State Wildlands here bar vehicles, game carts and temporary structures, so ask the Billmeyer Wildlife Office, (301) 478-2525, about roads and stands.",
+     "source": "https://dnr.maryland.gov/wildlife/Pages/publiclands/western/danswma.aspx",
+     "quote": "No special permits or drawings are required to hunt this area, except appropriate licenses and stamps."
+    },
+    "trapping": {
+     "status": "by_permit",
+     "scope": "this_land_area",
+     "summary": "By permit only: apply in writing to the area manager through the Billmeyer Wildlife Office, (301) 478-2525. Ask whether trapping here is leased, because on leased land only the lessee or a permit holder may trap furbearers.",
+     "source": "https://dnr.maryland.gov/wildlife/Pages/publiclands/western/danswma.aspx",
+     "quote": "Trapping by permit only."
+    },
+    "fishing": {
+     "status": "not_confirmed",
+     "scope": "manager_or_land_type_rule",
+     "summary": "We found no source saying this area is open to fishing: state rules say only that wildlife management areas may be opened to it, and DNR's page for this area doesn't mention it. Call the Billmeyer Wildlife Office, (301) 478-2525, before you fish.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.03.02.01",
+     "quote": "The Department may open these areas to nature-based outdoor recreational activities, including hunting, fishing, hiking, camping, and wildlife watching."
+    },
+    "gathering": {
+     "status": "not_confirmed",
+     "scope": "this_land_area",
+     "summary": "DNR's page describes edible mushrooms here as being for the knowledgeable picker, but state rules bar removing any part of a plant without a use permit and don't name fungi or settle picked fruit. Ask the Billmeyer Wildlife Office, (301) 478-2525, before picking.",
+     "source": "https://dnr.maryland.gov/wildlife/Pages/publiclands/western/danswma.aspx",
+     "quote": "Edible wild mushrooms are here for the knowledgeable picker."
+    },
+    "ginseng": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not allowed: ginseng harvest is not permitted on state lands managed by Maryland DNR, according to the Maryland Department of Agriculture's ginseng collecting permit application (file dated July 10, 2026). Call the Billmeyer Wildlife Office, (301) 478-2525, with questions.",
+     "source": "https://mda.maryland.gov/media/2960",
+     "quote": "As of the 2013 collecting season, ginseng harvest on state lands managed by the Maryland Department of Natural Resources is no longer permitted."
+    },
+    "ramps": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not without a written permit, and we found no sign one is offered here. Ask the manager at the Billmeyer Wildlife Office, (301) 478-2525; the state rule against removing any part of a plant doesn't name ramps.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.03.02.10",
+     "quote": "Except with a use permit from the Service, on Service controlled lands and waters a person may not remove, disturb, damage or destroy any portion of a:"
+    }
+   }
+  },
+  {
+   "id": "islands-of-the-potomac-wildlife-management-area",
+   "name": "Islands of the Potomac Wildlife Management Area",
+   "group": "Wildlife management areas",
+   "landType": "wildlife management area",
+   "counties": [
+    "Allegany"
+   ],
+   "manager": "Maryland DNR, Wildlife and Heritage Service",
+   "url": "https://dnr.maryland.gov/wildlife/pages/publiclands/central/islandsofthepotomac.aspx",
+   "contact": "Western Region Main Office, 301-777-2136 (Allegany and Garrett). Gwynnbrook, 410-356-9272, is the office DNR names for the Montgomery islands.",
+   "note": "This area is 30 Potomac River islands reached only by water, and DNR's page names only three, all in Montgomery County, so call DNR's Western Region office (301-777-2136) to learn which islands in Allegany or Garrett County belong to it.",
+   "waterNote": "",
+   "rules": {
+    "hunting": {
+     "status": "not_confirmed",
+     "scope": "this_land_area",
+     "summary": "DNR opens only Oxley, Mason and Maddox Islands to public hunting, all in Montgomery County, while state regulation lists this area for Allegany and doesn't bar hunting on it. Don't hunt an Allegany island until DNR's Western Region office (301-777-2136) confirms it is open.",
+     "source": "https://dnr.maryland.gov/wildlife/pages/publiclands/central/islandsofthepotomac.aspx",
+     "quote": "Of these Islands, three are open to public hunting in Montgomery County."
+    },
+    "trapping": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not without a written permit, and we found no sign one is offered here: DNR's only trapping permit line sits among its Montgomery County island details. Don't set anything unless DNR's Western Region office (301-777-2136) confirms a permit can cover an Allegany island.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.03.02.09",
+     "quote": "A use permit is required from the Service before a person may trap or attempt to trap on Service controlled lands and waters."
+    },
+    "fishing": {
+     "status": "allowed",
+     "scope": "this_land_area",
+     "summary": "DNR lists fishing among the year-round activities here, with no area permit or reservation; normal Maryland fishing rules apply and the islands are reached only by water. Some Potomac islands are private and DNR names no Allegany island, so check with DNR's Western Region office (301-777-2136) before landing.",
+     "source": "https://dnr.maryland.gov/wildlife/pages/publiclands/central/islandsofthepotomac.aspx",
+     "quote": "The Islands of the Potomac WMA is open year-round to non-hunters. No permit or reservation is needed. Be aware of active hunting seasons. The property is open for the following activities:"
+    },
+    "gathering": {
+     "status": "not_confirmed",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Wildlife management area rules bar removing any portion of a plant without a permit, but they don't name mushrooms, nuts or berries, so that rule doesn't settle fungi or picked fruit. Ask DNR's Western Region office (301-777-2136) before you take any.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.03.02.10",
+     "quote": "Except with a use permit from the Service, on Service controlled lands and waters a person may not remove, disturb, damage or destroy any portion of a:"
+    },
+    "ginseng": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "No ginseng digging here: Maryland Department of Agriculture's ginseng permit application says harvest is no longer permitted on state land managed by DNR, and DNR manages this area. Questions go to DNR's Western Region office (301-777-2136).",
+     "source": "https://mda.maryland.gov/media/2960",
+     "quote": "As of the 2013 collecting season, ginseng harvest on state lands managed by the Maryland Department of Natural Resources is no longer permitted."
+    },
+    "ramps": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not without a written permit, and we found no sign one is offered here. Ask DNR's Western Region office at 301-777-2136; the wildlife management area rule against removing plants doesn't name ramps.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.03.02.10",
+     "quote": "Except with a use permit from the Service, on Service controlled lands and waters a person may not remove, disturb, damage or destroy any portion of a:"
+    }
+   }
+  },
+  {
+   "id": "sideling-hill-wildlife-management-area",
+   "name": "Sideling Hill Wildlife Management Area",
+   "group": "Wildlife management areas",
+   "landType": "wildlife management area",
+   "counties": [
+    "Allegany",
+    "Washington"
+   ],
+   "manager": "Maryland DNR, Wildlife and Heritage Service",
+   "url": "https://dnr.maryland.gov/wildlife/Pages/publiclands/western/sidelinghill.aspx",
+   "contact": "Indian Springs Wildlife Office, (301) 842-2702",
+   "note": "In its State Wildlands you may hunt, fish and trap only if otherwise permitted; motor vehicles, wheeled transport such as game carts, and temporary structures and equipment are barred. Ask about portable stands.",
+   "waterNote": "Sideling Hill Creek watershed is put-and-take trout water: release all brook trout immediately; other trout are limited to 5 a day and 10 in possession combined, with no minimum size. The 2026 Maryland fishing guide (https://www.eregulations.com/maryland/fishing/put-and-take-trout-fishing-areas) shows no closure.",
+   "rules": {
+    "hunting": {
+     "status": "allowed",
+     "scope": "this_land_area",
+     "summary": "Hunting is allowed in open seasons with the usual licenses and stamps and no area permit, using temporary stands removed daily; Sunday hunting is limited and black bear requires a lottery-drawn permit. Neighboring Sideling Hill Creek State Park bans hunting, so follow boundary signs and ask the Indian Springs Wildlife Office, (301) 842-2702.",
+     "source": "https://dnr.maryland.gov/wildlife/Pages/publiclands/western/sidelinghill.aspx",
+     "quote": "No special permits or drawings are required to hunt this area, except appropriate licenses and stamps."
+    },
+    "trapping": {
+     "status": "by_permit",
+     "scope": "this_land_area",
+     "summary": "Trapping requires a written use permit from DNR. Call the Indian Springs Wildlife Office at (301) 842-2702 for it.",
+     "source": "https://www.eregulations.com/maryland/hunting/public-hunting-lands",
+     "quote": "For trapping permit call (301) 842-2702"
+    },
+    "fishing": {
+     "status": "allowed",
+     "scope": "this_land_area",
+     "summary": "Allowed with a Maryland nontidal fishing license, plus a trout stamp for trout if you're 16 or older. Green Ridge State Forest's page mentions stream closures on Sideling Hill Creek that the 2026 guide doesn't show, so ask DNR Fisheries, 301-334-8218, before a spring trip.",
+     "source": "https://dnr.maryland.gov/wildlife/Pages/publiclands/western/sidelinghill.aspx",
+     "quote": "Anglers will enjoy fishing for stocked trout in the shallow creek."
+    },
+    "gathering": {
+     "status": "not_confirmed",
+     "scope": "manager_or_land_type_rule",
+     "summary": "State rules bar removing any portion of a plant or tree here without a use permit, but they don't name mushrooms or picked fruit and don't settle them. We found no sign a permit is offered for gathering, so ask the Indian Springs office at (301) 842-2702 before picking anything.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.03.02.10",
+     "quote": "Except with a use permit from the Service, on Service controlled lands and waters a person may not remove, disturb, damage or destroy any portion of a:"
+    },
+    "ginseng": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "No ginseng digging here, because Maryland no longer permits harvest on state lands managed by DNR. Questions go to the Indian Springs Wildlife Office, (301) 842-2702.",
+     "source": "https://mda.maryland.gov/media/2960",
+     "quote": "As of the 2013 collecting season, ginseng harvest on state lands managed by the Maryland Department of Natural Resources is no longer permitted."
+    },
+    "ramps": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not without a written permit, and we found no sign one is offered here. Ask the manager at (301) 842-2702; the state rule against removing any portion of a plant doesn't name ramps.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.03.02.10",
+     "quote": "Except with a use permit from the Service, on Service controlled lands and waters a person may not remove, disturb, damage or destroy any portion of a:"
+    }
+   }
+  },
+  {
+   "id": "warrior-mountain-wildlife-management-area",
+   "name": "Warrior Mountain Wildlife Management Area",
+   "group": "Wildlife management areas",
+   "landType": "wildlife management area",
+   "counties": [
+    "Allegany"
+   ],
+   "manager": "Maryland DNR, Wildlife and Heritage Service",
+   "url": "https://dnr.maryland.gov/wildlife/Pages/publiclands/western/warriormountain.aspx",
+   "contact": "Billmeyer Wildlife Office, (301) 478-2525",
+   "note": "",
+   "waterNote": "",
+   "rules": {
+    "hunting": {
+     "status": "allowed",
+     "scope": "this_land_area",
+     "summary": "Open in regular seasons with state licenses and stamps and no area permit; black bear needs the lottery permit, stands must be temporary and removed daily, and Sunday hunting is limited. On the dove field in September and October, hunt posted days only, stop at 5 p.m. and ask the Billmeyer office, (301) 478-2525.",
+     "source": "https://dnr.maryland.gov/wildlife/Pages/publiclands/western/warriormountain.aspx",
+     "quote": "No special permits or drawings are required to hunt this area, except appropriate licenses and stamps."
+    },
+    "trapping": {
+     "status": "by_permit",
+     "scope": "this_land_area",
+     "summary": "Trapping here is by permit only. Call the Billmeyer Wildlife Office at (301) 478-2525 for a permit before you set anything.",
+     "source": "https://dnr.maryland.gov/wildlife/Pages/publiclands/western/warriormountain.aspx",
+     "quote": "Trapping is by permit only."
+    },
+    "fishing": {
+     "status": "not_confirmed",
+     "scope": "manager_or_land_type_rule",
+     "summary": "We found no rule that settles fishing here; state rules say only that DNR may open wildlife management areas to fishing. Ask the Billmeyer Wildlife Office at (301) 478-2525 before you fish.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.03.02.01",
+     "quote": "The Department may open these areas to nature-based outdoor recreational activities, including hunting, fishing, hiking, camping, and wildlife watching."
+    },
+    "gathering": {
+     "status": "not_confirmed",
+     "scope": "manager_or_land_type_rule",
+     "summary": "The state rule bars removing any part of a plant or tree without a written permit, but it doesn't name fruit, nuts or mushrooms and doesn't settle picking them. Don't assume it's allowed; ask the Billmeyer Wildlife Office at (301) 478-2525.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.03.02.10",
+     "quote": "Except with a use permit from the Service, on Service controlled lands and waters a person may not remove, disturb, damage or destroy any portion of a:"
+    },
+    "ginseng": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "No ginseng digging here; Maryland Department of Agriculture's ginseng collecting permit application (file dated July 10, 2026) says harvest is no longer permitted on state lands managed by DNR, and this is one of them. Questions go to the Billmeyer Wildlife Office at (301) 478-2525.",
+     "source": "https://mda.maryland.gov/media/2960",
+     "quote": "As of the 2013 collecting season, ginseng harvest on state lands managed by the Maryland Department of Natural Resources is no longer permitted."
+    },
+    "ramps": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not without a written permit, and we found no sign one is offered here. Ask the manager, the Billmeyer Wildlife Office, at (301) 478-2525; the state rule against removing any part of a plant doesn't name ramps.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.03.02.10",
+     "quote": "Except with a use permit from the Service, on Service controlled lands and waters a person may not remove, disturb, damage or destroy any portion of a:"
+    }
+   }
+  },
+  {
+   "id": "north-branch-potomac-fishery-management-area",
+   "name": "North Branch Potomac Fishery Management Area",
+   "group": "Fishery areas",
+   "landType": "Fishery Management Public Fishing Area",
+   "counties": [
+    "Garrett"
+   ],
+   "manager": "Maryland DNR, Fishing and Boating Services",
+   "url": "https://dnr.maryland.gov/fisheries/Pages/hotspots/northbranch.aspx",
+   "contact": "Maryland DNR Fishing and Boating Services, 1728 King's Run Road, Oakland, MD 21550, 301-334-8218",
+   "note": "Maryland's fishery regulation lists this area as North Branch Potomac River, Folly and Laurel Runs. The state's protected-lands map shows two Maryland-side tracts between those runs, but official boundaries are on DNR-held maps, so ask DNR for them before you go.",
+   "waterNote": "Under COMAR 08.02.11.01, the river from the red post below Blue Hole, about 1/3 mile upstream of Bench Mark 1110, down about 4 miles to Piney Swamp Run is artificial lures only, open all year: no natural or live bait or scented devices in possession, no barbed hooks, release all trout. Upstream to the post above Barnum, and from Piney Swamp Run down to the Allegany County line, is put-and-take trout water with no seasonal closure: no brook trout, 5 other trout a day, 10 in possession. COMAR 08.02.01.13 bars public access from the dam to the overhead cable and red bank post about 345 yards below the spillway, except with prior permission of facility staff or as posted. The Corps said in September 2025 that it opened the stilling basin behind the dam for fishing access, so follow the posted signs and ask DNR Fisheries at 301-334-8218 before fishing there.",
+   "rules": {
+    "hunting": {
+     "status": "not_confirmed",
+     "scope": "this_land_area",
+     "summary": "Maryland's fishery-area regulation lists this area as open to hunting, but the state hunting guide's public land list leaves it out. Ask DNR Fisheries at 301-334-8218 first; access runs only 5:30 a.m. to 10 p.m.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.02.01.13",
+     "quote": "Hunting is allowed in the following areas described in §C of this regulation"
+    },
+    "trapping": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not without written permission from DNR's Fisheries Service, and we found no sign it is offered here. Ask DNR Fisheries at 301-334-8218.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.02.01.13",
+     "quote": "Trapping is only allowed in the areas described in §C of this regulation by written permission of the Fisheries Service."
+    },
+    "fishing": {
+     "status": "restricted",
+     "scope": "this_land_area",
+     "summary": "Open 5:30 a.m. to 10 p.m. with a state license, plus a trout stamp at 16 and older to catch, try to catch or keep trout; no bowfishing, gigs or spears. Most of the river appears lure-only, barbless, release-all-trout water, and public access is barred near the dam; confirm markers with DNR Fisheries at 301-334-8218.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.02.11.01",
+     "quote": "from a red post located below a pool known as Blue Hole approximately 1/3 mile upstream of Bench Mark 1110 on the Westernport U.S.G.S. Quadrangle, downstream approximately 4 miles to the confluence of Piney Swamp Run"
+    },
+    "gathering": {
+     "status": "not_confirmed",
+     "scope": "none",
+     "summary": "We found no rule that covers mushrooms, berries or nuts on this fishery area, and that is not permission. Ask DNR Fisheries at 301-334-8218 before gathering.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.02.01.13",
+     "quote": ""
+    },
+    "ginseng": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "No digging: Maryland Department of Agriculture's ginseng collecting permit application says ginseng harvest on DNR-managed state land is no longer permitted. Questions go to DNR Fisheries at 301-334-8218.",
+     "source": "https://mda.maryland.gov/media/2960",
+     "quote": "As of the 2013 collecting season, ginseng harvest on state lands managed by the Maryland Department of Natural Resources is no longer permitted."
+    },
+    "ramps": {
+     "status": "not_confirmed",
+     "scope": "none",
+     "summary": "The rules for this fishery area have no plant-removal section and don't name ramps, and we found no other rule that settles digging here. That is not permission, so ask DNR Fisheries at 301-334-8218 first.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.02.01.13",
+     "quote": ""
+    }
+   }
+  },
+  {
+   "id": "evitts-creek-pond-fishery-management-area",
+   "name": "Evitts Creek Pond Fishery Management Area",
+   "group": "Fishery areas",
+   "landType": "Fishery Management Public Fishing Area",
+   "counties": [
+    "Allegany"
+   ],
+   "manager": "Maryland DNR, Fishing and Boating Services",
+   "url": "https://dnr.maryland.gov/fisheries/pages/inland-western1.aspx",
+   "contact": "DNR Freshwater Fisheries, Western Region I, Oakland: 301-334-8218",
+   "note": "Maryland's fishing rules call this water both Evitts Creek Pond and Evitts Creek Ponds, and public access runs from 5:30 a.m. to 10 p.m.",
+   "waterNote": "",
+   "rules": {
+    "hunting": {
+     "status": "not_confirmed",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Maryland's fishery-area rule lists the areas open to hunting, and this pond isn't listed, so don't hunt here without asking DNR Fisheries at 301-334-8218.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.02.01.13",
+     "quote": "Hunting is allowed in the following areas described in §C of this regulation"
+    },
+    "trapping": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not without written permission from DNR's Fisheries Service, and we found no sign that permission is offered here. Ask DNR Fisheries at 301-334-8218.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.02.01.13",
+     "quote": "Trapping is only allowed in the areas described in §C of this regulation by written permission of the Fisheries Service."
+    },
+    "fishing": {
+     "status": "allowed",
+     "scope": "this_land_area",
+     "summary": "You need a Maryland fishing license at 16 and older, plus a trout stamp to fish for or keep trout; keep 5 trout a day, 10 in possession, no brook trout. Access runs 5:30 a.m. to 10 p.m., bows, gigs, spears and spear guns are banned; questions go to DNR Fisheries at 301-334-8218.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.02.11.01",
+     "quote": "(xi) Evitts Creek Ponds"
+    },
+    "gathering": {
+     "status": "not_confirmed",
+     "scope": "none",
+     "summary": "We found no rule that covers picking mushrooms, berries or nuts at this pond, and that silence isn't permission. Ask DNR Fisheries at 301-334-8218 before you gather anything.",
+     "source": "",
+     "quote": ""
+    },
+    "ginseng": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "No ginseng digging: Maryland Department of Agriculture's ginseng permit application says harvest isn't permitted on state lands managed by DNR, and DNR's acreage report lists this pond as a land unit. Questions go to DNR Fisheries at 301-334-8218.",
+     "source": "https://mda.maryland.gov/media/2960",
+     "quote": "As of the 2013 collecting season, ginseng harvest on state lands managed by the Maryland Department of Natural Resources is no longer permitted."
+    },
+    "ramps": {
+     "status": "not_confirmed",
+     "scope": "none",
+     "summary": "We found no plant-removal rule that clearly applies to this pond, and no Maryland rule we found names ramps. That isn't permission, so ask DNR Fisheries at 301-334-8218 before you dig.",
+     "source": "",
+     "quote": ""
+    }
+   }
+  },
+  {
+   "id": "gary-a-yoder-fishery-management-area",
+   "name": "Gary A. Yoder Fishery Management Area",
+   "group": "Fishery areas",
+   "landType": "Fishery management public fishing area",
+   "counties": [
+    "Allegany"
+   ],
+   "manager": "Maryland DNR, Fishing and Boating Services",
+   "url": "",
+   "contact": "Maryland DNR Fishing and Boating Services, 301-334-8218",
+   "note": "Also called Gary A. Yoder Landing or Black Oak, this is a public access site on the North Branch Potomac River near Rawlings, open 5:30 a.m. to 10 p.m.",
+   "waterNote": "DNR's river distances put this water in the North Branch catch-and-return area, which runs from Westernport down to the Route 956 bridge at Pinto (COMAR 08.02.11.01). There, no trout may be kept and no one may fish with a barbed hook.",
+   "rules": {
+    "hunting": {
+     "status": "not_confirmed",
+     "scope": "this_land_area",
+     "summary": "Maryland's fishery-area rule lists the areas open to hunting, and Yoder isn't listed, though McCoole upstream is. Don't hunt here without asking DNR Fisheries at 301-334-8218.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.02.01.13",
+     "quote": "Hunting is allowed in the following areas described in §C of this regulation"
+    },
+    "trapping": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not without written permission from DNR's Fisheries Service, and we found no sign it is offered here. Ask DNR Fisheries at 301-334-8218.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.02.01.13",
+     "quote": "Trapping is only allowed in the areas described in §C of this regulation by written permission of the Fisheries Service."
+    },
+    "fishing": {
+     "status": "restricted",
+     "scope": "this_land_area",
+     "summary": "Open 5:30 a.m. to 10 p.m. with a Maryland nontidal license and a trout stamp for trout; bows, gigs, spears and spear guns are banned. DNR's river distances put this water in the North Branch catch-and-return area, so release trout and use barbless hooks for any species; questions go to DNR Fisheries at 301-334-8218.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.02.11.01",
+     "quote": "A person may not fish with any barbed hook."
+    },
+    "gathering": {
+     "status": "not_confirmed",
+     "scope": "none",
+     "summary": "We found no rule for fishery management areas that covers picking mushrooms, berries or nuts, and that isn't permission. Ask DNR Fishing and Boating Services at 301-334-8218.",
+     "source": "",
+     "quote": ""
+    },
+    "ginseng": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "No digging: Maryland Department of Agriculture's ginseng permit application says harvest is no longer permitted on land DNR manages, and DNR lists this as one of its public fishing areas. Questions go to DNR Fisheries at 301-334-8218.",
+     "source": "https://mda.maryland.gov/media/2960",
+     "quote": "As of the 2013 collecting season, ginseng harvest on state lands managed by the Maryland Department of Natural Resources is no longer permitted."
+    },
+    "ramps": {
+     "status": "not_confirmed",
+     "scope": "none",
+     "summary": "We found no plant-removal rule for fishery management areas and none naming ramps, but that isn't permission. Ask DNR Fishing and Boating Services at 301-334-8218 before digging.",
+     "source": "",
+     "quote": ""
+    }
+   }
+  },
+  {
+   "id": "mccoole-fishery-management-area",
+   "name": "McCoole Fishery Management Area",
+   "group": "Fishery areas",
+   "landType": "Fishery Management Public Fishing Area",
+   "counties": [
+    "Allegany"
+   ],
+   "manager": "Maryland DNR, Fishing and Boating Services",
+   "url": "",
+   "contact": "(301) 334-8218",
+   "note": "A 16-acre state fishing access area with a boat ramp on the North Branch Potomac River, open to the public from 5:30 a.m. to 10 p.m.",
+   "waterNote": "North Branch Potomac River from the Upper Potomac River Commission Wastewater Treatment Plant discharge at Westernport down to the Maryland Route 956 bridge at Pinto (COMAR 08.02.11.01 C(2)): no closed season, no trout may be kept or possessed, and no barbed hooks. DNR's 2016 float-fishing article places McCoole four miles below Westernport, so ask DNR Fisheries at (301) 334-8218 if you need this confirmed.",
+   "rules": {
+    "hunting": {
+     "status": "allowed",
+     "scope": "this_land_area",
+     "summary": "Open to hunting in season under normal Maryland rules; access runs 5:30 a.m. to 10 p.m., and Sunday hunting is limited. Stands and blinds must be temporary and removed daily; questions go to DNR Fisheries at (301) 334-8218.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.02.01.13",
+     "quote": "Hunting is allowed in the following areas described in §C of this regulation: (a) North Branch Potomac River — Laurel and Folly Run; and (b) North Branch Potomac River — McCoole."
+    },
+    "trapping": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not without written permission from DNR's Fisheries Service, and we found no sign it is offered here. Ask DNR Fisheries at (301) 334-8218.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.02.01.13",
+     "quote": "Trapping is only allowed in the areas described in §C of this regulation by written permission of the Fisheries Service."
+    },
+    "fishing": {
+     "status": "restricted",
+     "scope": "this_land_area",
+     "summary": "Open 5:30 a.m. to 10 p.m. with a Maryland nontidal license, plus a trout stamp for trout; projectile fishing gear is banned. DNR's river distances put this water in a catch-and-return stretch, so release every trout and use only barbless hooks, even for other species; ask DNR Fisheries at (301) 334-8218.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.02.11.01",
+     "quote": "A person may not fish with any barbed hook."
+    },
+    "gathering": {
+     "status": "not_confirmed",
+     "scope": "none",
+     "summary": "We found no rule for this area that covers mushrooms, berries, nuts or other plants, and that is not permission. Ask DNR Fisheries at (301) 334-8218 before picking anything.",
+     "source": "",
+     "quote": ""
+    },
+    "ginseng": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "No ginseng digging here, because Maryland bars harvest on state land managed by DNR. Questions go to DNR Fisheries at (301) 334-8218.",
+     "source": "https://mda.maryland.gov/media/2960",
+     "quote": "As of the 2013 collecting season, ginseng harvest on state lands managed by the Maryland Department of Natural Resources is no longer permitted."
+    },
+    "ramps": {
+     "status": "not_confirmed",
+     "scope": "none",
+     "summary": "We found no plant-removal rule for this area, and no Maryland rule we found names ramps. That is not permission, so ask DNR Fisheries at (301) 334-8218 before digging.",
+     "source": "",
+     "quote": ""
+    }
+   }
+  },
+  {
+   "id": "savage-river-reservoir",
+   "name": "Savage River Reservoir",
+   "group": "Reservoirs and trails",
+   "landType": "Water supply and flood control reservoir",
+   "counties": [
+    "Garrett"
+   ],
+   "manager": "Upper Potomac River Commission",
+   "url": "https://dnr.maryland.gov/fisheries/pages/hotspots/savage_reservoir.aspx",
+   "contact": "Upper Potomac River Commission, 528 Maryland Ave., Westernport, MD 21562, (301) 359-3944",
+   "note": "The Upper Potomac River Commission owns the reservoir, which is bordered by Savage River State Forest and, at its north end, Big Run State Park, so the rules on the shore can change from one owner to the next.",
+   "waterNote": "Reservoir (DNR fisheries page and Savage River State Forest recreation page): electric motors or paddle only, gas motors removed before launching, no gas cans in the boat; ice fishing is permitted. DNR's 2023 forest plan says shoreline access excludes the dam and spillway, so stay off them. Savage River from the reservoir up to Poplar Lick (COMAR 08.02.11.01): closed to all fishing from the first Sunday after March 4 to the last Saturday in March, except the youth trout day for anglers under 16. Savage River above Poplar Lick and the streams feeding the lake and river (COMAR 08.02.11.01 H(2)): artificial flies and lures only; the state fishing guide also bars barbed hooks there though the regulation doesn't, so use barbless. No bait or scented devices, and no brook trout kept. Questions: DNR Fisheries, 301-334-8218.",
+   "rules": {
+    "hunting": {
+     "status": "not_confirmed",
+     "scope": "none",
+     "summary": "We found no rule on hunting the Commission-owned reservoir or its shore, so don't take the state forest's hunting rule as covering it, and hunting is banned in Big Run State Park at the north end. Ask the Upper Potomac River Commission, (301) 359-3944.",
+     "source": "https://dnr.maryland.gov/forests/Pages/publiclands/SavageRiver/hunting-trapping.aspx",
+     "quote": "Hunting is permitted throughout Savage River State Forest except where posted with safety zone signs."
+    },
+    "trapping": {
+     "status": "prohibited",
+     "scope": "statewide_rule",
+     "summary": "Not without written permission, and we found no sign one is offered here; a state forest trapping permit isn't shown to cover this water. Ask the Upper Potomac River Commission, (301) 359-3944.",
+     "source": "https://www.eregulations.com/maryland/hunting/furbearer-hunting-trapping",
+     "quote": "Written permission is required to trap or hunt on another person’s property, including publicly owned properties."
+    },
+    "fishing": {
+     "status": "allowed",
+     "scope": "this_land_area",
+     "summary": "Open by boat or shore with a non-tidal license, plus a trout stamp at 16 and older to catch, try to catch or keep trout; release brook trout. DNR's park page reports a brief spring lake closure the state rule doesn't list, and the river above closes most of March; call DNR Fisheries, 301-334-8218, first.",
+     "source": "https://dnr.maryland.gov/publiclands/Pages/western/BigRun/Savage-Reservoir.aspx",
+     "quote": "Fishing is permitted year-round with a non-tidal fishing license. Fishermen may find walleye, large mouth bass, crappie, yellow perch, bluegill, catfish, suckers, and trout. There is a brief lake closure each spring when trout stocking begins."
+    },
+    "gathering": {
+     "status": "not_confirmed",
+     "scope": "none",
+     "summary": "We found no rule on picking mushrooms or berries on Commission land. The state forest around the reservoir bars removing plants, but that rule doesn't name mushrooms or berries, so ask the Upper Potomac River Commission, (301) 359-3944, or the forest office, 301-895-5759, first.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.07.01.13",
+     "quote": "an individual may not remove, disturb, damage, or destroy any plant, rock, mineral, or animal in a State forest."
+    },
+    "ginseng": {
+     "status": "not_confirmed",
+     "scope": "none",
+     "summary": "Maryland Department of Agriculture's ginseng permit application bans harvest on land DNR manages, which includes the forest and park around the reservoir. The reservoir belongs to the Commission and we found no sign of its rule, so don't dig without asking the Commission, (301) 359-3944.",
+     "source": "https://mda.maryland.gov/media/2960",
+     "quote": "As of the 2013 collecting season, ginseng harvest on state lands managed by the Maryland Department of Natural Resources is no longer permitted."
+    },
+    "ramps": {
+     "status": "not_confirmed",
+     "scope": "none",
+     "summary": "We found no plant rule for Commission land. The surrounding state forest bars removing plants, and we found no sign a permit is offered for ramps; that rule doesn't name ramps, so ask the Upper Potomac River Commission, (301) 359-3944, or the forest office, 301-895-5759, before digging.",
+     "source": "https://regs.maryland.gov/us/md/exec/comar/08.07.01.13",
+     "quote": "an individual may not remove, disturb, damage, or destroy any plant, rock, mineral, or animal in a State forest."
+    }
+   }
+  },
+  {
+   "id": "chesapeake-and-ohio-canal-national-historical-park",
+   "name": "Chesapeake and Ohio Canal National Historical Park",
+   "group": "Federal land",
+   "landType": "national historical park",
+   "counties": [
+    "Allegany"
+   ],
+   "manager": "National Park Service",
+   "url": "https://www.nps.gov/choh/index.htm",
+   "contact": "301-739-4200",
+   "note": "Federal park rules apply here rather than state land rules, including on the canal towpath, which is also part of the Potomac Heritage National Scenic Trail.",
+   "waterNote": "Canal and basins: closed to swimming and wading. Cumberland: the lower side of the Inlet Lock is closed to the public. Potomac River: the six former Western Maryland Railroad bridges are closed. See the park's 2026 Superintendent's Compendium: https://www.nps.gov/choh/learn/management/upload/CHOH-Supt-Compendium-2026-508a.pdf",
+   "rules": {
+    "hunting": {
+     "status": "prohibited",
+     "scope": "this_land_area",
+     "summary": "No hunting in the park; you may only cross on foot during state seasons, at locations the park designates, to reach the Potomac or non-federal land. Keep guns unloaded, bows unstrung and dogs leashed, and call 301-739-4200 for crossing points before carrying a gun or bow across.",
+     "source": "https://www.nps.gov/choh/learn/management/deer-management-plan.htm",
+     "quote": "The laws establishing C&O Canal do not authorize hunting."
+    },
+    "trapping": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "No trapping: National Park Service rules allow it only where a federal law calls for it, and we found no sign of such a law here. Questions go to the park at 301-739-4200.",
+     "source": "https://www.nps.gov/articles/000/hunting-fishing-trapping.htm",
+     "quote": "If there is no specific legal designation, then, by Federal regulation, hunting or trapping is not allowed in park units."
+    },
+    "fishing": {
+     "status": "restricted",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Maryland license rules apply, but only attended hook and line, with no minnows, other bait fish, amphibians or unpreserved roe as bait, no chumming, no bait digging. Don't wade the canal or basins, fish from road bridges or public boat docks, or enter the Inlet Lock's lower side or Western Maryland Railroad bridges; call 301-739-4200.",
+     "source": "https://www.ecfr.gov/current/title-36/chapter-I/part-2/section-2.3",
+     "quote": "Possessing or using as bait for fishing in fresh waters, live or dead minnows or other bait fish, amphibians, nonpreserved fish eggs or fish roe, except in designated waters."
+    },
+    "gathering": {
+     "status": "restricted",
+     "scope": "this_land_area",
+     "summary": "By hand for personal use, with daily limits: 1 bushel of walnuts, hickory nuts, acorns or apples; 1/2 gallon of cherries, blackberries, raspberries, dewberries, strawberries, huckleberries, elderberries, paw paws or mushrooms; wineberries unlimited. Don't sell any or disturb the plant; anything unlisted is off limits; call 301-739-4200 about mushrooms, which federal rules don't name.",
+     "source": "https://www.nps.gov/choh/learn/management/upload/CHOH-Supt-Compendium-2026-508a.pdf",
+     "quote": "Edible fruits, nuts, berries, and mushrooms may be gathered by hand for personal use or consumption. Commercial use is prohibited."
+    },
+    "ginseng": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not allowed: federal park rules ban digging or removing plants or their parts, and ginseng isn't on this park's gathering list, though the rule doesn't name ginseng. Questions go to the park at 301-739-4200.",
+     "source": "https://www.ecfr.gov/current/title-36/chapter-I/part-2/section-2.1",
+     "quote": "Gathering or possessing undesignated natural products."
+    },
+    "ramps": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not allowed, even just a leaf: federal park rules ban digging or removing plants or their parts, and ramps aren't on this park's gathering list, though the rule doesn't name ramps. Questions go to the park at 301-739-4200.",
+     "source": "https://www.ecfr.gov/current/title-36/chapter-I/part-2/section-2.1",
+     "quote": "Gathering or possessing undesignated natural products."
+    }
+   }
+  },
+  {
+   "id": "jennings-randolph-lake",
+   "name": "Jennings Randolph Lake",
+   "group": "Federal land",
+   "landType": "Army Corps project",
+   "counties": [
+    "Garrett"
+   ],
+   "manager": "U.S. Army Corps of Engineers, Baltimore District",
+   "url": "https://www.nab.usace.army.mil/Missions/Dams-Recreation/Jennings-Randolph-Lake/",
+   "contact": "Jennings Randolph Lake Project Office, (304) 355-2346",
+   "note": "The lake sits on the Maryland and West Virginia line, and the Corps lists the Maryland Boat Launch as run by others, so rules there may come from a different manager.",
+   "waterNote": "Lake: COMAR 08.02.11.01 B lists Jennings Randolph Lake as put-and-take trout water with no seasonal closure; release all brook trout; other trout 5 a day, 10 in possession. Stilling basin behind the dam: the Corps announced in September 2025 that it opened this for fishing access, but Maryland's rule bars public access from the dam to the overhead cable and red bank post about 345 yards below the spillway unless facility staff give prior permission or it is posted open. Follow the posted signs and ask the project office at (304) 355-2346 first. North Branch from about 345 yards below the spillway, downstream about 1 mile to a red post above Barnum, West Virginia: COMAR 08.02.11.01 C(3) allows artificial lures only, no barbed hooks, and all trout released. West Virginia banks: Maryland's fishing guide says a Maryland resident's Maryland nontidal license covers the West Virginia banks of the North Branch and the lake; West Virginia's license page says its other fishing rules apply and the agreement doesn't extend to tributaries.",
+   "rules": {
+    "hunting": {
+     "status": "restricted",
+     "scope": "this_land_area",
+     "summary": "The Corps' 2025 map marks no-hunting areas around recreation sites, an archery-only area near the dam, and a section closed until November 25, then archery-only. It doesn't show firearms areas, so get the current map from the project office at (304) 355-2346 and ask whether it meets Maryland's written-permission rule and which state's license applies.",
+     "source": "https://web.archive.org/web/20251014003931im_/https://www.nab.usace.army.mil/Portals/63/JRL%20Hunting2025_1.png",
+     "quote": "Closed until November 25th - ArcheryOnly"
+    },
+    "trapping": {
+     "status": "prohibited",
+     "scope": "statewide_rule",
+     "summary": "Not without written permission, and we found no sign one is offered here. Federal Corps rules allow trapping outside closed areas, but Maryland's guide requires written permission on publicly owned property, so ask the project office at (304) 355-2346 before setting a trap.",
+     "source": "https://www.eregulations.com/maryland/hunting/furbearer-hunting-trapping",
+     "quote": "Written permission is required to trap or hunt on another person’s property, including publicly owned properties."
+    },
+    "fishing": {
+     "status": "allowed",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Below the dam, stay out of the first 345 yards unless posted open or staff approve; the next mile is lures only, release all trout. Fishing is allowed with a state license except in swimming areas, on boat ramps and other areas the Corps designates. In Maryland, trout take a stamp at 16 and older; release all brook trout on the Maryland side, and ask the project office at (304) 355-2346 about licenses across the state line.",
+     "source": "https://www.law.cornell.edu/cfr/text/36/327.8",
+     "quote": "Fishing is permitted except in swimming areas, on boat ramps or other areas designated by the District Commander."
+    },
+    "gathering": {
+     "status": "not_confirmed",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Corps rules bar removing public property, including vegetative growth, and gathering parts of trees without written permission, but they don't name mushrooms, berries or nuts, so that doesn't settle picking them. Don't assume it's fine; ask the project office at (304) 355-2346 first.",
+     "source": "https://www.law.cornell.edu/cfr/text/36/327.14",
+     "quote": "boundary monumentation or markers and vegetative growth, is prohibited except when in accordance with written permission of the District Commander."
+    },
+    "ginseng": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not without written permission from the Corps, and we found no sign one is offered here. Corps rules bar removing plants from project land, and a Maryland ginseng collecting permit doesn't replace that permission, so ask the project office at (304) 355-2346.",
+     "source": "https://www.law.cornell.edu/cfr/text/36/327.14",
+     "quote": "boundary monumentation or markers and vegetative growth, is prohibited except when in accordance with written permission of the District Commander."
+    },
+    "ramps": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not without written permission from the Corps, and we found no sign one is offered here. The Corps rule against removing vegetative growth doesn't name ramps, but it has no exception for them, so ask the project office at (304) 355-2346.",
+     "source": "https://www.law.cornell.edu/cfr/text/36/327.14",
+     "quote": "boundary monumentation or markers and vegetative growth, is prohibited except when in accordance with written permission of the District Commander."
+    }
+   }
+  },
+  {
+   "id": "youghiogheny-river-lake",
+   "name": "Youghiogheny River Lake",
+   "group": "Federal land",
+   "landType": "Army Corps of Engineers lake project",
+   "counties": [
+    "Garrett"
+   ],
+   "manager": "U.S. Army Corps of Engineers, Pittsburgh District",
+   "url": "https://corpslakes.erdc.dren.mil/visitors/projects.cfm?Id=H420380",
+   "contact": "Corps lake office, 497 Flanigan Road, Confluence, PA: (814) 395-3242. Maryland hunting guide number for Youghiogheny Reservoir Cooperative Wildlife Management Area: (301) 334-4255. Maryland DNR Fishing and Boating Services, Oakland: 301-334-8218.",
+   "note": "The lake crosses into Pennsylvania, and this covers the Maryland end in Garrett County, so get the boundary from the manager before you go.",
+   "waterNote": "Pennsylvania licenses: Maryland's fishing guide (https://www.eregulations.com/maryland/fishing/licenses-fees) lets a Pennsylvania resident with a Pennsylvania license fish the Maryland part of the reservoir, but not from shore or in tributaries, and defines the reservoir as running from the red posts on the Youghiogheny River down to the dam. DNR's lake page (https://dnr.maryland.gov/fisheries/pages/hotspots/youghiogheny.aspx) says boat anglers may fish the entire lake with either state's license and shoreline anglers need that state's license. Seasons and limits: the guide has a separate table for this lake (https://www.eregulations.com/maryland/fishing/youghiogheny-river-lake-seasons-sizes-limits); for example, walleye and sauger are open Jan. 1-March 14 and May 2-Dec. 31.",
+   "rules": {
+    "hunting": {
+     "status": "not_confirmed",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Corps rules allow hunting unless closed, but we found no closure list for this lake and Maryland's guide says public property needs written permission, so ask the Corps at (814) 395-3242 first. Don't plan on Sundays, which the guide doesn't list for this land; Maryland's guide also lists a 900-acre cooperative wildlife area here that this page doesn't cover, so ask DNR at (301) 334-4255.",
+     "source": "https://www.law.cornell.edu/cfr/text/36/327.8",
+     "quote": "Hunting is permitted except in areas and during periods where prohibited by the District Commander."
+    },
+    "trapping": {
+     "status": "prohibited",
+     "scope": "statewide_rule",
+     "summary": "Not without written permission, and we found no sign the Corps offers it; ask at (814) 395-3242. Maryland's guide also lists a 900-acre cooperative wildlife area here that this page doesn't cover, so ask DNR at (301) 334-4255.",
+     "source": "https://www.eregulations.com/maryland/hunting/furbearer-hunting-trapping",
+     "quote": "Written permission is required to trap or hunt on another person’s property, including publicly owned properties."
+    },
+    "fishing": {
+     "status": "allowed",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Allowed with a Maryland license and this lake's own seasons and limits in Maryland's fishing guide, but not in swimming areas, on boat ramps or in areas the Corps closes. DNR's sources differ on when a Pennsylvania license counts here, so carry a Maryland license or call DNR Fisheries at 301-334-8218.",
+     "source": "https://www.law.cornell.edu/cfr/text/36/327.8",
+     "quote": "Fishing is permitted except in swimming areas, on boat ramps or other areas designated by the District Commander."
+    },
+    "gathering": {
+     "status": "not_confirmed",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Corps rules bar removing vegetative growth without written permission, but that doesn't settle picked berries, nuts or mushrooms. Ask the Corps at (814) 395-3242 before you gather.",
+     "source": "https://www.law.cornell.edu/cfr/text/36/327.14",
+     "quote": "vegetative growth, is prohibited except when in accordance with written permission of the District Commander."
+    },
+    "ginseng": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not without the Corps' written permission, and we found no sign it's offered here. Corps rules bar removing vegetative growth without it, so ask at (814) 395-3242.",
+     "source": "https://www.law.cornell.edu/cfr/text/36/327.14",
+     "quote": "vegetative growth, is prohibited except when in accordance with written permission of the District Commander."
+    },
+    "ramps": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not without the Corps' written permission, and we found no sign it's offered here. The rule against removing vegetative growth doesn't name ramps, so ask at (814) 395-3242.",
+     "source": "https://www.law.cornell.edu/cfr/text/36/327.14",
+     "quote": "vegetative growth, is prohibited except when in accordance with written permission of the District Commander."
+    }
+   }
+  },
+  {
+   "id": "finzel-swamp-preserve",
+   "name": "Finzel Swamp Preserve",
+   "group": "Nonprofit preserves",
+   "landType": "nonprofit preserve",
+   "counties": [
+    "Garrett",
+    "Allegany"
+   ],
+   "manager": "The Nature Conservancy",
+   "url": "https://www.nature.org/en-us/get-involved/how-to-help/places-we-protect/finzel-swamp/",
+   "contact": "The Nature Conservancy Maryland/DC, (301) 897-8570, contactMDDC@tnc.org",
+   "note": "Open to the public during daylight hours only, and dogs are not allowed.",
+   "waterNote": "",
+   "rules": {
+    "hunting": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not allowed unless posted at the preserve. TNC says several Maryland preserves have deer-hunting leases, but we found no sign Finzel is one, so ask TNC at (301) 897-8570.",
+     "source": "https://www.nature.org/en-us/about-us/where-we-work/united-states/maryland-dc/stories-in-maryland-dc/mddc-preserve-guidelines/",
+     "quote": "Fishing, trapping or hunting, except as otherwise posted"
+    },
+    "trapping": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not allowed unless posted at the preserve, and we found no sign of a trapping exception at Finzel. Questions go to TNC at (301) 897-8570.",
+     "source": "https://www.nature.org/en-us/about-us/where-we-work/united-states/maryland-dc/stories-in-maryland-dc/mddc-preserve-guidelines/",
+     "quote": "Fishing, trapping or hunting, except as otherwise posted"
+    },
+    "fishing": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not allowed unless posted at the preserve, and a Maryland fishing license does not change that. We found no sign of a fishing exception at Finzel; ask TNC at (301) 897-8570.",
+     "source": "https://www.nature.org/en-us/about-us/where-we-work/united-states/maryland-dc/stories-in-maryland-dc/mddc-preserve-guidelines/",
+     "quote": "Fishing, trapping or hunting, except as otherwise posted"
+    },
+    "gathering": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "TNC bans picking mushrooms and flowers at its Maryland preserves. Berries and nuts are not named, but the same rules bar removing any part of the landscape, so leave them too; ask TNC at (301) 897-8570.",
+     "source": "https://www.nature.org/en-us/about-us/where-we-work/united-states/maryland-dc/stories-in-maryland-dc/mddc-preserve-guidelines/",
+     "quote": "Picking flowers, mushrooms, etc."
+    },
+    "ginseng": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "TNC's rules bar removing any part of the landscape. They don't name ginseng, but digging it falls under that ban and we found no collecting permit offered here; ask TNC at (301) 897-8570.",
+     "source": "https://www.nature.org/en-us/about-us/where-we-work/united-states/maryland-dc/stories-in-maryland-dc/mddc-preserve-guidelines/",
+     "quote": "Removing rocks or other parts of the landscape"
+    },
+    "ramps": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "TNC's rules bar removing any part of the landscape. They don't name ramps, but digging or picking them falls under that ban and we found no collecting permit offered here; ask TNC at (301) 897-8570.",
+     "source": "https://www.nature.org/en-us/about-us/where-we-work/united-states/maryland-dc/stories-in-maryland-dc/mddc-preserve-guidelines/",
+     "quote": "Removing rocks or other parts of the landscape"
+    }
+   }
+  },
+  {
+   "id": "cranesville-swamp-preserve",
+   "name": "Cranesville Swamp Preserve",
+   "group": "Nonprofit preserves",
+   "landType": "nonprofit preserve",
+   "counties": [
+    "Garrett"
+   ],
+   "manager": "The Nature Conservancy",
+   "url": "https://www.nature.org/en-us/get-involved/how-to-help/places-we-protect/cranesville-swamp-preserve/",
+   "contact": "TNC in Maryland/DC: (301) 897-8570, contactMDDC@tnc.org. TNC in West Virginia: (304) 637-0160, westvirginia@tnc.org.",
+   "note": "Private land owned by The Nature Conservancy, open year-round in daylight, with no dogs allowed. These are TNC's Maryland/DC rules, so on the Preston County, West Virginia side ask TNC West Virginia at (304) 637-0160.",
+   "waterNote": "",
+   "rules": {
+    "hunting": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "TNC's rules ban hunting unless posted at the preserve, and we found no sign a permit is offered here. An older Cranesville guide mentions a permitted deer hunt and current rules mention deer leases at unnamed preserves, so ask TNC at (301) 897-8570.",
+     "source": "https://www.nature.org/en-us/about-us/where-we-work/united-states/maryland-dc/stories-in-maryland-dc/mddc-preserve-guidelines/",
+     "quote": "Fishing, trapping or hunting, except as otherwise posted"
+    },
+    "trapping": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "TNC's preserve rules ban trapping unless a sign at the preserve says otherwise. We found no exception listed online, so ask TNC at (301) 897-8570 before relying on one.",
+     "source": "https://www.nature.org/en-us/about-us/where-we-work/united-states/maryland-dc/stories-in-maryland-dc/mddc-preserve-guidelines/",
+     "quote": "Fishing, trapping or hunting, except as otherwise posted"
+    },
+    "fishing": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "TNC's preserve rules ban fishing unless a sign at the preserve says otherwise. We found no exception listed online, so ask TNC at (301) 897-8570 before relying on one.",
+     "source": "https://www.nature.org/en-us/about-us/where-we-work/united-states/maryland-dc/stories-in-maryland-dc/mddc-preserve-guidelines/",
+     "quote": "Fishing, trapping or hunting, except as otherwise posted"
+    },
+    "gathering": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "TNC's rules ban picking mushrooms by name, along with flowers and the like. They don't name berries and a 2014 TNC guide said visitors could pick blueberries, but the 2023 rules are newer and stricter, so ask TNC at (301) 897-8570 before picking any.",
+     "source": "https://www.nature.org/en-us/about-us/where-we-work/united-states/maryland-dc/stories-in-maryland-dc/mddc-preserve-guidelines/",
+     "quote": "Picking flowers, mushrooms, etc."
+    },
+    "ginseng": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "TNC's rules ban removing parts of the landscape and picking flowers and the like. They don't name ginseng, but don't dig it here; questions go to TNC at (301) 897-8570.",
+     "source": "https://www.nature.org/en-us/about-us/where-we-work/united-states/maryland-dc/stories-in-maryland-dc/mddc-preserve-guidelines/",
+     "quote": "Removing rocks or other parts of the landscape"
+    },
+    "ramps": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "TNC's rules ban removing parts of the landscape and picking flowers and the like. They don't name ramps, but don't dig or cut them here; questions go to TNC at (301) 897-8570.",
+     "source": "https://www.nature.org/en-us/about-us/where-we-work/united-states/maryland-dc/stories-in-maryland-dc/mddc-preserve-guidelines/",
+     "quote": "Removing rocks or other parts of the landscape"
+    }
+   }
+  },
+  {
+   "id": "sideling-hill-creek-preserve",
+   "name": "Sideling Hill Creek Preserve",
+   "group": "Nonprofit preserves",
+   "landType": "nonprofit preserve",
+   "counties": [
+    "Allegany",
+    "Washington"
+   ],
+   "manager": "The Nature Conservancy",
+   "url": "https://www.nature.org/en-us/get-involved/how-to-help/places-we-protect/sideling-hill-creek/",
+   "contact": "The Nature Conservancy in Maryland/DC, (301) 897-8570",
+   "note": "This Nature Conservancy preserve is open during daylight hours, and dogs aren't allowed. Its Bryant Tract trailhead is in Washington County and its Yonker Tract in Allegany; the rules of Sideling Hill Creek State Park and Sideling Hill Wildlife Management Area don't apply here.",
+   "waterNote": "",
+   "rules": {
+    "hunting": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not allowed unless signs at the preserve say otherwise. The Nature Conservancy says several Maryland preserves have deer-hunting leases but doesn't say this is one, so call (301) 897-8570 before planning a hunt.",
+     "source": "https://www.nature.org/en-us/about-us/where-we-work/united-states/maryland-dc/stories-in-maryland-dc/mddc-preserve-guidelines/",
+     "quote": "Fishing, trapping or hunting, except as otherwise posted"
+    },
+    "trapping": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not allowed unless signs at the preserve say otherwise, and we found no sign of a trapping exception here. Questions go to The Nature Conservancy at (301) 897-8570.",
+     "source": "https://www.nature.org/en-us/about-us/where-we-work/united-states/maryland-dc/stories-in-maryland-dc/mddc-preserve-guidelines/",
+     "quote": "Fishing, trapping or hunting, except as otherwise posted"
+    },
+    "fishing": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not allowed on the preserve unless signs say otherwise, and we found no sign of a fishing exception here. Before fishing the creek where it runs through or beside the preserve, ask The Nature Conservancy at (301) 897-8570.",
+     "source": "https://www.nature.org/en-us/about-us/where-we-work/united-states/maryland-dc/stories-in-maryland-dc/mddc-preserve-guidelines/",
+     "quote": "Fishing, trapping or hunting, except as otherwise posted"
+    },
+    "gathering": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Picking mushrooms is banned by name. Berries and nuts aren't named but appear to fall under the same rule's \"etc.\", so treat them as off limits unless The Nature Conservancy at (301) 897-8570 tells you otherwise.",
+     "source": "https://www.nature.org/en-us/about-us/where-we-work/united-states/maryland-dc/stories-in-maryland-dc/mddc-preserve-guidelines/",
+     "quote": "Picking flowers, mushrooms, etc."
+    },
+    "ginseng": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "The preserve's rules don't name ginseng, but they ban removing parts of the landscape, which covers digging it. We found no sign of any permission here; ask The Nature Conservancy at (301) 897-8570.",
+     "source": "https://www.nature.org/en-us/about-us/where-we-work/united-states/maryland-dc/stories-in-maryland-dc/mddc-preserve-guidelines/",
+     "quote": "Removing rocks or other parts of the landscape"
+    },
+    "ramps": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "The preserve's rules don't name ramps, but they ban removing parts of the landscape, which covers digging them. We found no sign of any permission here; ask The Nature Conservancy at (301) 897-8570.",
+     "source": "https://www.nature.org/en-us/about-us/where-we-work/united-states/maryland-dc/stories-in-maryland-dc/mddc-preserve-guidelines/",
+     "quote": "Removing rocks or other parts of the landscape"
+    }
+   }
+  },
+  {
+   "id": "selinger-marsh",
+   "name": "Selinger Marsh",
+   "group": "Nonprofit preserves",
+   "landType": "nonprofit preserve",
+   "counties": [
+    "Allegany"
+   ],
+   "manager": "The Nature Conservancy",
+   "url": "https://www.nature.org/en-us/get-involved/how-to-help/places-we-protect/selinger-marsh/",
+   "contact": "The Nature Conservancy Maryland/DC, (301) 897-8570, contactMDDC@tnc.org",
+   "note": "Open year round, dawn to dusk, with no facilities, trails or established parking, and dogs are not allowed. During hunting season The Nature Conservancy asks visitors to its preserves to wear blaze orange and avoid early morning and evening.",
+   "waterNote": "",
+   "rules": {
+    "hunting": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "The Nature Conservancy's preserve rules ban hunting unless signs say otherwise, and we found no public hunting offered here. Call the Conservancy at (301) 897-8570 with questions.",
+     "source": "https://www.nature.org/en-us/about-us/where-we-work/united-states/maryland-dc/stories-in-maryland-dc/mddc-preserve-guidelines/",
+     "quote": "Fishing, trapping or hunting, except as otherwise posted"
+    },
+    "trapping": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "The Nature Conservancy's preserve rules ban trapping unless signs say otherwise, and we found no exception for this preserve. Call the Conservancy at (301) 897-8570 with questions.",
+     "source": "https://www.nature.org/en-us/about-us/where-we-work/united-states/maryland-dc/stories-in-maryland-dc/mddc-preserve-guidelines/",
+     "quote": "Fishing, trapping or hunting, except as otherwise posted"
+    },
+    "fishing": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "The Nature Conservancy's preserve rules ban fishing unless signs say otherwise, and we found no exception for this preserve. Call the Conservancy at (301) 897-8570 with questions.",
+     "source": "https://www.nature.org/en-us/about-us/where-we-work/united-states/maryland-dc/stories-in-maryland-dc/mddc-preserve-guidelines/",
+     "quote": "Fishing, trapping or hunting, except as otherwise posted"
+    },
+    "gathering": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "The Nature Conservancy's preserve rules ban picking flowers, mushrooms and the like. Berries and nuts aren't named, so treat them as off limits unless the Conservancy tells you otherwise at (301) 897-8570.",
+     "source": "https://www.nature.org/en-us/about-us/where-we-work/united-states/maryland-dc/stories-in-maryland-dc/mddc-preserve-guidelines/",
+     "quote": "Picking flowers, mushrooms, etc."
+    },
+    "ginseng": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "The Nature Conservancy's preserve rules ban removing parts of the landscape. They don't name ginseng, but treat digging it here as banned unless the Conservancy tells you otherwise at (301) 897-8570.",
+     "source": "https://www.nature.org/en-us/about-us/where-we-work/united-states/maryland-dc/stories-in-maryland-dc/mddc-preserve-guidelines/",
+     "quote": "Removing rocks or other parts of the landscape"
+    },
+    "ramps": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "The Nature Conservancy's preserve rules ban picking flowers, mushrooms and the like and removing parts of the landscape. They don't name ramps, but treat digging bulbs or taking leaves here as banned unless the Conservancy tells you otherwise at (301) 897-8570.",
+     "source": "https://www.nature.org/en-us/about-us/where-we-work/united-states/maryland-dc/stories-in-maryland-dc/mddc-preserve-guidelines/",
+     "quote": "Removing rocks or other parts of the landscape"
+    }
+   }
+  },
+  {
+   "id": "potomac-highlands-preserve",
+   "name": "Potomac Highlands Preserve",
+   "group": "Nonprofit preserves",
+   "landType": "nonprofit preserve",
+   "counties": [
+    "Garrett"
+   ],
+   "manager": "The Nature Conservancy",
+   "url": "https://www.nature.org/en-us/get-involved/how-to-help/places-we-protect/potomac-highlands/",
+   "contact": "The Nature Conservancy Maryland/DC, (301) 897-8570, contactMDDC@tnc.org",
+   "note": "The Nature Conservancy's page says open to the public but puts recreation and permitted hunting after a future access plan. We found no sign a plan has been adopted and there are no maintained trails or facilities, so ask (301) 897-8570 before you go.",
+   "waterNote": "",
+   "rules": {
+    "hunting": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "Not open to public hunting: The Nature Conservancy's Maryland preserve rules ban it unless posted, and its 2025 report says permitted hunting is only something a future access plan may include. Ask about leases or postings at (301) 897-8570.",
+     "source": "https://www.nature.org/en-us/about-us/where-we-work/united-states/maryland-dc/stories-in-maryland-dc/mddc-preserve-guidelines/",
+     "quote": "Fishing, trapping or hunting, except as otherwise posted"
+    },
+    "trapping": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "The Nature Conservancy's Maryland preserve rules ban trapping unless posted, and we found no sign it is offered here. Ask the Conservancy at (301) 897-8570.",
+     "source": "https://www.nature.org/en-us/about-us/where-we-work/united-states/maryland-dc/stories-in-maryland-dc/mddc-preserve-guidelines/",
+     "quote": "Fishing, trapping or hunting, except as otherwise posted"
+    },
+    "fishing": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "The Nature Conservancy's Maryland preserve rules ban fishing from preserve land unless posted. The Conservancy describes this land as adjacent to the North Branch and bordering the Jennings Randolph Lake recreation area, so a bank here may be preserve land; ask at (301) 897-8570 before fishing from it or crossing it.",
+     "source": "https://www.nature.org/en-us/about-us/where-we-work/united-states/maryland-dc/stories-in-maryland-dc/mddc-preserve-guidelines/",
+     "quote": "Fishing, trapping or hunting, except as otherwise posted"
+    },
+    "gathering": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "The Nature Conservancy's Maryland preserve rules ban picking mushrooms by name. Berries and nuts aren't named but fall under the rule's \"etc.\", so treat them as off limits unless the Conservancy says otherwise at (301) 897-8570.",
+     "source": "https://www.nature.org/en-us/about-us/where-we-work/united-states/maryland-dc/stories-in-maryland-dc/mddc-preserve-guidelines/",
+     "quote": "Picking flowers, mushrooms, etc."
+    },
+    "ginseng": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "The Nature Conservancy's Maryland preserve rules ban removing parts of the landscape. They don't name ginseng, but digging it removes part of the land, so don't dig here; questions go to (301) 897-8570.",
+     "source": "https://www.nature.org/en-us/about-us/where-we-work/united-states/maryland-dc/stories-in-maryland-dc/mddc-preserve-guidelines/",
+     "quote": "Removing rocks or other parts of the landscape"
+    },
+    "ramps": {
+     "status": "prohibited",
+     "scope": "manager_or_land_type_rule",
+     "summary": "The Nature Conservancy's Maryland preserve rules ban removing parts of the landscape and picking plants such as flowers. The rules don't name ramps, but digging or cutting them falls under those bans; questions go to (301) 897-8570.",
+     "source": "https://www.nature.org/en-us/about-us/where-we-work/united-states/maryland-dc/stories-in-maryland-dc/mddc-preserve-guidelines/",
+     "quote": "Removing rocks or other parts of the landscape"
+    }
+   }
+  },
+  {
+   "id": "carey-run-sanctuary",
+   "name": "Carey Run Sanctuary",
+   "group": "Nonprofit preserves",
+   "landType": "nonprofit preserve",
+   "counties": [
+    "Garrett"
+   ],
+   "manager": "Maryland Ornithological Society",
+   "url": "https://mdbirds.org/conservation/refuges-sanctuaries/carey-run/",
+   "contact": "MOS Sanctuary Chair, sanctuary@mdbirds.org",
+   "note": "The grounds are free and open to the public for nature study and hiking, but the farmhouse is for Maryland Ornithological Society members or approved project groups by reservation and is closed from late October through early April.",
+   "waterNote": "",
+   "rules": {
+    "hunting": {
+     "status": "prohibited",
+     "scope": "this_land_area",
+     "summary": "No hunting and no weapons at this sanctuary. Deer stands on neighboring land don't mean hunting is allowed here; ask the Sanctuary Chair (sanctuary@mdbirds.org) with questions.",
+     "source": "https://birdersguidemddc.org/site/carey-run-mos-sanctuary/",
+     "quote": "Hunting is not allowed at the sanctuary, but there are active deer stands on neighboring land and perhaps on-site poaching."
+    },
+    "trapping": {
+     "status": "prohibited",
+     "scope": "this_land_area",
+     "summary": "No trapping. The narrow exceptions, such as a management program approved in advance by the Maryland Ornithological Society's board, aren't open to ordinary visitors; ask the Sanctuary Chair (sanctuary@mdbirds.org) with questions.",
+     "source": "https://mdbirds.org/wp-content/uploads/Carey-Run_Rules-and-Regulations-for-Personal-Visits.pdf",
+     "quote": "Hunting and trapping are prohibited, with the exception of specific management programs approved in advance by the MOS Board of Directors."
+    },
+    "fishing": {
+     "status": "not_confirmed",
+     "scope": "this_land_area",
+     "summary": "The public rules don't name fishing and ban removing any animals, while the rules for personal visits, written for members' overnight stays, say recreational fishing is permitted. Ask the Sanctuary Chair (sanctuary@mdbirds.org) before you fish, and don't keep fish without a clear answer.",
+     "source": "https://birdersguidemddc.org/site/carey-run-mos-sanctuary/",
+     "quote": "No removal of any animals or plants"
+    },
+    "gathering": {
+     "status": "not_confirmed",
+     "scope": "this_land_area",
+     "summary": "The rules ban removing any plants, but they don't name mushrooms or berries, so that isn't settled. Don't gather here unless the Sanctuary Chair (sanctuary@mdbirds.org) says you can.",
+     "source": "https://birdersguidemddc.org/site/carey-run-mos-sanctuary/",
+     "quote": "No removal of any animals or plants"
+    },
+    "ginseng": {
+     "status": "prohibited",
+     "scope": "this_land_area",
+     "summary": "The rules don't name ginseng, but they ban removing any plants, and we found no sign of any permission for harvest. Ask the Sanctuary Chair (sanctuary@mdbirds.org).",
+     "source": "https://birdersguidemddc.org/site/carey-run-mos-sanctuary/",
+     "quote": "No removal of any animals or plants"
+    },
+    "ramps": {
+     "status": "prohibited",
+     "scope": "this_land_area",
+     "summary": "The rules don't name ramps, but they ban removing any plants, and we found no sign of any permission for harvest. Ask the Sanctuary Chair (sanctuary@mdbirds.org).",
+     "source": "https://birdersguidemddc.org/site/carey-run-mos-sanctuary/",
+     "quote": "No removal of any animals or plants"
+    }
+   }
+  },
+  {
+   "id": "chandler-and-eleanor-robbins-sanctuary-at-red-run",
+   "name": "Chandler & Eleanor Robbins Sanctuary at Red Run",
+   "group": "Nonprofit preserves",
+   "landType": "nonprofit preserve",
+   "counties": [
+    "Garrett"
+   ],
+   "manager": "Maryland Ornithological Society",
+   "url": "https://mdbirds.org/conservation/refuges-sanctuaries/robbins/",
+   "contact": "MOS Sanctuary Chair, sanctuary@mdbirds.org",
+   "note": "Open during daylight hours for nature study, with weapons banned; private land surrounds this 45-acre sanctuary, so park at the Guthrie Lane spot and stay within its boundaries.",
+   "waterNote": "",
+   "rules": {
+    "hunting": {
+     "status": "prohibited",
+     "scope": "this_land_area",
+     "summary": "No hunting on the sanctuary, and weapons are banned. Hunting happens on the private land next door, so wear blaze orange in season; questions go to the Maryland Ornithological Society at sanctuary@mdbirds.org.",
+     "source": "https://birdersguidemddc.org/site/robbins-mos-sanctuary-at-red-run/",
+     "quote": "Hunting is not permitted on sanctuary grounds, but takes place on neighboring private lands."
+    },
+    "trapping": {
+     "status": "prohibited",
+     "scope": "this_land_area",
+     "summary": "The sanctuary rules ban trapping by name. Questions go to the Maryland Ornithological Society at sanctuary@mdbirds.org.",
+     "source": "https://birdersguidemddc.org/site/robbins-mos-sanctuary-at-red-run/",
+     "quote": "No hunting or trapping"
+    },
+    "fishing": {
+     "status": "not_confirmed",
+     "scope": "this_land_area",
+     "summary": "The rules don't name fishing, but they ban removing any animals, so you can't keep a fish. Catch-and-release isn't settled, so ask the Maryland Ornithological Society at sanctuary@mdbirds.org before fishing Red Run here.",
+     "source": "https://birdersguidemddc.org/site/robbins-mos-sanctuary-at-red-run/",
+     "quote": "No removal of any animals or plants"
+    },
+    "gathering": {
+     "status": "not_confirmed",
+     "scope": "this_land_area",
+     "summary": "The sanctuary bans removing plants, but that rule doesn't name mushrooms, berries or nuts and doesn't by itself settle fungi or picked fruit. Don't gather here unless the Maryland Ornithological Society says you can: sanctuary@mdbirds.org.",
+     "source": "https://birdersguidemddc.org/site/robbins-mos-sanctuary-at-red-run/",
+     "quote": "No removal of any animals or plants"
+    },
+    "ginseng": {
+     "status": "prohibited",
+     "scope": "this_land_area",
+     "summary": "Don't dig ginseng here: the sanctuary bans removing any plants, and a state ginseng season doesn't override that rule on this private land. Questions go to the Maryland Ornithological Society at sanctuary@mdbirds.org.",
+     "source": "https://birdersguidemddc.org/site/robbins-mos-sanctuary-at-red-run/",
+     "quote": "No removal of any animals or plants"
+    },
+    "ramps": {
+     "status": "prohibited",
+     "scope": "this_land_area",
+     "summary": "Don't dig ramps or take their leaves here: the sanctuary's ban on removing any plants doesn't name ramps, but it covers all plants. Questions go to the Maryland Ornithological Society at sanctuary@mdbirds.org.",
+     "source": "https://birdersguidemddc.org/site/robbins-mos-sanctuary-at-red-run/",
+     "quote": "No removal of any animals or plants"
+    }
+   }
+  },
+  {
+   "id": "caroline-w-wilson-sanctuary",
+   "name": "Caroline W. Wilson Sanctuary",
+   "group": "Nonprofit preserves",
+   "landType": "nonprofit preserve",
+   "counties": [
+    "Garrett"
+   ],
+   "manager": "Maryland Ornithological Society",
+   "url": "https://mdbirds.org/conservation/refuges-sanctuaries/wilson/",
+   "contact": "MOS Sanctuary Chair, sanctuary@mdbirds.org",
+   "note": "Open for nature study in daylight, but landlocked: the MOS guide's only route is on foot along active CSX tracks, with no sign the railroad permits that. Ask the MOS Sanctuary Chair (sanctuary@mdbirds.org) before you go; neighboring Deer Park Spring Water land is closed.",
+   "waterNote": "",
+   "rules": {
+    "hunting": {
+     "status": "prohibited",
+     "scope": "this_land_area",
+     "summary": "The MOS guide bans hunting and weapons here, though MOS says hunting is allowed at certain unlisted sites and the guide mentions local deer hunters, so ask the MOS Sanctuary Chair (sanctuary@mdbirds.org). Neighboring land is hunted, so wear blaze orange in season.",
+     "source": "https://birdersguidemddc.org/site/caroline-w-wilson-mos-sanctuary/",
+     "quote": "Hunting is not permitted on sanctuary grounds, but may take place on neighboring lands."
+    },
+    "trapping": {
+     "status": "prohibited",
+     "scope": "this_land_area",
+     "summary": "No trapping on the sanctuary. Questions go to the MOS Sanctuary Chair (sanctuary@mdbirds.org).",
+     "source": "https://birdersguidemddc.org/site/caroline-w-wilson-mos-sanctuary/",
+     "quote": "No hunting or trapping"
+    },
+    "fishing": {
+     "status": "not_confirmed",
+     "scope": "this_land_area",
+     "summary": "The rules don't name fishing, but they ban removing any animals, so don't keep fish. Ask the MOS Sanctuary Chair (sanctuary@mdbirds.org) before fishing the Little Youghiogheny here, even catch-and-release.",
+     "source": "https://birdersguidemddc.org/site/caroline-w-wilson-mos-sanctuary/",
+     "quote": "No removal of any animals or plants"
+    },
+    "gathering": {
+     "status": "not_confirmed",
+     "scope": "this_land_area",
+     "summary": "The rules ban removing plants and MOS applies Leave No Trace at its sanctuaries, but neither names mushrooms or picked fruit, so they don't settle it. Don't gather here unless the MOS Sanctuary Chair (sanctuary@mdbirds.org) says you can.",
+     "source": "https://birdersguidemddc.org/site/caroline-w-wilson-mos-sanctuary/",
+     "quote": "No removal of any animals or plants"
+    },
+    "ginseng": {
+     "status": "prohibited",
+     "scope": "this_land_area",
+     "summary": "Don't dig ginseng here: the sanctuary's rules ban removing any plants and give no exception, though they don't name ginseng. Questions go to the MOS Sanctuary Chair (sanctuary@mdbirds.org).",
+     "source": "https://birdersguidemddc.org/site/caroline-w-wilson-mos-sanctuary/",
+     "quote": "No removal of any animals or plants"
+    },
+    "ramps": {
+     "status": "prohibited",
+     "scope": "this_land_area",
+     "summary": "Don't dig ramps or cut their leaves here: the sanctuary's rules ban removing any plants and give no exception, though they don't name ramps. Questions go to the MOS Sanctuary Chair (sanctuary@mdbirds.org).",
+     "source": "https://birdersguidemddc.org/site/caroline-w-wilson-mos-sanctuary/",
+     "quote": "No removal of any animals or plants"
+    }
+   }
+  },
+  {
+   "id": "great-allegheny-passage",
+   "name": "Great Allegheny Passage in Allegany County",
+   "group": "Reservoirs and trails",
+   "landType": "county-managed rail trail",
+   "counties": [
+    "Allegany"
+   ],
+   "manager": "Allegany County Government",
+   "url": "https://www.alleganygov.org/1614/Great-Allegheny-Passage",
+   "contact": "Allegany County Government 301-777-2526, 701 Kelly Road, Cumberland, MD 21502",
+   "note": "The county's rules cover the 22-mile trail right-of-way from Cumberland to the Pennsylvania line, open dawn to dusk only; using the trail gives you no right to hunt, fish or gather on the land beside it.",
+   "waterNote": "",
+   "rules": {
+    "hunting": {
+     "status": "prohibited",
+     "scope": "this_land_area",
+     "summary": "No hunting on the trail right-of-way, and no loaded firearms or other loaded harvest devices on it. It is open for hunting access only during Maryland's regulated season or with written county authorization, dawn to dusk, and driving on it needs county authorization; ask Allegany County, 301-777-2526.",
+     "source": "https://www.alleganygov.org/438/Great-Allegheny-Passage-Rules-Guidelines",
+     "quote": "Hunting is prohibited in the ROW. The transport of loaded firearms or any loaded device designed to harvest game animals is prohibited in the ROW."
+    },
+    "trapping": {
+     "status": "prohibited",
+     "scope": "statewide_rule",
+     "summary": "Not without written permission, and we found no sign one is offered here. Ask Allegany County, 301-777-2526.",
+     "source": "https://www.eregulations.com/maryland/hunting/furbearer-hunting-trapping",
+     "quote": "Written permission is required to trap or hunt on another person’s property, including publicly owned properties."
+    },
+    "fishing": {
+     "status": "not_confirmed",
+     "scope": "none",
+     "summary": "The county's trail rules don't mention fishing; Maryland DNR's trail page says anglers use the trail to reach fishing spots, but that isn't a rule allowing it. Stay out of the railroad track area between Cumberland and Frostburg except at designated crossings, and ask the county first: 301-777-2526.",
+     "source": "https://dnr.maryland.gov/mdtrails/Pages/Greater-Allegheny-Passage.aspx",
+     "quote": "Fishermen take the trail to favorite fishing spots."
+    },
+    "gathering": {
+     "status": "not_confirmed",
+     "scope": "none",
+     "summary": "The county's trail rules don't mention mushrooms, berries, nuts or plants, and that isn't permission. Ask the county before picking anything: 301-777-2526.",
+     "source": "https://www.alleganygov.org/438/Great-Allegheny-Passage-Rules-Guidelines",
+     "quote": ""
+    },
+    "ginseng": {
+     "status": "not_confirmed",
+     "scope": "none",
+     "summary": "The county's trail rules don't name ginseng or digging, though they bar altering the trail without written county authorization, and we found no sign the trail is listed as state DNR land. Don't dig here unless the county approves it: 301-777-2526.",
+     "source": "https://www.alleganygov.org/438/Great-Allegheny-Passage-Rules-Guidelines",
+     "quote": ""
+    },
+    "ramps": {
+     "status": "not_confirmed",
+     "scope": "none",
+     "summary": "The county's trail rules don't name ramps and have no general plant-removal rule, though they bar altering the trail without written county authorization. Don't dig here unless the county approves it: 301-777-2526.",
+     "source": "https://www.alleganygov.org/438/Great-Allegheny-Passage-Rules-Guidelines",
+     "quote": ""
+    }
+   }
+  },
+  {
+   "id": "piney-reservoir",
+   "name": "Piney Reservoir",
+   "group": "Reservoirs and trails",
+   "landType": "Municipal water supply reservoir",
+   "counties": [
+    "Garrett"
+   ],
+   "manager": "City of Frostburg owns the shoreline and its Public Works handles hunting permission; Maryland DNR Fisheries manages the fishery",
+   "url": "https://dnr.maryland.gov/fisheries/Pages/hotspots/piney.aspx",
+   "contact": "City of Frostburg Public Works, 37 S Broadway, Frostburg: 301-689-6000, ext. 111. Fishing questions: Maryland DNR Fishing and Boating Services, Oakland: 301-334-8218.",
+   "note": "This is the City of Frostburg's water supply on city-owned shoreline, and the only public access DNR describes is shoreline and ice fishing, with no boats.",
+   "waterNote": "",
+   "rules": {
+    "hunting": {
+     "status": "by_permit",
+     "scope": "this_land_area",
+     "summary": "City land: you need the city's written permission, by filling out a form with your hunting license information at Public Works, City Hall, 37 S Broadway, Frostburg. That process comes from a 2023 city reply, so call 301-689-6000, ext. 111 first to confirm.",
+     "source": "https://web.archive.org/web/20231119192603id_/https://www.frostburgcity.org/ticket-comment/ticket-comment-170",
+     "quote": "To get written hunting permission for Piney, you must come into City Hall, located at 37 S Broadway, and fill out a form that requires your hunting license information."
+    },
+    "trapping": {
+     "status": "prohibited",
+     "scope": "statewide_rule",
+     "summary": "Not without written permission, and we found no sign the city offers it for trapping. Ask Frostburg Public Works at 301-689-6000, ext. 111.",
+     "source": "https://www.eregulations.com/maryland/hunting/furbearer-hunting-trapping",
+     "quote": "Written permission is required to trap or hunt on another person’s property, including publicly owned properties."
+    },
+    "fishing": {
+     "status": "restricted",
+     "scope": "this_land_area",
+     "summary": "Shoreline and ice fishing only, with a Maryland license, plus a trout stamp at 16 and older to catch, try to catch or keep trout; release all brook trout. No boats, the posted dam face is closed to fishing, and questions go to DNR Fisheries at 301-334-8218.",
+     "source": "https://dnr.maryland.gov/fisheries/Pages/hotspots/piney.aspx",
+     "quote": "public access for shoreline and ice fishing is permitted. No fishing is permitted along the face of the dam and is posted accordingly. Boating is not permitted on Piney Reservoir."
+    },
+    "gathering": {
+     "status": "not_confirmed",
+     "scope": "none",
+     "summary": "This is city water supply land, the city's own rules on gathering here are unsettled, and the public access DNR describes is for fishing. Ask Frostburg Public Works at 301-689-6000, ext. 111 before gathering.",
+     "source": "https://dnr.maryland.gov/fisheries/Pages/hotspots/piney.aspx",
+     "quote": "The entire shoreline of Piney Reservoir is owned by the City of Frostburg and public access for shoreline and ice fishing is permitted."
+    },
+    "ginseng": {
+     "status": "not_confirmed",
+     "scope": "none",
+     "summary": "This is city land, so Maryland's ban on DNR-managed land does not settle it, and the city's own rules on digging here are unsettled. Ask Frostburg Public Works at 301-689-6000, ext. 111 before digging.",
+     "source": "https://dnr.maryland.gov/fisheries/Pages/hotspots/piney.aspx",
+     "quote": "The entire shoreline of Piney Reservoir is owned by the City of Frostburg and public access for shoreline and ice fishing is permitted."
+    },
+    "ramps": {
+     "status": "not_confirmed",
+     "scope": "none",
+     "summary": "The city's own rules on digging plants here are unsettled, and no Maryland rule we found names ramps. Ask Frostburg Public Works at 301-689-6000, ext. 111 before digging.",
+     "source": "https://dnr.maryland.gov/fisheries/Pages/hotspots/piney.aspx",
+     "quote": "The entire shoreline of Piney Reservoir is owned by the City of Frostburg and public access for shoreline and ice fishing is permitted."
+    }
+   }
+  }
+ ]
+}

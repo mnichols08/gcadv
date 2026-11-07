@@ -13,6 +13,7 @@
     "test:trails:e2e": "playwright test",
     "serve:trails": "node scripts/trails-test-server.mjs",
     "cards": "node scripts/trip-cards.mjs",
+    "bake:land": "node scripts/bake-trail-land.mjs",
     "refresh:hikes": "tsx scripts/refresh-hikes.ts",
     "dev": "node scripts/dev-server.js",
     "start": "serve dist -l 3000 --no-port-switching",

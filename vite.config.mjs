@@ -150,9 +150,9 @@ self.addEventListener("activate", event => event.waitUntil((async () => {
       }
 
       // The trail app caches itself, and its map data is far too large to download on every first visit.
-      // Nor should a first visit download hundreds of trail pages.
+      // Nor should a first visit download hundreds of trail pages, or the long land rules page.
       const assets = walkFiles(DIST).filter((name) => name !== "service-worker.js" &&
-        name !== "map-config.json" && !name.endsWith(".map") && !name.startsWith("trails/") && !name.startsWith("trail/") && !name.startsWith("trails-in/")).sort();
+        name !== "map-config.json" && !name.endsWith(".map") && !name.startsWith("trails/") && !name.startsWith("trail/") && !name.startsWith("trails-in/") && name !== "land-rules.html").sort();
       const hash = crypto.createHash("sha256");
       for (const name of assets) {
         hash.update(name);
